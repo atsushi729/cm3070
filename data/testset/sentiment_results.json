@@ -1,0 +1,50 @@
+{
+  "count": 240,
+  "results": [
+    {
+      "model": "fine-tuned mBERT (bert-base-multilingual-cased)",
+      "macro_f1": 1.0,
+      "by_lang": {
+        "en": 1.0,
+        "ja": 1.0
+      },
+      "by_class": {
+        "negative": 1.0,
+        "neutral": 1.0,
+        "positive": 1.0
+      },
+      "confusion": {
+        "negative->negative": 80,
+        "neutral->neutral": 80,
+        "positive->positive": 80
+      },
+      "p50_sec": 0.056982229521963745,
+      "p95_sec": 0.6174728603975376
+    },
+    {
+      "model": "baseline (lxyuan/distilbert-base-multilingual-cased-sentiments-student)",
+      "macro_f1": 0.6635554953130439,
+      "by_lang": {
+        "en": 0.6782901782901782,
+        "ja": 0.6504286912660282
+      },
+      "by_class": {
+        "negative": 0.7950310559006211,
+        "neutral": 0.47368421052631576,
+        "positive": 0.7219512195121951
+      },
+      "confusion": {
+        "negative->negative": 64,
+        "negative->neutral": 7,
+        "negative->positive": 9,
+        "neutral->negative": 11,
+        "neutral->neutral": 27,
+        "neutral->positive": 42,
+        "positive->negative": 6,
+        "positive->positive": 74
+      },
+      "p50_sec": 0.08301252051023766,
+      "p95_sec": 1.2194893399428108
+    }
+  ]
+}

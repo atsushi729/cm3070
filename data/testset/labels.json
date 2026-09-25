@@ -1,0 +1,39 @@
+{
+  "reference_now": "2026-06-13T12:00:00",
+  "note": "Bespoke UC1 mini test set. reference_now fixes relative-date resolution so entity labels are deterministic. The full 30-call quiet+noisy set (PDF §8.1) is collected in module weeks 2-5; this seed set validates the evaluation harness.",
+  "items": [
+    {
+      "audio": "sample_en.wav",
+      "condition": "quiet",
+      "transcript_ref": "Hi, I'd like to make a reservation for tomorrow evening at 7:30 PM. It's for four people under the name Johnson. Thank you.",
+      "entities": {
+        "name": "Johnson",
+        "date": "2026-06-14",
+        "time": "19:30",
+        "party_size": 4
+      }
+    },
+    {
+      "audio": "sample_en_noisy.wav",
+      "condition": "noisy",
+      "transcript_ref": "Hi, I'd like to make a reservation for tomorrow evening at 7:30 PM. It's for four people under the name Johnson. Thank you.",
+      "entities": {
+        "name": "Johnson",
+        "date": "2026-06-14",
+        "time": "19:30",
+        "party_size": 4
+      }
+    },
+    {
+      "audio": "sample_ja.wav",
+      "condition": "quiet",
+      "transcript_ref": "もしもし、明日の夜7時半に予約をお願いしたいのですが。4名でお願いします。名前は田中です。よろしくお願いします。",
+      "entities": {
+        "name": "田中",
+        "date": "2026-06-14",
+        "time": "19:30",
+        "party_size": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,407 @@
+{
+  "rater_id": "r02",
+  "seed": 1002,
+  "photo_order": [
+    "photo_11.jpg",
+    "photo_04.jpg",
+    "photo_06.jpg",
+    "photo_12.jpg",
+    "photo_09.jpg",
+    "photo_01.jpg",
+    "photo_13.jpg",
+    "photo_07.jpg",
+    "photo_02.jpg",
+    "photo_10.jpg",
+    "photo_18.jpg",
+    "photo_16.jpg",
+    "photo_05.jpg",
+    "photo_15.jpg",
+    "photo_03.jpg",
+    "photo_08.jpg",
+    "photo_14.jpg",
+    "photo_17.jpg"
+  ],
+  "started_at": "2026-08-15T06:46:03.359Z",
+  "finished_at": "2026-08-15T06:49:05.694Z",
+  "responses": [
+    {
+      "photo": "photo_11.jpg",
+      "label": "A",
+      "rating": 5,
+      "answered_at": "2026-08-15T06:36:50.535Z",
+      "seconds_since_prev": 85.1
+    },
+    {
+      "photo": "photo_11.jpg",
+      "label": "B",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:36:56.662Z",
+      "seconds_since_prev": 6.1
+    },
+    {
+      "photo": "photo_11.jpg",
+      "label": "C",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:37:09.499Z",
+      "seconds_since_prev": 12.8
+    },
+    {
+      "photo": "photo_04.jpg",
+      "label": "A",
+      "rating": 5,
+      "answered_at": "2026-08-15T06:37:21.835Z",
+      "seconds_since_prev": 12.3
+    },
+    {
+      "photo": "photo_04.jpg",
+      "label": "B",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:37:35.527Z",
+      "seconds_since_prev": 13.7
+    },
+    {
+      "photo": "photo_04.jpg",
+      "label": "C",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:37:40.731Z",
+      "seconds_since_prev": 5.2
+    },
+    {
+      "photo": "photo_06.jpg",
+      "label": "A",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:37:55.720Z",
+      "seconds_since_prev": 15
+    },
+    {
+      "photo": "photo_06.jpg",
+      "label": "B",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:40:48.300Z",
+      "seconds_since_prev": 172.6
+    },
+    {
+      "photo": "photo_06.jpg",
+      "label": "C",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:40:53.515Z",
+      "seconds_since_prev": 5.2
+    },
+    {
+      "photo": "photo_12.jpg",
+      "label": "A",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:41:07.130Z",
+      "seconds_since_prev": 13.6
+    },
+    {
+      "photo": "photo_12.jpg",
+      "label": "B",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:41:19.274Z",
+      "seconds_since_prev": 12.1
+    },
+    {
+      "photo": "photo_12.jpg",
+      "label": "C",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:41:28.958Z",
+      "seconds_since_prev": 9.7
+    },
+    {
+      "photo": "photo_09.jpg",
+      "label": "A",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:41:39.690Z",
+      "seconds_since_prev": 10.7
+    },
+    {
+      "photo": "photo_09.jpg",
+      "label": "C",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:41:56.941Z",
+      "seconds_since_prev": 17.3
+    },
+    {
+      "photo": "photo_09.jpg",
+      "label": "B",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:42:07.626Z",
+      "seconds_since_prev": 10.7
+    },
+    {
+      "photo": "photo_01.jpg",
+      "label": "A",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:42:22.562Z",
+      "seconds_since_prev": 14.9
+    },
+    {
+      "photo": "photo_01.jpg",
+      "label": "B",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:42:36.683Z",
+      "seconds_since_prev": 14.1
+    },
+    {
+      "photo": "photo_01.jpg",
+      "label": "C",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:42:48.125Z",
+      "seconds_since_prev": 11.4
+    },
+    {
+      "photo": "photo_13.jpg",
+      "label": "B",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:43:06.944Z",
+      "seconds_since_prev": 18.8
+    },
+    {
+      "photo": "photo_13.jpg",
+      "label": "C",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:43:16.429Z",
+      "seconds_since_prev": 9.5
+    },
+    {
+      "photo": "photo_13.jpg",
+      "label": "A",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:43:19.517Z",
+      "seconds_since_prev": 3.1
+    },
+    {
+      "photo": "photo_07.jpg",
+      "label": "A",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:43:52.976Z",
+      "seconds_since_prev": 33.5
+    },
+    {
+      "photo": "photo_07.jpg",
+      "label": "B",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:43:57.080Z",
+      "seconds_since_prev": 4.1
+    },
+    {
+      "photo": "photo_07.jpg",
+      "label": "C",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:43:59.874Z",
+      "seconds_since_prev": 2.8
+    },
+    {
+      "photo": "photo_02.jpg",
+      "label": "A",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:44:10.650Z",
+      "seconds_since_prev": 10.8
+    },
+    {
+      "photo": "photo_02.jpg",
+      "label": "B",
+      "rating": 1,
+      "answered_at": "2026-08-15T06:44:16.014Z",
+      "seconds_since_prev": 5.4
+    },
+    {
+      "photo": "photo_02.jpg",
+      "label": "C",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:44:19.372Z",
+      "seconds_since_prev": 3.4
+    },
+    {
+      "photo": "photo_10.jpg",
+      "label": "A",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:44:27.078Z",
+      "seconds_since_prev": 7.7
+    },
+    {
+      "photo": "photo_10.jpg",
+      "label": "B",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:44:30.995Z",
+      "seconds_since_prev": 3.9
+    },
+    {
+      "photo": "photo_10.jpg",
+      "label": "C",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:44:36.270Z",
+      "seconds_since_prev": 5.3
+    },
+    {
+      "photo": "photo_18.jpg",
+      "label": "A",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:44:45.349Z",
+      "seconds_since_prev": 9.1
+    },
+    {
+      "photo": "photo_18.jpg",
+      "label": "B",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:45:04.119Z",
+      "seconds_since_prev": 18.8
+    },
+    {
+      "photo": "photo_18.jpg",
+      "label": "C",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:45:08.494Z",
+      "seconds_since_prev": 4.4
+    },
+    {
+      "photo": "photo_16.jpg",
+      "label": "A",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:45:15.669Z",
+      "seconds_since_prev": 7.2
+    },
+    {
+      "photo": "photo_16.jpg",
+      "label": "B",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:45:25.215Z",
+      "seconds_since_prev": 9.5
+    },
+    {
+      "photo": "photo_16.jpg",
+      "label": "C",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:45:29.223Z",
+      "seconds_since_prev": 4
+    },
+    {
+      "photo": "photo_05.jpg",
+      "label": "A",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:47:03.986Z",
+      "seconds_since_prev": 60.6
+    },
+    {
+      "photo": "photo_05.jpg",
+      "label": "B",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:47:09.859Z",
+      "seconds_since_prev": 5.9
+    },
+    {
+      "photo": "photo_05.jpg",
+      "label": "C",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:47:14.676Z",
+      "seconds_since_prev": 4.8
+    },
+    {
+      "photo": "photo_15.jpg",
+      "label": "A",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:47:33.370Z",
+      "seconds_since_prev": 1.7
+    },
+    {
+      "photo": "photo_15.jpg",
+      "label": "B",
+      "rating": 1,
+      "answered_at": "2026-08-15T06:47:31.630Z",
+      "seconds_since_prev": 6.8
+    },
+    {
+      "photo": "photo_15.jpg",
+      "label": "C",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:47:39.043Z",
+      "seconds_since_prev": 5.7
+    },
+    {
+      "photo": "photo_03.jpg",
+      "label": "A",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:47:47.778Z",
+      "seconds_since_prev": 8.7
+    },
+    {
+      "photo": "photo_03.jpg",
+      "label": "B",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:47:50.817Z",
+      "seconds_since_prev": 3
+    },
+    {
+      "photo": "photo_03.jpg",
+      "label": "C",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:47:59.185Z",
+      "seconds_since_prev": 8.4
+    },
+    {
+      "photo": "photo_08.jpg",
+      "label": "A",
+      "rating": 1,
+      "answered_at": "2026-08-15T06:48:06.380Z",
+      "seconds_since_prev": 7.2
+    },
+    {
+      "photo": "photo_08.jpg",
+      "label": "B",
+      "rating": 3,
+      "answered_at": "2026-08-15T06:48:11.596Z",
+      "seconds_since_prev": 5.2
+    },
+    {
+      "photo": "photo_08.jpg",
+      "label": "C",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:48:18.814Z",
+      "seconds_since_prev": 7.2
+    },
+    {
+      "photo": "photo_14.jpg",
+      "label": "A",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:48:25.668Z",
+      "seconds_since_prev": 6.9
+    },
+    {
+      "photo": "photo_14.jpg",
+      "label": "B",
+      "rating": 1,
+      "answered_at": "2026-08-15T06:48:29.394Z",
+      "seconds_since_prev": 3.7
+    },
+    {
+      "photo": "photo_14.jpg",
+      "label": "C",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:48:36.211Z",
+      "seconds_since_prev": 6.8
+    },
+    {
+      "photo": "photo_17.jpg",
+      "label": "B",
+      "rating": 2,
+      "answered_at": "2026-08-15T06:48:52.931Z",
+      "seconds_since_prev": 1.6
+    },
+    {
+      "photo": "photo_17.jpg",
+      "label": "A",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:48:58.081Z",
+      "seconds_since_prev": 5.2
+    },
+    {
+      "photo": "photo_17.jpg",
+      "label": "C",
+      "rating": 4,
+      "answered_at": "2026-08-15T06:49:03.335Z",
+      "seconds_since_prev": 5.3
+    }
+  ],
+  "comments": ""
+}

@@ -1,0 +1,57 @@
+{
+  "experiment": "UC1 STT (Whisper size) selection + end-to-end error propagation",
+  "date": "2026-06-21",
+  "hardware": "Apple M1 Pro, 16 GB; faster-whisper (CTranslate2) CPU int8; LLM qwen2.5:7b on Metal",
+  "testset": "data/testset/audio_labels.json (60 clips x quiet/noisy; macOS say TTS, AWGN @ SNR 10 dB)",
+  "reference_now": "2026-06-13T12:00:00",
+  "caveats": "Synthetic TTS is 'easy' for ASR (clean voice); noise is white-Gaussian, a stand-in for cafe/babble. WER/CER are therefore optimistic; the relative ranking across sizes/engines/conditions is the usable signal. CER/WER are punctuation- and space-insensitive (content only) so an engine is not penalised for its punctuation style.",
+
+  "stt_size_sweep": {
+    "condition": "quiet",
+    "metric_note": "EN WER, JA CER (char-level), both punctuation/space-insensitive; RTF = asr_time / audio_seconds (>1 = slower than real time)",
+    "n_ja": 36, "n_en": 24,
+    "rows": [
+      {"size": "tiny",   "cer_ja": 0.126, "wer_en": 0.074, "p50_sec": 0.60, "rtf": 0.10},
+      {"size": "base",   "cer_ja": 0.078, "wer_en": 0.045, "p50_sec": 1.14, "rtf": 0.20},
+      {"size": "small",  "cer_ja": 0.018, "wer_en": 0.046, "p50_sec": 3.23, "rtf": 0.57},
+      {"size": "medium", "cer_ja": 0.021, "wer_en": 0.021, "p50_sec": 10.20, "rtf": 1.96}
+    ],
+    "selected": "small",
+    "rationale": "Best Japanese CER (1.8%) and comfortably real-time (RTF 0.57). Medium is slower than real time (1.96x) with no Japanese gain; tiny/base trade too much JA accuracy for speed. Confirms the configured default empirically."
+  },
+
+  "stt_quiet_vs_noisy": {
+    "model": "small",
+    "quiet": {"cer_ja": 0.018, "wer_en": 0.046, "p50_sec": 3.23, "rtf": 0.57},
+    "noisy": {"cer_ja": 0.053, "wer_en": 0.086, "p50_sec": 2.70, "rtf": 0.44},
+    "note": "At SNR 10 dB, JA CER roughly triples (1.8->5.3%) and EN WER roughly doubles (4.6->8.6%) — still usable."
+  },
+
+  "stt_engine_comparison": {
+    "condition": "quiet", "lang": "ja", "force_lang": true, "n": 36,
+    "metric_note": "JA CER, punctuation/space-insensitive",
+    "rows": [
+      {"model": "small (Whisper, general multilingual)",          "cer_ja": 0.018, "p50_sec": 1.87, "rtf": 0.27},
+      {"model": "kotoba-tech/kotoba-whisper-v2.0-faster (JA-tuned)", "cer_ja": 0.072, "p50_sec": 5.04, "rtf": 0.70}
+    ],
+    "finding": "Engine-level test (parity with the LLM study): the Japanese-specialised Kotoba-Whisper did NOT beat general Whisper small here — higher CER and ~2x slower. A punctuation artifact was found and removed first (Kotoba emits no 、。); the residual gap is NOT orthographic: Kotoba OMITS the customer-name phrase (Xと申します / 名前はX) in 10/36 clips. Dropping a required field is disqualifying for this task, and clean TTS also favours the general model. Caveat: Kotoba targets spontaneous speech, so a test on real Japanese phone audio is future work.",
+    "selected": "small"
+  },
+
+  "end_to_end": {
+    "asr_model": "small", "llm_model": "qwen2.5:7b-instruct-q4_K_M",
+    "fields": ["name", "date", "time", "party_size"],
+    "rows": [
+      {"input": "text (perfect transcript)", "name": 1.000, "date": 0.550, "time": 0.983, "party_size": 1.000, "macro_f1": 0.883, "asr_cer_ja": null, "asr_wer_en": null},
+      {"input": "audio quiet",  "name": 0.900, "date": 0.533, "time": 0.967, "party_size": 0.983, "macro_f1": 0.846, "asr_cer_ja": 0.018, "asr_wer_en": 0.046},
+      {"input": "audio noisy",  "name": 0.750, "date": 0.500, "time": 0.967, "party_size": 0.950, "macro_f1": 0.792, "asr_cer_ja": 0.053, "asr_wer_en": 0.086}
+    ],
+    "findings": [
+      "ASR error propagation hits NAME hardest: 100% (text) -> 90% (quiet) -> 75% (noisy). Cause: Japanese homophone surnames mis-transcribed (佐藤->砂糖, 山本->山元, 渡辺->ワタナベ).",
+      "DATE is LLM-limited, not ASR-limited: ~50-55% across text/quiet/noisy. Cause: relative-date/weekday reasoning, independent of transcription quality.",
+      "time and party_size are robust to ASR error (>=95% everywhere).",
+      "Overall macro-F1: 88.3% (text) -> 84.6% (quiet, -3.7pp) -> 79.2% (noisy, -9.1pp)."
+    ],
+    "implication": "Two independent bottlenecks need two different fixes: NAME -> ASR/biasing or confirmation step; DATE -> deterministic date resolver (hybrid). The 85% target is met on text, just missed end-to-end on clean audio (84.6%)."
+  }
+}

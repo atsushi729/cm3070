@@ -1,0 +1,6 @@
+participant_id,role_category,system_use_frequency,ai_experience,t1_completion,t1_time_seconds,t1_assists,t1_seq,t2_completion,t2_time_seconds,t2_assists,t2_seq,t3_completion,t3_time_seconds,t3_assists,t3_seq,t1_trust_no_recheck,t3_noticed_error,sus_score
+P01,admin,4,4,unaided,10,0,6,fail,5,1,7,assist,5,0,7,4,yes,50.0
+P02,manager,4,4,assist,5,0,7,assist,5,0,7,assist,5,1,6,5,yes,75.0
+P03,sales,4,4,assist,5,1,7,assist,5,0,7,assist,5,1,5,5,no,72.5
+P04,reception,4,4,assist,,0,6,assist,,0,7,assist,,1,5,4,,75.0
+P05,reception,3,4,unaided,10,1,6,assist,10,0,7,,,,,2,,55.0

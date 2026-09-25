@@ -1,0 +1,628 @@
+{
+  "photo_01.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.6283,
+      "contrast": 0.2788,
+      "saturation": 0.7705,
+      "sharpness": 0.1014
+    },
+    "strengths": [
+      "The dish is presented on a visually appealing plate",
+      "The warm lighting enhances the color of the food"
+    ],
+    "issues": [
+      "The image appears slightly blurry, lacking sharpness",
+      "The composition feels unbalanced with too much empty space"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase sharpness",
+        "reason": "The photo looks slightly out of focus; using a tripod or increasing the camera's sharpness setting could improve clarity"
+      },
+      {
+        "priority": 2,
+        "title": "Recompose the shot",
+        "reason": "Centering the dish or adding more elements could make the composition more engaging and balanced"
+      }
+    ],
+    "latency_sec": 4.260352290999435,
+    "usage": {
+      "prompt_tokens": 1661,
+      "completion_tokens": 155
+    }
+  },
+  "photo_02.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.5635,
+      "contrast": 0.3049,
+      "saturation": 0.0967,
+      "sharpness": 0.4546
+    },
+    "strengths": [
+      "The building is clearly visible and the signage is readable"
+    ],
+    "issues": [
+      "The image lacks vibrancy, making it appear dull",
+      "The composition is flat and doesn't highlight any particular feature"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase saturation",
+        "reason": "Boosting the colors would make the image more lively and appealing"
+      },
+      {
+        "priority": 2,
+        "title": "Enhance contrast",
+        "reason": "Improving contrast would add depth and make the building stand out more"
+      },
+      {
+        "priority": 3,
+        "title": "Consider a more dynamic angle",
+        "reason": "A different angle could add interest and highlight unique architectural features"
+      }
+    ],
+    "latency_sec": 2.9807831250000163,
+    "usage": {
+      "prompt_tokens": 1321,
+      "completion_tokens": 170
+    }
+  },
+  "photo_03.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.3836,
+      "contrast": 0.2185,
+      "saturation": 0.4085,
+      "sharpness": 0.105
+    },
+    "strengths": [
+      "The dish is placed on a decorative plate that adds visual interest"
+    ],
+    "issues": [
+      "The image appears dark, making the food look less appealing",
+      "Low contrast causes the dish to blend into the background",
+      "The photo lacks sharpness, making details unclear"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase brightness and contrast",
+        "reason": "Enhancing brightness and contrast will make the dish stand out more and look more appetizing"
+      },
+      {
+        "priority": 2,
+        "title": "Improve sharpness",
+        "reason": "Increasing sharpness will help highlight the texture and details of the food"
+      },
+      {
+        "priority": 3,
+        "title": "Use better lighting",
+        "reason": "Good lighting will enhance the colors and make the dish look more vibrant"
+      }
+    ],
+    "latency_sec": 2.849115166000047,
+    "usage": {
+      "prompt_tokens": 1660,
+      "completion_tokens": 197
+    }
+  },
+  "photo_04.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.441,
+      "contrast": 0.1574,
+      "saturation": 0.3176,
+      "sharpness": 0.1244
+    },
+    "strengths": [
+      "The dish is neatly arranged with a clear pattern of sauce on top"
+    ],
+    "issues": [
+      "The image appears dark and lacks vibrancy, making the food look less appealing",
+      "The focus seems soft, reducing the clarity of the dish's details",
+      "The metallic tray reflects light, creating distracting highlights"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase brightness and saturation",
+        "reason": "Enhancing these aspects will make the dish look more appetizing and colorful"
+      },
+      {
+        "priority": 2,
+        "title": "Improve focus and sharpness",
+        "reason": "A sharper image will highlight the textures and details of the dish"
+      },
+      {
+        "priority": 3,
+        "title": "Use a non-reflective surface",
+        "reason": "Avoiding reflective materials will reduce glare and distractions in the photo"
+      }
+    ],
+    "latency_sec": 3.375261916000454,
+    "usage": {
+      "prompt_tokens": 1660,
+      "completion_tokens": 206
+    }
+  },
+  "photo_05.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.2906,
+      "contrast": 0.1696,
+      "saturation": 0.4071,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The outdoor dining area is lively and inviting",
+      "The lighting creates a cozy atmosphere"
+    ],
+    "issues": [
+      "The image is quite dark, making details hard to see",
+      "The composition feels cluttered with too many elements"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase brightness",
+        "reason": "Enhancing the brightness will make the scene more visible and appealing, highlighting the dining experience."
+      },
+      {
+        "priority": 2,
+        "title": "Simplify the composition",
+        "reason": "Focusing on fewer elements will make the image less cluttered and more visually appealing."
+      }
+    ],
+    "latency_sec": 3.04208616699907,
+    "usage": {
+      "prompt_tokens": 1660,
+      "completion_tokens": 146
+    }
+  },
+  "photo_06.jpg": {
+    "calibrated_score": 4.106004129153396,
+    "attributes": {
+      "brightness": 0.4223,
+      "contrast": 0.194,
+      "saturation": 0.2787,
+      "sharpness": 0.7901
+    },
+    "strengths": [
+      "The outdoor setting gives a casual and inviting atmosphere",
+      "The signage is clear and prominently displayed"
+    ],
+    "issues": [
+      "The image lacks vibrancy, making it appear dull",
+      "The composition feels cluttered with too many elements"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Enhance color saturation",
+        "reason": "Boosting the colors will make the scene more lively and appealing, drawing more attention to the restaurant's outdoor area"
+      },
+      {
+        "priority": 2,
+        "title": "Simplify the composition",
+        "reason": "Reducing the number of elements in the frame will help focus attention on the key features, like the signage and seating area"
+      }
+    ],
+    "latency_sec": 3.184638124999765,
+    "usage": {
+      "prompt_tokens": 1660,
+      "completion_tokens": 162
+    }
+  },
+  "photo_07.jpg": {
+    "calibrated_score": 10.4819920984282,
+    "attributes": {
+      "brightness": 0.6144,
+      "contrast": 0.232,
+      "saturation": 0.8145,
+      "sharpness": 0.1928
+    },
+    "strengths": [
+      "The dish is well-centered and fills the frame nicely",
+      "The warm tones of the wooden table complement the dish"
+    ],
+    "issues": [
+      "The lighting is uneven, creating shadows on one side of the bowl",
+      "The angle is slightly flat, not showing the depth of the dish"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Adjust lighting to reduce shadows",
+        "reason": "More even lighting will highlight the dish's ingredients and colors more effectively"
+      },
+      {
+        "priority": 2,
+        "title": "Use a slight angle for the shot",
+        "reason": "An angled shot can add depth and make the dish appear more dynamic"
+      }
+    ],
+    "latency_sec": 2.656304416999774,
+    "usage": {
+      "prompt_tokens": 1320,
+      "completion_tokens": 167
+    }
+  },
+  "photo_08.jpg": {
+    "calibrated_score": 13.249491348819923,
+    "attributes": {
+      "brightness": 0.3376,
+      "contrast": 0.2737,
+      "saturation": 0.2909,
+      "sharpness": 0.7554
+    },
+    "strengths": [
+      "The red lanterns add a pop of color and cultural context",
+      "The composition includes both the restaurant and the street, providing a sense of place"
+    ],
+    "issues": [
+      "The image appears quite dark, making details hard to see",
+      "The contrast is low, causing the scene to look flat"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase brightness",
+        "reason": "The photo is dark, which obscures details; increasing brightness will make the scene more inviting and clear"
+      },
+      {
+        "priority": 2,
+        "title": "Enhance contrast",
+        "reason": "Boosting contrast will add depth and make the elements in the photo stand out more"
+      }
+    ],
+    "latency_sec": 3.041465792000963,
+    "usage": {
+      "prompt_tokens": 1321,
+      "completion_tokens": 163
+    }
+  },
+  "photo_09.jpg": {
+    "calibrated_score": 14.307341595728696,
+    "attributes": {
+      "brightness": 0.611,
+      "contrast": 0.2294,
+      "saturation": 0.6013,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The dish is colorful and visually appealing with a variety of ingredients",
+      "The wooden table adds a rustic and warm feel to the image"
+    ],
+    "issues": [
+      "The image is slightly overexposed, making the colors appear washed out",
+      "The composition is cluttered with the spoon and glass competing for attention"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Adjust exposure settings",
+        "reason": "Reducing the brightness will help the colors appear more vibrant and true to life"
+      },
+      {
+        "priority": 2,
+        "title": "Simplify the composition",
+        "reason": "Removing or repositioning the spoon and glass can help focus attention on the dish itself"
+      }
+    ],
+    "latency_sec": 3.073786917000689,
+    "usage": {
+      "prompt_tokens": 1319,
+      "completion_tokens": 172
+    }
+  },
+  "photo_10.jpg": {
+    "calibrated_score": 18.772028065548113,
+    "attributes": {
+      "brightness": 0.459,
+      "contrast": 0.2778,
+      "saturation": 0.3208,
+      "sharpness": 0.1054
+    },
+    "strengths": [
+      "The close-up shot highlights the ingredients well",
+      "Steam rising from the dish adds a sense of warmth and freshness"
+    ],
+    "issues": [
+      "The image appears slightly dark, making details hard to see",
+      "Low contrast makes the colors look muted and less vibrant"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase brightness and contrast",
+        "reason": "Enhancing brightness and contrast will make the dish more visually appealing and highlight the ingredients better"
+      },
+      {
+        "priority": 2,
+        "title": "Enhance color saturation",
+        "reason": "Boosting saturation will make the colors pop, making the dish look more appetizing"
+      }
+    ],
+    "latency_sec": 2.9070637920012814,
+    "usage": {
+      "prompt_tokens": 1660,
+      "completion_tokens": 155
+    }
+  },
+  "photo_11.jpg": {
+    "calibrated_score": 23.10431763019584,
+    "attributes": {
+      "brightness": 0.4585,
+      "contrast": 0.2636,
+      "saturation": 0.278,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The outdoor seating area looks inviting and relaxed",
+      "Bright natural light enhances the vibrant colors of the flowers"
+    ],
+    "issues": [
+      "The shadow of the photographer is visible in the foreground",
+      "The image feels cluttered with multiple elements competing for attention"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Reposition to avoid shadows",
+        "reason": "The photographer's shadow is distracting; changing the angle or time of day could eliminate this issue"
+      },
+      {
+        "priority": 2,
+        "title": "Simplify the composition",
+        "reason": "Focusing on fewer elements or using a shallower depth of field could reduce visual clutter and highlight key features"
+      }
+    ],
+    "latency_sec": 3.5153901249996125,
+    "usage": {
+      "prompt_tokens": 1319,
+      "completion_tokens": 160
+    }
+  },
+  "photo_12.jpg": {
+    "calibrated_score": 29.615951656470873,
+    "attributes": {
+      "brightness": 0.485,
+      "contrast": 0.261,
+      "saturation": 0.3342,
+      "sharpness": 0.125
+    },
+    "strengths": [
+      "The ramen bowls are well-filled, showcasing a variety of ingredients",
+      "The vibrant colors of the egg yolks add visual interest"
+    ],
+    "issues": [
+      "The lighting is uneven, creating shadows and highlights that distract from the food",
+      "The composition is cluttered, with both bowls competing for attention"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Improve lighting",
+        "reason": "More even lighting would reduce harsh shadows and highlights, making the food look more appealing"
+      },
+      {
+        "priority": 2,
+        "title": "Focus on one bowl",
+        "reason": "Highlighting a single bowl would create a cleaner composition and allow viewers to appreciate the details better"
+      }
+    ],
+    "latency_sec": 2.7296302499999,
+    "usage": {
+      "prompt_tokens": 1658,
+      "completion_tokens": 172
+    }
+  },
+  "photo_13.jpg": {
+    "calibrated_score": 32.31711472723451,
+    "attributes": {
+      "brightness": 0.5708,
+      "contrast": 0.2375,
+      "saturation": 0.3571,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The vibrant colors of the food make it visually appealing",
+      "The natural light highlights the textures of the dish"
+    ],
+    "issues": [
+      "The background is cluttered, which distracts from the main subject",
+      "The angle is slightly awkward, making the composition feel unbalanced"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Simplify the background",
+        "reason": "A cleaner background will help focus attention on the dish, making it stand out more"
+      },
+      {
+        "priority": 2,
+        "title": "Adjust the angle",
+        "reason": "A more balanced angle can enhance the composition and make the dish look more inviting"
+      }
+    ],
+    "latency_sec": 3.100162499998987,
+    "usage": {
+      "prompt_tokens": 2000,
+      "completion_tokens": 165
+    }
+  },
+  "photo_14.jpg": {
+    "calibrated_score": 33.268122969801254,
+    "attributes": {
+      "brightness": 0.5252,
+      "contrast": 0.2601,
+      "saturation": 0.159,
+      "sharpness": 0.302
+    },
+    "strengths": [
+      "The building has a rustic charm with its stone facade",
+      "The image captures a sense of local culture and everyday life"
+    ],
+    "issues": [
+      "The image appears slightly dull due to low saturation",
+      "The composition is cluttered with distracting elements like wires"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase saturation",
+        "reason": "Enhancing the colors would make the image more vibrant and appealing"
+      },
+      {
+        "priority": 2,
+        "title": "Simplify the composition",
+        "reason": "Removing or minimizing distracting elements like wires would focus attention on the building's architecture"
+      }
+    ],
+    "latency_sec": 2.7635639999989507,
+    "usage": {
+      "prompt_tokens": 1659,
+      "completion_tokens": 146
+    }
+  },
+  "photo_15.jpg": {
+    "calibrated_score": 36.83805213808551,
+    "attributes": {
+      "brightness": 0.4068,
+      "contrast": 0.2279,
+      "saturation": 0.5233,
+      "sharpness": 0.0472
+    },
+    "strengths": [
+      "The bento box layout is clear and organized",
+      "Variety of colors from the sushi and garnishes adds visual interest"
+    ],
+    "issues": [
+      "The image appears quite dark, making the food less appealing",
+      "The photo lacks sharpness, causing details to be lost"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase lighting or adjust brightness",
+        "reason": "The image is dark, which can make the food look less appetizing. Better lighting or adjusting brightness can enhance visibility and appeal."
+      },
+      {
+        "priority": 2,
+        "title": "Improve focus or sharpness",
+        "reason": "The photo is not very sharp, which blurs the details of the food. Ensuring the camera is steady or using a higher resolution can help capture the textures better."
+      }
+    ],
+    "latency_sec": 3.503488667000056,
+    "usage": {
+      "prompt_tokens": 1321,
+      "completion_tokens": 185
+    }
+  },
+  "photo_16.jpg": {
+    "calibrated_score": 41.65606979496223,
+    "attributes": {
+      "brightness": 0.555,
+      "contrast": 0.2876,
+      "saturation": 0.223,
+      "sharpness": 0.408
+    },
+    "strengths": [
+      "The food is well-arranged and visually appealing",
+      "The use of natural light highlights the textures of the dish"
+    ],
+    "issues": [
+      "The image lacks vibrant colors, making it look less appetizing",
+      "The background is slightly distracting due to its texture"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Enhance color saturation",
+        "reason": "Boosting the colors will make the dish look more appetizing and lively"
+      },
+      {
+        "priority": 2,
+        "title": "Simplify the background",
+        "reason": "Using a smoother background will keep the focus on the food and reduce distractions"
+      }
+    ],
+    "latency_sec": 2.7067271249998157,
+    "usage": {
+      "prompt_tokens": 1318,
+      "completion_tokens": 160
+    }
+  },
+  "photo_17.jpg": {
+    "calibrated_score": 44.99622602329264,
+    "attributes": {
+      "brightness": 0.4896,
+      "contrast": 0.2685,
+      "saturation": 0.2997,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The dish is well-centered and neatly presented on the plate",
+      "The use of garnishes adds a fresh and colorful touch"
+    ],
+    "issues": [
+      "The overall image appears slightly dark, which may not highlight the dish effectively",
+      "The contrast is low, making the dish look less vibrant"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase brightness",
+        "reason": "Brightening the image will make the dish more appealing and highlight its details"
+      },
+      {
+        "priority": 2,
+        "title": "Enhance contrast",
+        "reason": "Boosting contrast can make the colors pop and the dish look more appetizing"
+      }
+    ],
+    "latency_sec": 3.0984404170012567,
+    "usage": {
+      "prompt_tokens": 1660,
+      "completion_tokens": 164
+    }
+  },
+  "photo_18.jpg": {
+    "calibrated_score": 93.42318130315587,
+    "attributes": {
+      "brightness": 0.5324,
+      "contrast": 0.2907,
+      "saturation": 0.2745,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The room is well-lit with natural light, creating a welcoming atmosphere",
+      "The decor is stylish and cohesive, with a modern and inviting color palette"
+    ],
+    "issues": [
+      "The image includes people in the background, which may distract from the focus on the interior",
+      "The composition feels slightly cluttered with multiple elements competing for attention"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Capture the room without people",
+        "reason": "Removing people from the shot will help maintain focus on the interior design and ambiance"
+      },
+      {
+        "priority": 2,
+        "title": "Simplify the composition",
+        "reason": "Reducing the number of elements in the frame can create a cleaner and more focused image"
+      }
+    ],
+    "latency_sec": 2.7086042080009065,
+    "usage": {
+      "prompt_tokens": 1320,
+      "completion_tokens": 180
+    }
+  }
+}

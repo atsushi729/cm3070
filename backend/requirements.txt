@@ -1,0 +1,48 @@
+# --- Web / orchestration ---
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+pydantic-settings==2.7.1
+python-multipart==0.0.20
+
+# --- Async task queue ---
+celery==5.4.0
+redis==5.2.1
+
+# --- Database ---
+sqlalchemy==2.0.36
+psycopg[binary]==3.2.3
+
+# Local AI runtime
+faster-whisper==1.1.0      # CTranslate2 Whisper, fast on CPU/Metal
+silero-vad==5.1.2          # voice activity detection
+ollama==0.4.5              # client for local Llama 3 (llama.cpp/GGUF, Metal)
+soundfile==0.12.1
+numpy==2.2.1
+requests==2.32.3           # used by faster-whisper model download
+
+# --- UC2 sentiment (multilingual BERT fine-tune + baseline) ---
+torch==2.5.1
+torchaudio==2.5.1            # MUST match torch exactly — silero-vad pulls it in unpinned otherwise (ABI mismatch: dlopen "_aoti_torch_abi_version" not found)
+torchvision==0.20.1          # ResNet50 + transforms for UC2-C popularity model
+transformers==4.48.0
+huggingface-hub==0.36.2   # pinned model download used by `make up`
+accelerate==1.14.0          # required by transformers.Trainer (PyTorch backend)
+
+# --- UC2-C image popularity evaluation ---
+opencv-python-headless==4.10.0.84   # pixel attribute extraction (no GUI deps)
+
+# --- Google Calendar mirror (UC1 booking sync) ---
+google-api-python-client==2.149.0
+google-auth==2.35.0
+
+# Evaluation
+jiwer==3.0.5               # WER
+scikit-learn==1.6.1        # F1 / metrics
+openai==1.68.0              # GPT-4 comparison baseline, UC2-C Likert eval only
+scipy==1.17.1               # Friedman test, UC2-C Likert eval only
+
+# --- Dev ---
+pytest==8.3.4
+httpx==0.27.2          # pinned <0.28 for ollama client compat
+watchdog==6.0.0        # watchmedo auto-restart for the Celery worker (make up)

@@ -1,0 +1,92 @@
+{
+  "photo_01.jpg": {
+    "A": "system",
+    "B": "generic",
+    "C": "llm"
+  },
+  "photo_02.jpg": {
+    "A": "llm",
+    "B": "generic",
+    "C": "system"
+  },
+  "photo_03.jpg": {
+    "A": "llm",
+    "B": "generic",
+    "C": "system"
+  },
+  "photo_04.jpg": {
+    "A": "llm",
+    "B": "generic",
+    "C": "system"
+  },
+  "photo_05.jpg": {
+    "A": "generic",
+    "B": "llm",
+    "C": "system"
+  },
+  "photo_06.jpg": {
+    "A": "system",
+    "B": "llm",
+    "C": "generic"
+  },
+  "photo_07.jpg": {
+    "A": "llm",
+    "B": "system",
+    "C": "generic"
+  },
+  "photo_08.jpg": {
+    "A": "generic",
+    "B": "system",
+    "C": "llm"
+  },
+  "photo_09.jpg": {
+    "A": "generic",
+    "B": "llm",
+    "C": "system"
+  },
+  "photo_10.jpg": {
+    "A": "system",
+    "B": "generic",
+    "C": "llm"
+  },
+  "photo_11.jpg": {
+    "A": "llm",
+    "B": "system",
+    "C": "generic"
+  },
+  "photo_12.jpg": {
+    "A": "system",
+    "B": "generic",
+    "C": "llm"
+  },
+  "photo_13.jpg": {
+    "A": "system",
+    "B": "generic",
+    "C": "llm"
+  },
+  "photo_14.jpg": {
+    "A": "system",
+    "B": "generic",
+    "C": "llm"
+  },
+  "photo_15.jpg": {
+    "A": "llm",
+    "B": "generic",
+    "C": "system"
+  },
+  "photo_16.jpg": {
+    "A": "llm",
+    "B": "generic",
+    "C": "system"
+  },
+  "photo_17.jpg": {
+    "A": "system",
+    "B": "generic",
+    "C": "llm"
+  },
+  "photo_18.jpg": {
+    "A": "system",
+    "B": "llm",
+    "C": "generic"
+  }
+}

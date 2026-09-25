@@ -1,0 +1,44 @@
+{
+  "experiment": "UC1 reservation entity extraction — local LLM selection",
+  "date": "2026-06-19",
+  "hardware": "Apple M1 Pro, 16 GB unified memory, Metal (100% GPU offload)",
+  "runtime": "Ollama 0.30.7",
+  "testset": "data/testset/extraction_set.json (60 items: ja=36, en=24, template-generated, deterministic gold labels)",
+  "reference_now": "2026-06-13T12:00:00",
+  "settings": "temperature=0, format=json, keep_alive=5m (resident during eval), 1 warm-up call discarded",
+  "metric_note": "per-field exact-match = per-field F1 (one gold value per field => precision=recall); macro-F1 = mean of 4 fields; RAM = ollama ps resident footprint",
+  "target_macro_f1": 0.85,
+  "fields": ["name", "date", "time", "party_size"],
+  "results": [
+    {
+      "model": "qwen2.5:7b-instruct-q4_K_M",
+      "role": "candidate (Japanese front-runner)",
+      "macro_f1": 0.883, "f1_ja": 0.896, "f1_en": 0.865,
+      "field_f1": {"name": 1.000, "date": 0.550, "time": 0.983, "party_size": 1.000},
+      "p50_sec": 2.60, "p95_sec": 3.75, "ram_gb": 4.7, "json_failures": 0
+    },
+    {
+      "model": "llama3.1:8b-instruct-q4_K_M",
+      "role": "model baseline",
+      "macro_f1": 0.721, "f1_ja": 0.618, "f1_en": 0.875,
+      "field_f1": {"name": 0.400, "date": 0.483, "time": 1.000, "party_size": 1.000},
+      "p50_sec": 2.65, "p95_sec": 2.93, "ram_gb": 5.3, "json_failures": 0
+    },
+    {
+      "model": "llama3:8b-instruct-q4_K_M",
+      "role": "current config default",
+      "macro_f1": 0.700, "f1_ja": 0.604, "f1_en": 0.844,
+      "field_f1": {"name": 0.350, "date": 0.450, "time": 1.000, "party_size": 1.000},
+      "p50_sec": 2.85, "p95_sec": 4.54, "ram_gb": 5.3, "json_failures": 0
+    },
+    {
+      "model": "llama3.2:3b-instruct-q4_K_M",
+      "role": "candidate (lightweight)",
+      "macro_f1": 0.667, "f1_ja": 0.583, "f1_en": 0.792,
+      "field_f1": {"name": 0.717, "date": 0.233, "time": 0.850, "party_size": 0.867},
+      "p50_sec": 0.97, "p95_sec": 1.10, "ram_gb": 2.5, "json_failures": 0
+    }
+  ],
+  "selection": "qwen2.5:7b-instruct-q4_K_M",
+  "selection_rationale": "Highest macro-F1 (0.883, only model meeting the >=0.85 target), Japanese F1 +28pt over the Llama 8B baseline (0.896 vs 0.618), perfect Japanese name extraction (1.000 vs 0.40), comparable latency (p50 2.60s), and lower memory footprint (4.7 GB). The 3B is fastest but misses the accuracy target; the current llama3:8b default is the weakest 8B on Japanese."
+}

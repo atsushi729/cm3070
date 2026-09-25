@@ -1,0 +1,34 @@
+{
+  "strengths": [
+    "The dish is presented on a clean plate or surface with minimal distracting clutter.",
+    "The framing keeps the food as the clear subject of the photo.",
+    "The lighting is even enough to show the food's natural colors."
+  ],
+  "issues": [
+    "Overhead or harsh lighting can flatten food and make it look less appetizing.",
+    "A busy or messy background competes with the dish for the viewer's attention.",
+    "Shooting straight down or straight on can hide a dish's height and texture."
+  ],
+  "suggestions": [
+    {
+      "priority": 1,
+      "title": "Shoot near a window in natural light",
+      "reason": "Soft, natural light renders food colors more accurately and avoids the harsh shadows that overhead artificial lighting tends to create."
+    },
+    {
+      "priority": 2,
+      "title": "Clear the background",
+      "reason": "Removing unrelated objects (menus, condiment bottles, staff or other diners in frame) keeps the viewer's attention on the dish itself."
+    },
+    {
+      "priority": 3,
+      "title": "Shoot from a 45-degree angle for dishes with height",
+      "reason": "An angled shot shows layers and texture better than a flat overhead or straight-on shot for most plated dishes."
+    },
+    {
+      "priority": 4,
+      "title": "Add one small pop of color",
+      "reason": "A garnish, napkin, or sauce drizzle draws the eye and increases visual interest without changing the dish itself."
+    }
+  ]
+}

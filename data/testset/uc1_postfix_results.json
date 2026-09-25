@@ -1,0 +1,6025 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-20T05:21:59.402607+00:00",
+  "git_commit": "92c041062a4450454e4ec779a7981ed55ec4c7b1",
+  "git_working_tree_dirty": true,
+  "method": {
+    "description": "Production VAD/ASR followed by production extraction and deterministic date resolution; stages are batched to avoid Whisper/Qwen co-residency.",
+    "temperature": 0,
+    "reference_now": "2026-06-13T12:00:00",
+    "llm_model": "qwen2.5:7b-instruct-q4_K_M",
+    "llm_keep_alive_during_extraction_batch": "5m",
+    "whisper_model": "small",
+    "whisper_device": "auto",
+    "whisper_compute_type": "int8",
+    "text_set": "data/testset/extraction_set.json",
+    "text_set_sha256": "d75032be47b7be7027de405cdcc939cca79f6686d8564b73c3de03a6d6a91d17",
+    "audio_set": "data/testset/audio_labels.json",
+    "audio_set_sha256": "dbe34b98cdd2c44c61379377d3e09822f52ba95e646cac8d41abc959bfdb49e7"
+  },
+  "summary": {
+    "entity_extraction": {
+      "text": {
+        "n": 60,
+        "field_f1": {
+          "name": 1.0,
+          "date": 0.9833333333333333,
+          "time": 0.9833333333333333,
+          "party_size": 1.0
+        },
+        "macro_f1": 0.9916666666666667,
+        "json_failures": 0,
+        "latency_sec": {
+          "p50": 2.1947066039429046,
+          "p95": 2.3743730235495604
+        }
+      },
+      "quiet": {
+        "n": 60,
+        "field_f1": {
+          "name": 0.9666666666666667,
+          "date": 0.9333333333333333,
+          "time": 0.9666666666666667,
+          "party_size": 0.9833333333333333
+        },
+        "macro_f1": 0.9625,
+        "json_failures": 0,
+        "latency_sec": {
+          "p50": 2.2054011874715798,
+          "p95": 2.402423910080688
+        }
+      },
+      "noisy": {
+        "n": 60,
+        "field_f1": {
+          "name": 0.8666666666666667,
+          "date": 0.9,
+          "time": 0.9666666666666667,
+          "party_size": 0.9666666666666667
+        },
+        "macro_f1": 0.925,
+        "json_failures": 0,
+        "latency_sec": {
+          "p50": 2.17442660452798,
+          "p95": 2.363938439940102
+        }
+      }
+    },
+    "asr": {
+      "quiet": {
+        "cer": 0.010103755352293364,
+        "wer": 0.035671652264144524
+      },
+      "noisy": {
+        "cer": 0.045577543959990204,
+        "wer": 0.08723455074200465
+      }
+    }
+  },
+  "items": {
+    "text": [
+      {
+        "id": "syn-0001",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "今週末、3名で予約をお願いします。時間は夜6時でお願いします。渡辺と申します。",
+        "input_transcript": "今週末、3名で予約をお願いします。時間は夜6時でお願いします。渡辺と申します。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-20",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-20",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 8.938206291990355,
+        "error": null
+      },
+      {
+        "id": "syn-0002",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Sunday at 1 PM. It's for six guests under the name Lee. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Sunday at 1 PM. It's for six guests under the name Lee. Thank you.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "13:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "13:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1871804170077667,
+        "error": null
+      },
+      {
+        "id": "syn-0003",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "あの、今週末の夕方5時に5名で席を取りたいんですけど。小林です。",
+        "input_transcript": "あの、今週末の夕方5時に5名で席を取りたいんですけど。小林です。",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-20",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-20",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2227612090064213,
+        "error": null
+      },
+      {
+        "id": "syn-0004",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for three guests under the name Walker. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for three guests under the name Walker. Thank you.",
+        "gold": {
+          "name": "Walker",
+          "date": "2026-06-19",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "Walker",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2329422920010984,
+        "error": null
+      },
+      {
+        "id": "syn-0005",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table today at 7 PM for four people. It's under Brown.",
+        "input_transcript": "I'd like to reserve a table today at 7 PM for four people. It's under Brown.",
+        "gold": {
+          "name": "Brown",
+          "date": "2026-06-13",
+          "time": "19:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Brown",
+          "date": "2026-06-13",
+          "time": "19:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 1.9877190840197727,
+        "error": null
+      },
+      {
+        "id": "syn-0006",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for tomorrow at 6 in the evening. It's for four people under the name Johnson. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for tomorrow at 6 in the evening. It's for four people under the name Johnson. Thank you.",
+        "gold": {
+          "name": "Johnson",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Johnson",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.08051770797465,
+        "error": null
+      },
+      {
+        "id": "syn-0007",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "あの、今度の日曜日の夜7時に5名で席を取りたいんですけど。山本です。",
+        "input_transcript": "あの、今度の日曜日の夜7時に5名で席を取りたいんですけど。山本です。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1868214999558404,
+        "error": null
+      },
+      {
+        "id": "syn-0008",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今度の金曜日の夕方5時、5名です。名前は小林でお願いします。",
+        "input_transcript": "予約をお願いしたくて。今度の金曜日の夕方5時、5名です。名前は小林でお願いします。",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3015448750229552,
+        "error": null
+      },
+      {
+        "id": "syn-0009",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "あの、今度の日曜日の夜6時にお一人で席を取りたいんですけど。佐藤です。",
+        "input_transcript": "あの、今度の日曜日の夜6時にお一人で席を取りたいんですけど。佐藤です。",
+        "gold": {
+          "name": "佐藤",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "佐藤",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1972545420285314,
+        "error": null
+      },
+      {
+        "id": "syn-0010",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "もしもし、3日後の夜7時半に予約をお願いしたいのですが。6名でお願いします。名前は佐藤です。よろしくお願いします。",
+        "input_transcript": "もしもし、3日後の夜7時半に予約をお願いしたいのですが。6名でお願いします。名前は佐藤です。よろしくお願いします。",
+        "gold": {
+          "name": "佐藤",
+          "date": "2026-06-16",
+          "time": "19:30",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "佐藤",
+          "date": "2026-06-16",
+          "time": "19:30:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1939276669872925,
+        "error": null
+      },
+      {
+        "id": "syn-0011",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "吉田と申します。今度の金曜日の夜7時半に3名で予約できますか?",
+        "input_transcript": "吉田と申します。今度の金曜日の夜7時半に3名で予約できますか?",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-19",
+          "time": "19:30",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-19",
+          "time": "19:30:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1736985839670524,
+        "error": null
+      },
+      {
+        "id": "syn-0012",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "もしもし、明後日の夜7時半に予約をお願いしたいのですが。4名でお願いします。名前は山本です。よろしくお願いします。",
+        "input_transcript": "もしもし、明後日の夜7時半に予約をお願いしたいのですが。4名でお願いします。名前は山本です。よろしくお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-15",
+          "time": "19:30",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-15",
+          "time": "19:30:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.219370458042249,
+        "error": null
+      },
+      {
+        "id": "syn-0013",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "もしもし、3日後の夕方5時に予約をお願いしたいのですが。2名でお願いします。名前は吉田です。よろしくお願いします。",
+        "input_transcript": "もしもし、3日後の夕方5時に予約をお願いしたいのですが。2名でお願いします。名前は吉田です。よろしくお願いします。",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-16",
+          "time": "17:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-16",
+          "time": "17:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2007563749793917,
+        "error": null
+      },
+      {
+        "id": "syn-0014",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "3日後、2名で予約をお願いします。時間はお昼の12時でお願いします。渡辺と申します。",
+        "input_transcript": "3日後、2名で予約をお願いします。時間はお昼の12時でお願いします。渡辺と申します。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-16",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-16",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.238840000005439,
+        "error": null
+      },
+      {
+        "id": "syn-0015",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for this coming Friday, 1 PM, four people? Name's Martin.",
+        "input_transcript": "Could I get a reservation for this coming Friday, 1 PM, four people? Name's Martin.",
+        "gold": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "13:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "13:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.0817730829585344,
+        "error": null
+      },
+      {
+        "id": "syn-0016",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table today at 1 PM for four people. It's under Martin.",
+        "input_transcript": "I'd like to reserve a table today at 1 PM for four people. It's under Martin.",
+        "gold": {
+          "name": "Martin",
+          "date": "2026-06-13",
+          "time": "13:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Martin",
+          "date": "2026-06-13",
+          "time": "13:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 1.9917394579388201,
+        "error": null
+      },
+      {
+        "id": "syn-0017",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "あの、明日の夜8時に4名で席を取りたいんですけど。加藤です。",
+        "input_transcript": "あの、明日の夜8時に4名で席を取りたいんですけど。加藤です。",
+        "gold": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "20:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "20:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.113643000018783,
+        "error": null
+      },
+      {
+        "id": "syn-0018",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for three guests this coming Friday at 6 in the evening? The name is Martin.",
+        "input_transcript": "Hello, can I book a table for three guests this coming Friday at 6 in the evening? The name is Martin.",
+        "gold": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1104415000882,
+        "error": null
+      },
+      {
+        "id": "syn-0019",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "明日、2名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+        "input_transcript": "明日、2名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-14",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-14",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2446554170455784,
+        "error": null
+      },
+      {
+        "id": "syn-0020",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for one person this coming Friday at 1 PM? The name is Clark.",
+        "input_transcript": "Hello, can I book a table for one person this coming Friday at 1 PM? The name is Clark.",
+        "gold": {
+          "name": "Clark",
+          "date": "2026-06-19",
+          "time": "13:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Clark",
+          "date": "2026-06-19",
+          "time": "13:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.0949165830388665,
+        "error": null
+      },
+      {
+        "id": "syn-0021",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "鈴木と申します。明後日の夕方5時にお一人で予約できますか?",
+        "input_transcript": "鈴木と申します。明後日の夕方5時にお一人で予約できますか?",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-15",
+          "time": "17:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-15",
+          "time": "17:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.222395208082162,
+        "error": null
+      },
+      {
+        "id": "syn-0022",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "あの、今週末の夕方5時に5名で席を取りたいんですけど。吉田です。",
+        "input_transcript": "あの、今週末の夕方5時に5名で席を取りたいんですけど。吉田です。",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-20",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-20",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.158516458934173,
+        "error": null
+      },
+      {
+        "id": "syn-0023",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夜7時半、8名です。名前は加藤でお願いします。",
+        "input_transcript": "予約をお願いしたくて。明日の夜7時半、8名です。名前は加藤でお願いします。",
+        "gold": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.189114541048184,
+        "error": null
+      },
+      {
+        "id": "syn-0024",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for this coming Friday, 7:30 in the evening, six guests? Name's Johnson.",
+        "input_transcript": "Could I get a reservation for this coming Friday, 7:30 in the evening, six guests? Name's Johnson.",
+        "gold": {
+          "name": "Johnson",
+          "date": "2026-06-19",
+          "time": "19:30",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Johnson",
+          "date": "2026-06-19",
+          "time": "19:30:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2218044589972124,
+        "error": null
+      },
+      {
+        "id": "syn-0025",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for this coming Sunday, 8 PM, eight people? Name's Young.",
+        "input_transcript": "Could I get a reservation for this coming Sunday, 8 PM, eight people? Name's Young.",
+        "gold": {
+          "name": "Young",
+          "date": "2026-06-14",
+          "time": "20:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "Young",
+          "date": "2026-06-14",
+          "time": "20:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1659486249554902,
+        "error": null
+      },
+      {
+        "id": "syn-0026",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for in three days, 6 in the evening, four people? Name's Smith.",
+        "input_transcript": "Could I get a reservation for in three days, 6 in the evening, four people? Name's Smith.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-16",
+          "time": "18:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-16",
+          "time": "18:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1309443750651553,
+        "error": null
+      },
+      {
+        "id": "syn-0027",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for one person under the name Lee. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for one person under the name Lee. Thank you.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-19",
+          "time": "18:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.184846542077139,
+        "error": null
+      },
+      {
+        "id": "syn-0028",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table tomorrow at 6 in the evening for two people. It's under Smith.",
+        "input_transcript": "I'd like to reserve a table tomorrow at 6 in the evening for two people. It's under Smith.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1258840839145705,
+        "error": null
+      },
+      {
+        "id": "syn-0029",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今週末のお昼の12時、お一人です。名前は田中でお願いします。",
+        "input_transcript": "予約をお願いしたくて。今週末のお昼の12時、お一人です。名前は田中でお願いします。",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "12:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "12:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.229645667015575,
+        "error": null
+      },
+      {
+        "id": "syn-0030",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夜7時、お一人です。名前は山本でお願いします。",
+        "input_transcript": "予約をお願いしたくて。明日の夜7時、お一人です。名前は山本でお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.120252541033551,
+        "error": null
+      },
+      {
+        "id": "syn-0031",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for today, noon, eight people? Name's Lee.",
+        "input_transcript": "Could I get a reservation for today, noon, eight people? Name's Lee.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-13",
+          "time": "12:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-13",
+          "time": "12:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.113448083982803,
+        "error": null
+      },
+      {
+        "id": "syn-0032",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夜7時半、3名です。名前は山本でお願いします。",
+        "input_transcript": "予約をお願いしたくて。明日の夜7時半、3名です。名前は山本でお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2474298749584705,
+        "error": null
+      },
+      {
+        "id": "syn-0033",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for the day after tomorrow, 6 in the evening, one person? Name's Smith.",
+        "input_transcript": "Could I get a reservation for the day after tomorrow, 6 in the evening, one person? Name's Smith.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-15",
+          "time": "18:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-15",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.154727000044659,
+        "error": null
+      },
+      {
+        "id": "syn-0034",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for in three days at 6 in the evening. It's for four people under the name Garcia. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for in three days at 6 in the evening. It's for four people under the name Garcia. Thank you.",
+        "gold": {
+          "name": "Garcia",
+          "date": "2026-06-16",
+          "time": "18:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Garcia",
+          "date": "2026-06-16",
+          "time": "18:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3214299579849467,
+        "error": null
+      },
+      {
+        "id": "syn-0035",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "あの、明日のお昼の12時に6名で席を取りたいんですけど。山本です。",
+        "input_transcript": "あの、明日のお昼の12時に6名で席を取りたいんですけど。山本です。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "12:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "12:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.059474334004335,
+        "error": null
+      },
+      {
+        "id": "syn-0036",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。3日後の夜8時、6名です。名前は鈴木でお願いします。",
+        "input_transcript": "予約をお願いしたくて。3日後の夜8時、6名です。名前は鈴木でお願いします。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "20:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "20:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3526298330398276,
+        "error": null
+      },
+      {
+        "id": "syn-0037",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for a party of five today at 1 PM? The name is Wilson.",
+        "input_transcript": "Hello, can I book a table for a party of five today at 1 PM? The name is Wilson.",
+        "gold": {
+          "name": "Wilson",
+          "date": "2026-06-13",
+          "time": "13:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "Wilson",
+          "date": "2026-06-13",
+          "time": "13:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.083475916995667,
+        "error": null
+      },
+      {
+        "id": "syn-0038",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table this coming Friday at 7 PM for one person. It's under Young.",
+        "input_transcript": "I'd like to reserve a table this coming Friday at 7 PM for one person. It's under Young.",
+        "gold": {
+          "name": "Young",
+          "date": "2026-06-19",
+          "time": "19:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Young",
+          "date": "2026-06-19",
+          "time": "19:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.166991375037469,
+        "error": null
+      },
+      {
+        "id": "syn-0039",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今度の金曜日の夜8時、お一人です。名前は渡辺でお願いします。",
+        "input_transcript": "予約をお願いしたくて。今度の金曜日の夜8時、お一人です。名前は渡辺でお願いします。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-19",
+          "time": "20:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": false,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.349044624948874,
+        "error": null
+      },
+      {
+        "id": "syn-0040",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table the day after tomorrow at 1 PM for three guests. It's under Lee.",
+        "input_transcript": "I'd like to reserve a table the day after tomorrow at 1 PM for three guests. It's under Lee.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-15",
+          "time": "13:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-15",
+          "time": "13:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1286042920546606,
+        "error": null
+      },
+      {
+        "id": "syn-0041",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "今度の金曜日、5名で予約をお願いします。時間は午後1時でお願いします。高橋と申します。",
+        "input_transcript": "今度の金曜日、5名で予約をお願いします。時間は午後1時でお願いします。高橋と申します。",
+        "gold": {
+          "name": "高橋",
+          "date": "2026-06-19",
+          "time": "13:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "高橋",
+          "date": "2026-06-19",
+          "time": "13:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.4911758340895176,
+        "error": null
+      },
+      {
+        "id": "syn-0042",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for six guests this coming Sunday at 6 in the evening? The name is Lee.",
+        "input_transcript": "Hello, can I book a table for six guests this coming Sunday at 6 in the evening? The name is Lee.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.253702125046402,
+        "error": null
+      },
+      {
+        "id": "syn-0043",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "もしもし、今週末の夜6時に予約をお願いしたいのですが。3名でお願いします。名前は田中です。よろしくお願いします。",
+        "input_transcript": "もしもし、今週末の夜6時に予約をお願いしたいのですが。3名でお願いします。名前は田中です。よろしくお願いします。",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2425742089981213,
+        "error": null
+      },
+      {
+        "id": "syn-0044",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "今度の日曜日、4名で予約をお願いします。時間は夕方5時でお願いします。渡辺と申します。",
+        "input_transcript": "今度の日曜日、4名で予約をお願いします。時間は夕方5時でお願いします。渡辺と申します。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-14",
+          "time": "17:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-14",
+          "time": "17:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3703189590014517,
+        "error": null
+      },
+      {
+        "id": "syn-0045",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "あの、今度の金曜日の夜7時に3名で席を取りたいんですけど。小林です。",
+        "input_transcript": "あの、今度の金曜日の夜7時に3名で席を取りたいんですけど。小林です。",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "19:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "19:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.252378875040449,
+        "error": null
+      },
+      {
+        "id": "syn-0046",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "明後日、2名で予約をお願いします。時間はお昼の12時でお願いします。佐藤と申します。",
+        "input_transcript": "明後日、2名で予約をお願いします。時間はお昼の12時でお願いします。佐藤と申します。",
+        "gold": {
+          "name": "佐藤",
+          "date": "2026-06-15",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "佐藤",
+          "date": "2026-06-15",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2289099999470636,
+        "error": null
+      },
+      {
+        "id": "syn-0047",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "高橋と申します。3日後の午後1時に3名で予約できますか?",
+        "input_transcript": "高橋と申します。3日後の午後1時に3名で予約できますか?",
+        "gold": {
+          "name": "高橋",
+          "date": "2026-06-16",
+          "time": "13:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "高橋",
+          "date": "2026-06-16",
+          "time": "13:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.153700083028525,
+        "error": null
+      },
+      {
+        "id": "syn-0048",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "田中と申します。今週末の夜7時に8名で予約できますか?",
+        "input_transcript": "田中と申します。今週末の夜7時に8名で予約できますか?",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "19:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "19:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.159564375062473,
+        "error": null
+      },
+      {
+        "id": "syn-0049",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Friday at 5 PM. It's for eight people under the name Smith. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Friday at 5 PM. It's for eight people under the name Smith. Thank you.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-19",
+          "time": "17:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-19",
+          "time": "17:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2187210409902036,
+        "error": null
+      },
+      {
+        "id": "syn-0050",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for in three days, 8 PM, six guests? Name's Lee.",
+        "input_transcript": "Could I get a reservation for in three days, 8 PM, six guests? Name's Lee.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-16",
+          "time": "20:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-16",
+          "time": "20:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1079159579239786,
+        "error": null
+      },
+      {
+        "id": "syn-0051",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "もしもし、明日の夜6時に予約をお願いしたいのですが。8名でお願いします。名前は山本です。よろしくお願いします。",
+        "input_transcript": "もしもし、明日の夜6時に予約をお願いしたいのですが。8名でお願いします。名前は山本です。よろしくお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1905357919167727,
+        "error": null
+      },
+      {
+        "id": "syn-0052",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "小林と申します。今度の日曜日の夜7時半に4名で予約できますか?",
+        "input_transcript": "小林と申します。今度の日曜日の夜7時半に4名で予約できますか?",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3070994169684127,
+        "error": null
+      },
+      {
+        "id": "syn-0053",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "今度の金曜日、6名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+        "input_transcript": "今度の金曜日、6名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-19",
+          "time": "12:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-19",
+          "time": "12:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.4514002499636263,
+        "error": null
+      },
+      {
+        "id": "syn-0054",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for tomorrow, noon, two people? Name's Walker.",
+        "input_transcript": "Could I get a reservation for tomorrow, noon, two people? Name's Walker.",
+        "gold": {
+          "name": "Walker",
+          "date": "2026-06-14",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "Walker",
+          "date": "2026-06-14",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.041840875055641,
+        "error": null
+      },
+      {
+        "id": "syn-0055",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今度の日曜日の夜7時半、2名です。名前は吉田でお願いします。",
+        "input_transcript": "予約をお願いしたくて。今度の日曜日の夜7時半、2名です。名前は吉田でお願いします。",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-20",
+          "time": "19:30:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2487570829689503,
+        "error": null
+      },
+      {
+        "id": "syn-0056",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。3日後の夜7時半、3名です。名前は鈴木でお願いします。",
+        "input_transcript": "予約をお願いしたくて。3日後の夜7時半、3名です。名前は鈴木でお願いします。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "19:30",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "19:30:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.239807916106656,
+        "error": null
+      },
+      {
+        "id": "syn-0057",
+        "condition": "text",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this weekend at 1 PM. It's for one person under the name Johnson. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this weekend at 1 PM. It's for one person under the name Johnson. Thank you.",
+        "gold": {
+          "name": "Johnson",
+          "date": "2026-06-20",
+          "time": "13:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Johnson",
+          "date": "2026-06-20",
+          "time": "13:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1902822079136968,
+        "error": null
+      },
+      {
+        "id": "syn-0058",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "今週末、2名で予約をお願いします。時間は夜7時半でお願いします。中村と申します。",
+        "input_transcript": "今週末、2名で予約をお願いします。時間は夜7時半でお願いします。中村と申します。",
+        "gold": {
+          "name": "中村",
+          "date": "2026-06-20",
+          "time": "19:30",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "中村",
+          "date": "2026-06-20",
+          "time": "19:30:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.28312466701027,
+        "error": null
+      },
+      {
+        "id": "syn-0059",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "あの、今度の日曜日の夜8時に2名で席を取りたいんですけど。田中です。",
+        "input_transcript": "あの、今度の日曜日の夜8時に2名で席を取りたいんですけど。田中です。",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-14",
+          "time": "20:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-14",
+          "time": "20:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.253236124990508,
+        "error": null
+      },
+      {
+        "id": "syn-0060",
+        "condition": "text",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夕方5時、5名です。名前は高橋でお願いします。",
+        "input_transcript": "予約をお願いしたくて。明日の夕方5時、5名です。名前は高橋でお願いします。",
+        "gold": {
+          "name": "高橋",
+          "date": "2026-06-14",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "高橋",
+          "date": "2026-06-14",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1954855408985168,
+        "error": null
+      }
+    ],
+    "audio": [
+      {
+        "id": "syn-0001_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "今週末、3名で予約をお願いします。時間は夜6時でお願いします。渡辺と申します。",
+        "input_transcript": "今週末、3名で、予約をお願いします。時間は、夜6時でお願いします。渡辺と申します。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-20",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-20",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.301099249976687,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0001_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 5.716202042065561,
+          "duration_sec": 7.8785,
+          "speech_sec": 7.3525
+        }
+      },
+      {
+        "id": "syn-0001_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "今週末、3名で予約をお願いします。時間は夜6時でお願いします。渡辺と申します。",
+        "input_transcript": "今週末、3名で予約をお願いします。 時間は夜6時でお願いします。 渡辺と申します。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-20",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-20",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2238784169312567,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0001_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 5.2821577079594135,
+          "duration_sec": 7.8785,
+          "speech_sec": 7.3565
+        }
+      },
+      {
+        "id": "syn-0002_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Sunday at 1 PM. It's for six guests under the name Lee. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Sunday at 1 p.m. It's for six guests under the name Lee. Thank you.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "13:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "13:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2026763750473037,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0002_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.638910833047703,
+          "duration_sec": 6.7395625,
+          "speech_sec": 6.3775625
+        }
+      },
+      {
+        "id": "syn-0002_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Sunday at 1 PM. It's for six guests under the name Lee. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Sunday at 1pm. It's for six guests under the name Lee. Thank you.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "13:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "13:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1299187500262633,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0002_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.08333333333333333,
+          "asr_latency_sec": 5.439555291901343,
+          "duration_sec": 6.7395625,
+          "speech_sec": 6.5735625
+        }
+      },
+      {
+        "id": "syn-0003_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "あの、今週末の夕方5時に5名で席を取りたいんですけど。小林です。",
+        "input_transcript": "あの、今週末の夕方5時に、5名で、席を取りたいんですけど、小林です。",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-20",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-20",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.440203500096686,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0003_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.6189504999201745,
+          "duration_sec": 6.2580625,
+          "speech_sec": 5.9920625
+        }
+      },
+      {
+        "id": "syn-0003_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "あの、今週末の夕方5時に5名で席を取りたいんですけど。小林です。",
+        "input_transcript": "あの、今週末の夕方5時に5名で席を取りたいんですけど、小林です。",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-20",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-20",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1824492500163615,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0003_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.245688457973301,
+          "duration_sec": 6.2580625,
+          "speech_sec": 6.2560625
+        }
+      },
+      {
+        "id": "syn-0004_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for three guests under the name Walker. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for three guests under the name Walker. Thank you.",
+        "gold": {
+          "name": "Walker",
+          "date": "2026-06-19",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "Walker",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1889407919952646,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0004_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 3.847575291991234,
+          "duration_sec": 7.4478125,
+          "speech_sec": 6.9538125
+        }
+      },
+      {
+        "id": "syn-0004_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for three guests under the name Walker. Thank you.",
+        "input_transcript": "Hi! I'd like to make a reservation for this coming Friday at 6 in the evening. It's for three guests under the name Walker. Thank you!",
+        "gold": {
+          "name": "Walker",
+          "date": "2026-06-19",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "Walker",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3099320830078796,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0004_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.8787545840023085,
+          "duration_sec": 7.4478125,
+          "speech_sec": 7.0178125
+        }
+      },
+      {
+        "id": "syn-0005_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table today at 7 PM for four people. It's under Brown.",
+        "input_transcript": "I'd like to reserve a table today at 7 p.m. for four people. It's under brown.",
+        "gold": {
+          "name": "Brown",
+          "date": "2026-06-13",
+          "time": "19:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": null,
+          "date": "2026-06-13",
+          "time": "19:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.048946166993119,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0005_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.447315791039728,
+          "duration_sec": 4.605625,
+          "speech_sec": 4.439625
+        }
+      },
+      {
+        "id": "syn-0005_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table today at 7 PM for four people. It's under Brown.",
+        "input_transcript": "I'd like to reserve a table today at 7 p.m. for four people. It's underground.",
+        "gold": {
+          "name": "Brown",
+          "date": "2026-06-13",
+          "time": "19:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": null,
+          "date": "2026-06-13",
+          "time": "19:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3638759170426056,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0005_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.125,
+          "asr_latency_sec": 7.16565920796711,
+          "duration_sec": 4.605625,
+          "speech_sec": 4.571625
+        }
+      },
+      {
+        "id": "syn-0006_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for tomorrow at 6 in the evening. It's for four people under the name Johnson. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for tomorrow at six in the evening. It's for four people under the name Johnson. Thank you.",
+        "gold": {
+          "name": "Johnson",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Johnson",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.129047791007906,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0006_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.041666666666666664,
+          "asr_latency_sec": 6.057120792102069,
+          "duration_sec": 7.192375,
+          "speech_sec": 6.698375
+        }
+      },
+      {
+        "id": "syn-0006_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for tomorrow at 6 in the evening. It's for four people under the name Johnson. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for tomorrow at 6 in the evening. It's for four people under the name Johnson. Thank you.",
+        "gold": {
+          "name": "Johnson",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Johnson",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.008996917051263,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0006_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 6.330044332891703,
+          "duration_sec": 7.192375,
+          "speech_sec": 6.926375
+        }
+      },
+      {
+        "id": "syn-0007_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "あの、今度の日曜日の夜7時に5名で席を取りたいんですけど。山本です。",
+        "input_transcript": "あの、今度の日曜日の夜7時に、5名で、席を取りたいんですけど、山本です。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2544486250262707,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0007_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 5.674811124918051,
+          "duration_sec": 6.3741875,
+          "speech_sec": 6.3721875
+        }
+      },
+      {
+        "id": "syn-0007_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "あの、今度の日曜日の夜7時に5名で席を取りたいんですけど。山本です。",
+        "input_transcript": "あの、今度の日曜日の夜7時に5名で席を取りたいんですけど、山本です。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2413930000038818,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0007_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 5.949859958025627,
+          "duration_sec": 6.3741875,
+          "speech_sec": 6.3721875
+        }
+      },
+      {
+        "id": "syn-0008_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今度の金曜日の夕方5時、5名です。名前は小林でお願いします。",
+        "input_transcript": "予約を、お願いしたくて、今度の金曜日の夕方5時、5名です。 名前は、小林でお願いします。",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3997262499760836,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0008_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 6.284019083017483,
+          "duration_sec": 7.8088125,
+          "speech_sec": 7.3808125
+        }
+      },
+      {
+        "id": "syn-0008_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今度の金曜日の夕方5時、5名です。名前は小林でお願いします。",
+        "input_transcript": "予約をお願いしたくて、今度の金曜日の夕方5時、5名で、名前は小林でお願いします。",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3452486670576036,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0008_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.02702702702702703,
+          "asr_latency_sec": 5.483282250002958,
+          "duration_sec": 7.8088125,
+          "speech_sec": 7.6448125
+        }
+      },
+      {
+        "id": "syn-0009_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "あの、今度の日曜日の夜6時にお一人で席を取りたいんですけど。佐藤です。",
+        "input_transcript": "あの、今度の日曜日の夜6時に、お一人で、席を取りたいんですけど、佐藤です。",
+        "gold": {
+          "name": "佐藤",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "佐藤",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2289881670149043,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0009_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.776085124933161,
+          "duration_sec": 6.3045,
+          "speech_sec": 6.1705
+        }
+      },
+      {
+        "id": "syn-0009_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "あの、今度の日曜日の夜6時にお一人で席を取りたいんですけど。佐藤です。",
+        "input_transcript": "あの、今度の日曜日の夜6時にお一人で席を取りたいんですけど、佐藤です。",
+        "gold": {
+          "name": "佐藤",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "佐藤",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.22861195798032,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0009_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 6.9816264159744605,
+          "duration_sec": 6.3045,
+          "speech_sec": 6.3025
+        }
+      },
+      {
+        "id": "syn-0010_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "もしもし、3日後の夜7時半に予約をお願いしたいのですが。6名でお願いします。名前は佐藤です。よろしくお願いします。",
+        "input_transcript": "もしもし、3日後の夜7時半に、予約をお願いしたいのですが、6名でお願いします。名前は佐藤です。よろしくお願いします。",
+        "gold": {
+          "name": "佐藤",
+          "date": "2026-06-16",
+          "time": "19:30",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "佐藤",
+          "date": "2026-06-16",
+          "time": "19:30:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.226551790954545,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0010_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 5.773131416994147,
+          "duration_sec": 10.015375,
+          "speech_sec": 9.619375
+        }
+      },
+      {
+        "id": "syn-0010_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "もしもし、3日後の夜7時半に予約をお願いしたいのですが。6名でお願いします。名前は佐藤です。よろしくお願いします。",
+        "input_transcript": "もしもし、三日後の夜7時半に予約をお願いしたいのですが、6名でお願いします。名前は佐藤です。よろしくお願いします。",
+        "gold": {
+          "name": "佐藤",
+          "date": "2026-06-16",
+          "time": "19:30",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "佐藤",
+          "date": "2026-06-16",
+          "time": "19:30:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.271242875023745,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0010_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.019230769230769232,
+          "asr_latency_sec": 5.606070625013672,
+          "duration_sec": 10.015375,
+          "speech_sec": 9.719375
+        }
+      },
+      {
+        "id": "syn-0011_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "吉田と申します。今度の金曜日の夜7時半に3名で予約できますか?",
+        "input_transcript": "吉田と申します。今度の金曜日の夜7時半に、3名で予約できますか?",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-19",
+          "time": "19:30",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-19",
+          "time": "19:30:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.215989916003309,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0011_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.808968791970983,
+          "duration_sec": 6.276375,
+          "speech_sec": 6.016375
+        }
+      },
+      {
+        "id": "syn-0011_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "吉田と申します。今度の金曜日の夜7時半に3名で予約できますか?",
+        "input_transcript": "吉田と申島、今度の金曜日の夜7時半に、3名で予約できますか?",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-19",
+          "time": "19:30",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "申島 吉田",
+          "date": "2026-06-19",
+          "time": "19:30:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.365126374992542,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0011_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.10344827586206896,
+          "asr_latency_sec": 4.393390916986391,
+          "duration_sec": 6.276375,
+          "speech_sec": 5.952375
+        }
+      },
+      {
+        "id": "syn-0012_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "もしもし、明後日の夜7時半に予約をお願いしたいのですが。4名でお願いします。名前は山本です。よろしくお願いします。",
+        "input_transcript": "もしもし、朝っての夜7時半に、予約をお願いしたいのですが、4名でお願いします。名前は山本です。よろしくお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-15",
+          "time": "19:30",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-13",
+          "time": "19:30:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1679717079969123,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0012_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.057692307692307696,
+          "asr_latency_sec": 4.663473124965094,
+          "duration_sec": 10.201125,
+          "speech_sec": 9.837125
+        }
+      },
+      {
+        "id": "syn-0012_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "もしもし、明後日の夜7時半に予約をお願いしたいのですが。4名でお願いします。名前は山本です。よろしくお願いします。",
+        "input_transcript": "もしもし、明かっての夜7時半に予約をお願いしたいのですが、4名でお願いします。名前は山本です。よろしくお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-15",
+          "time": "19:30",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-13",
+          "time": "19:30:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1549289169488475,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0012_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.057692307692307696,
+          "asr_latency_sec": 5.684440665994771,
+          "duration_sec": 10.201125,
+          "speech_sec": 9.809125
+        }
+      },
+      {
+        "id": "syn-0013_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "もしもし、3日後の夕方5時に予約をお願いしたいのですが。2名でお願いします。名前は吉田です。よろしくお願いします。",
+        "input_transcript": "もしもし、3日後の夕方5時に予約をお願いしたいのですが、2名でお願いします。名前は吉田です。よろしくお願いします。",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-16",
+          "time": "17:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-16",
+          "time": "17:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2410546670434996,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0013_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.857921875081956,
+          "duration_sec": 9.7483125,
+          "speech_sec": 9.4163125
+        }
+      },
+      {
+        "id": "syn-0013_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "もしもし、3日後の夕方5時に予約をお願いしたいのですが。2名でお願いします。名前は吉田です。よろしくお願いします。",
+        "input_transcript": "もしもし、3日後の夕方5時に予約をお願いしたいので、が、2名でお願いします。 名前は吉田で、よろしくお願いします。",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-16",
+          "time": "17:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-16",
+          "time": "17:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1718064170563594,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0013_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.038461538461538464,
+          "asr_latency_sec": 4.2892034579999745,
+          "duration_sec": 9.7483125,
+          "speech_sec": 9.4523125
+        }
+      },
+      {
+        "id": "syn-0014_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "3日後、2名で予約をお願いします。時間はお昼の12時でお願いします。渡辺と申します。",
+        "input_transcript": "3日後、2名で予約をお願いします。 時間は、お昼の12時でお願いします。 渡辺と申します。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-16",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-16",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.257322291028686,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0014_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.546161790960468,
+          "duration_sec": 7.739875,
+          "speech_sec": 7.443875
+        }
+      },
+      {
+        "id": "syn-0014_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "3日後、2名で予約をお願いします。時間はお昼の12時でお願いします。渡辺と申します。",
+        "input_transcript": "三日後、二名で予約をお願いしま、時間はお昼の十二時でお願いしま、渡辺と申します。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-16",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-16",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3064394999528304,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0014_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.15789473684210525,
+          "asr_latency_sec": 4.819182457984425,
+          "duration_sec": 7.739875,
+          "speech_sec": 7.315875
+        }
+      },
+      {
+        "id": "syn-0015_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for this coming Friday, 1 PM, four people? Name's Martin.",
+        "input_transcript": "Could I get a reservation for this coming Friday, 1 p.m. For people, names Martin.",
+        "gold": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "13:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "13:00:00",
+          "party_size": null
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": false
+        },
+        "extraction_latency_sec": 2.2047278749523684,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0015_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.06666666666666667,
+          "asr_latency_sec": 4.562091542058624,
+          "duration_sec": 5.547625,
+          "speech_sec": 5.117625
+        }
+      },
+      {
+        "id": "syn-0015_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for this coming Friday, 1 PM, four people? Name's Martin.",
+        "input_transcript": "How could I get a reservation for this coming Friday, 1 p.m., 4 p.m., Names Martin.",
+        "gold": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "13:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "13:00:00",
+          "party_size": null
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": false
+        },
+        "extraction_latency_sec": 2.2210348749067634,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0015_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.2,
+          "asr_latency_sec": 4.5676128750201315,
+          "duration_sec": 5.547625,
+          "speech_sec": 5.349625
+        }
+      },
+      {
+        "id": "syn-0016_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table today at 1 PM for four people. It's under Martin.",
+        "input_transcript": "I'd like to reserve a table today at 1 p.m. for four people. It's under Martin.",
+        "gold": {
+          "name": "Martin",
+          "date": "2026-06-13",
+          "time": "13:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Martin",
+          "date": "2026-06-13",
+          "time": "13:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.012939458945766,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0016_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 4.324159000068903,
+          "duration_sec": 4.51275,
+          "speech_sec": 4.37875
+        }
+      },
+      {
+        "id": "syn-0016_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table today at 1 PM for four people. It's under Martin.",
+        "input_transcript": "I'd like to reserve a table today at 1 p.m. for four people. It's under Martin.",
+        "gold": {
+          "name": "Martin",
+          "date": "2026-06-13",
+          "time": "13:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Martin",
+          "date": "2026-06-13",
+          "time": "13:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 1.8579093749867752,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0016_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.5214029590133578,
+          "duration_sec": 4.51275,
+          "speech_sec": 4.51075
+        }
+      },
+      {
+        "id": "syn-0017_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "あの、明日の夜8時に4名で席を取りたいんですけど。加藤です。",
+        "input_transcript": "あの、明日の夜8時に、4名で、席を取りたいんですけど、加藤です。",
+        "gold": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "20:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "20:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.061735332943499,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0017_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.6241347920149565,
+          "duration_sec": 5.457,
+          "speech_sec": 5.291
+        }
+      },
+      {
+        "id": "syn-0017_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "あの、明日の夜8時に4名で席を取りたいんですけど。加藤です。",
+        "input_transcript": "あの、明日の夜8時に4名で席を取りたいんですけど、加藤です。",
+        "gold": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "20:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "20:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.108242042013444,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0017_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.4906704999739304,
+          "duration_sec": 5.457,
+          "speech_sec": 5.455
+        }
+      },
+      {
+        "id": "syn-0018_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for three guests this coming Friday at 6 in the evening? The name is Martin.",
+        "input_transcript": "Hello. Can I book a table for three guests this coming Friday at six in the evening? The name is Martin.",
+        "gold": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1359380839858204,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0018_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.047619047619047616,
+          "asr_latency_sec": 2.722481374978088,
+          "duration_sec": 5.789625,
+          "speech_sec": 5.395625
+        }
+      },
+      {
+        "id": "syn-0018_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for three guests this coming Friday at 6 in the evening? The name is Martin.",
+        "input_transcript": "Hello, can I book a table for three guests this coming Friday at six in the evening? The name is Martin.",
+        "gold": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "Martin",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1295963749289513,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0018_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.047619047619047616,
+          "asr_latency_sec": 2.5027187910163775,
+          "duration_sec": 5.789625,
+          "speech_sec": 5.491625
+        }
+      },
+      {
+        "id": "syn-0019_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "明日、2名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+        "input_transcript": "明日、2名で予約をお願いします。 時間は、お昼の12時でお願いします。 鈴木と申します。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-14",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-14",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.249071875005029,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0019_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.7846883330494165,
+          "duration_sec": 7.327,
+          "speech_sec": 7.093
+        }
+      },
+      {
+        "id": "syn-0019_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "明日、2名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+        "input_transcript": "明日、2名で予約をお願いします。時間は、お昼の12時でお願いします。続きと申します。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-14",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": null,
+          "date": "2026-06-14",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 1.9701775830471888,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0019_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.05405405405405406,
+          "asr_latency_sec": 2.6736677499720827,
+          "duration_sec": 7.327,
+          "speech_sec": 6.805
+        }
+      },
+      {
+        "id": "syn-0020_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for one person this coming Friday at 1 PM? The name is Clark.",
+        "input_transcript": "Hello. Can I book a table for one person this coming Friday at 1pm? The name is Clark.",
+        "gold": {
+          "name": "Clark",
+          "date": "2026-06-19",
+          "time": "13:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Clark",
+          "date": "2026-06-19",
+          "time": "13:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1098192089702934,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0020_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.10526315789473684,
+          "asr_latency_sec": 2.722617832943797,
+          "duration_sec": 5.5458125,
+          "speech_sec": 5.1838125
+        }
+      },
+      {
+        "id": "syn-0020_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for one person this coming Friday at 1 PM? The name is Clark.",
+        "input_transcript": "Hello, can I book a table for one person this coming Friday at 1 p.m.? The name is Clark.",
+        "gold": {
+          "name": "Clark",
+          "date": "2026-06-19",
+          "time": "13:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Clark",
+          "date": "2026-06-19",
+          "time": "13:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.099588458891958,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0020_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.7031725000124425,
+          "duration_sec": 5.5458125,
+          "speech_sec": 5.2798125
+        }
+      },
+      {
+        "id": "syn-0021_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "鈴木と申します。明後日の夕方5時にお一人で予約できますか?",
+        "input_transcript": "鈴木と申します。 朝、手の夕方午時に、お一人で、予約できますか?",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-15",
+          "time": "17:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-13",
+          "time": "12:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": false,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2151147910626605,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0021_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.14814814814814814,
+          "asr_latency_sec": 2.843625499983318,
+          "duration_sec": 5.373375,
+          "speech_sec": 5.143375
+        }
+      },
+      {
+        "id": "syn-0021_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "鈴木と申します。明後日の夕方5時にお一人で予約できますか?",
+        "input_transcript": "鈴木と申します。あさっての夕方ごじにお一人で予約できますか?",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-15",
+          "time": "17:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": null,
+          "time": null,
+          "party_size": null
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": false,
+          "party_size": false
+        },
+        "extraction_latency_sec": 1.9572657500393689,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0021_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.2222222222222222,
+          "asr_latency_sec": 2.800862625008449,
+          "duration_sec": 5.373375,
+          "speech_sec": 5.111375
+        }
+      },
+      {
+        "id": "syn-0022_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "あの、今週末の夕方5時に5名で席を取りたいんですけど。吉田です。",
+        "input_transcript": "あの、今週末の夕方5時に、5名で、席を取りたいんですけど、吉田です。",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-20",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-20",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1473382910480723,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0022_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.9767303749686107,
+          "duration_sec": 6.049125,
+          "speech_sec": 5.847125
+        }
+      },
+      {
+        "id": "syn-0022_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "あの、今週末の夕方5時に5名で席を取りたいんですけど。吉田です。",
+        "input_transcript": "あの、本週末の夕方5時に5名で、席を取りたいんですけど、吉田です。",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-20",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-20",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.162830041954294,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0022_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.034482758620689655,
+          "asr_latency_sec": 2.946454375050962,
+          "duration_sec": 6.049125,
+          "speech_sec": 6.047125
+        }
+      },
+      {
+        "id": "syn-0023_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夜7時半、8名です。名前は加藤でお願いします。",
+        "input_transcript": "予約をお願いしたくて、明日の夜7時半、8名です。 名前は、加藤でお願いします。",
+        "gold": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1735341250896454,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0023_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 3.0839132079854608,
+          "duration_sec": 6.8335625,
+          "speech_sec": 6.5695625
+        }
+      },
+      {
+        "id": "syn-0023_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夜7時半、8名です。名前は加藤でお願いします。",
+        "input_transcript": "予約をお願いしたくて、明日の夜7時半、8名です。 名前は、加藤でお願いします。",
+        "gold": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "加藤",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 1.9876411670120433,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0023_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 3.3915848749456927,
+          "duration_sec": 6.8335625,
+          "speech_sec": 6.7015625
+        }
+      },
+      {
+        "id": "syn-0024_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for this coming Friday, 7:30 in the evening, six guests? Name's Johnson.",
+        "input_transcript": "Could I get a reservation for this coming Friday, 7.30 in the evening. Six guests, names Johnson.",
+        "gold": {
+          "name": "Johnson",
+          "date": "2026-06-19",
+          "time": "19:30",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Johnson",
+          "date": "2026-06-19",
+          "time": "19:30:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3317136670229957,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0024_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.8675556250382215,
+          "duration_sec": 6.4648125,
+          "speech_sec": 6.0668125
+        }
+      },
+      {
+        "id": "syn-0024_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for this coming Friday, 7:30 in the evening, six guests? Name's Johnson.",
+        "input_transcript": "Could I get a reservation for this coming Friday, 7.30 in the evening. Six guests, names Johnson.",
+        "gold": {
+          "name": "Johnson",
+          "date": "2026-06-19",
+          "time": "19:30",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Johnson",
+          "date": "2026-06-19",
+          "time": "19:30:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.103100624983199,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0024_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.9558321670629084,
+          "duration_sec": 6.4648125,
+          "speech_sec": 5.8428125
+        }
+      },
+      {
+        "id": "syn-0025_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for this coming Sunday, 8 PM, eight people? Name's Young.",
+        "input_transcript": "Could I get a reservation for this coming Sunday? 8 p.m., 8 people, names young.",
+        "gold": {
+          "name": "Young",
+          "date": "2026-06-14",
+          "time": "20:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": null,
+          "date": "2026-06-14",
+          "time": "20:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.153323999955319,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0025_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.06666666666666667,
+          "asr_latency_sec": 2.613735332968645,
+          "duration_sec": 5.2225625,
+          "speech_sec": 4.8885625
+        }
+      },
+      {
+        "id": "syn-0025_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for this coming Sunday, 8 PM, eight people? Name's Young.",
+        "input_transcript": "How could I get a reservation for this coming Sunday? 8pm, 8 people, names young.",
+        "gold": {
+          "name": "Young",
+          "date": "2026-06-14",
+          "time": "20:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": null,
+          "date": "2026-06-14",
+          "time": "20:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1802128329873085,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0025_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.26666666666666666,
+          "asr_latency_sec": 2.57004291692283,
+          "duration_sec": 5.2225625,
+          "speech_sec": 5.1885625
+        }
+      },
+      {
+        "id": "syn-0026_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for in three days, 6 in the evening, four people? Name's Smith.",
+        "input_transcript": "Could I get a reservation for in three days? Six in the evening. Four people? Name's Smith.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-16",
+          "time": "18:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-16",
+          "time": "18:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1041329170111567,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0026_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.058823529411764705,
+          "asr_latency_sec": 2.637696250109002,
+          "duration_sec": 5.4315625,
+          "speech_sec": 5.0015625
+        }
+      },
+      {
+        "id": "syn-0026_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for in three days, 6 in the evening, four people? Name's Smith.",
+        "input_transcript": "How could I get a reservation for in three days, six in the evening, four people, named Smith?",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-16",
+          "time": "18:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-16",
+          "time": "18:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.138063665945083,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0026_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.17647058823529413,
+          "asr_latency_sec": 2.2959611249389127,
+          "duration_sec": 5.4315625,
+          "speech_sec": 5.0055625
+        }
+      },
+      {
+        "id": "syn-0027_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for one person under the name Lee. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for one person under the name Lee. Thank you.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-19",
+          "time": "18:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.187895584036596,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0027_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.539530041976832,
+          "duration_sec": 7.378125,
+          "speech_sec": 6.852125
+        }
+      },
+      {
+        "id": "syn-0027_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for one person under the name Lee. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for one person under the name Lee. Thank you.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-19",
+          "time": "18:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 1.9730765420245007,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0027_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.501099249930121,
+          "duration_sec": 7.378125,
+          "speech_sec": 7.112125
+        }
+      },
+      {
+        "id": "syn-0028_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table tomorrow at 6 in the evening for two people. It's under Smith.",
+        "input_transcript": "I'd like to reserve a table tomorrow at six in the evening for two people. It's under Smith.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.0381029159761965,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0028_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.05555555555555555,
+          "asr_latency_sec": 2.2661536670057103,
+          "duration_sec": 4.82625,
+          "speech_sec": 4.69225
+        }
+      },
+      {
+        "id": "syn-0028_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table tomorrow at 6 in the evening for two people. It's under Smith.",
+        "input_transcript": "I'd like to reserve a table tomorrow at six in the evening for two people, it's under Smith.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.0106776660541072,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0028_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.05555555555555555,
+          "asr_latency_sec": 2.2460777920205146,
+          "duration_sec": 4.82625,
+          "speech_sec": 4.79225
+        }
+      },
+      {
+        "id": "syn-0029_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今週末のお昼の12時、お一人です。名前は田中でお願いします。",
+        "input_transcript": "予約を、お願いしたくて、今週末のお昼の12時、お一人です。 名前は、田中でお願いします。",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "12:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "12:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2188542500371113,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0029_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.6303680420387536,
+          "duration_sec": 7.48375,
+          "speech_sec": 7.21975
+        }
+      },
+      {
+        "id": "syn-0029_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今週末のお昼の12時、お一人です。名前は田中でお願いします。",
+        "input_transcript": "予約をお願いしたくて、今週末のお昼の12時、お一人で、名前は田中でお願いします。",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "12:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "12:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.243085333961062,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0029_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.02702702702702703,
+          "asr_latency_sec": 2.6035527089843526,
+          "duration_sec": 7.48375,
+          "speech_sec": 7.38375
+        }
+      },
+      {
+        "id": "syn-0030_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夜7時、お一人です。名前は山本でお願いします。",
+        "input_transcript": "予約を、お願いしたくて、明日の夜7時、お一人です。名前は、山本でお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1286780419759452,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0030_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.579792874981649,
+          "duration_sec": 6.5898125,
+          "speech_sec": 6.4578125
+        }
+      },
+      {
+        "id": "syn-0030_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夜7時、お一人です。名前は山本でお願いします。",
+        "input_transcript": "予約をお願いしたくて、明日の夜7時、おひとりです。 名前は山本でお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.076559624983929,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0030_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.09090909090909091,
+          "asr_latency_sec": 2.569584249984473,
+          "duration_sec": 6.5898125,
+          "speech_sec": 6.4578125
+        }
+      },
+      {
+        "id": "syn-0031_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for today, noon, eight people? Name's Lee.",
+        "input_transcript": "Could I get a reservation for today? Noon, 8 people, names Lee.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-13",
+          "time": "12:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-13",
+          "time": "12:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.0346061249729246,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0031_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.08333333333333333,
+          "asr_latency_sec": 2.1241017499705777,
+          "duration_sec": 4.29375,
+          "speech_sec": 3.89575
+        }
+      },
+      {
+        "id": "syn-0031_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for today, noon, eight people? Name's Lee.",
+        "input_transcript": "How could I get a reservation for today, noon, eight people, names lead?",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-13",
+          "time": "12:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": null,
+          "date": "2026-06-13",
+          "time": "12:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.034272124990821,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0031_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.16666666666666666,
+          "asr_latency_sec": 2.2480250409571454,
+          "duration_sec": 4.29375,
+          "speech_sec": 4.25975
+        }
+      },
+      {
+        "id": "syn-0032_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夜7時半、3名です。名前は山本でお願いします。",
+        "input_transcript": "予約を、お願いしたくて、明日の夜7時半、3名です。 名前は、山本でお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2024365419056267,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0032_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 6.9540637920144945,
+          "duration_sec": 6.9496875,
+          "speech_sec": 6.6856875
+        }
+      },
+      {
+        "id": "syn-0032_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夜7時半、3名です。名前は山本でお願いします。",
+        "input_transcript": "予約をお願いしたくて、明日の夜7時半、3名で、名前は山本でお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1220935420133173,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0032_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.030303030303030304,
+          "asr_latency_sec": 3.358396708033979,
+          "duration_sec": 6.9496875,
+          "speech_sec": 6.8176875
+        }
+      },
+      {
+        "id": "syn-0033_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for the day after tomorrow, 6 in the evening, one person? Name's Smith.",
+        "input_transcript": "Could I get a reservation for the day after tomorrow? 6 in the evening. 1 person, named Smith.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-15",
+          "time": "18:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-15",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.147915916983038,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0033_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.1111111111111111,
+          "asr_latency_sec": 2.840246625011787,
+          "duration_sec": 5.8843125,
+          "speech_sec": 5.4543125
+        }
+      },
+      {
+        "id": "syn-0033_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for the day after tomorrow, 6 in the evening, one person? Name's Smith.",
+        "input_transcript": "How could I get a reservation for the day after tomorrow, six in the evening? One person? Name's Smith.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-15",
+          "time": "18:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": null,
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.0712497499771416,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0033_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.1111111111111111,
+          "asr_latency_sec": 2.338339417008683,
+          "duration_sec": 5.8843125,
+          "speech_sec": 5.6863125
+        }
+      },
+      {
+        "id": "syn-0034_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for in three days at 6 in the evening. It's for four people under the name Garcia. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for in three days at six in the evening. It's for four people under the name Garcia. Thank you.",
+        "gold": {
+          "name": "Garcia",
+          "date": "2026-06-16",
+          "time": "18:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Garcia",
+          "date": "2026-06-16",
+          "time": "18:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.342821415979415,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0034_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.038461538461538464,
+          "asr_latency_sec": 2.4220657909754664,
+          "duration_sec": 7.4478125,
+          "speech_sec": 6.9538125
+        }
+      },
+      {
+        "id": "syn-0034_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for in three days at 6 in the evening. It's for four people under the name Garcia. Thank you.",
+        "input_transcript": "Hi! I'd like to make a reservation for in three days of six in the evening. It's for four people under the name Garcia. Thank you!",
+        "gold": {
+          "name": "Garcia",
+          "date": "2026-06-16",
+          "time": "18:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "Garcia",
+          "date": "2026-06-16",
+          "time": "18:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3295804579975083,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0034_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.07692307692307693,
+          "asr_latency_sec": 2.292083750013262,
+          "duration_sec": 7.4478125,
+          "speech_sec": 7.0178125
+        }
+      },
+      {
+        "id": "syn-0035_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "あの、明日のお昼の12時に6名で席を取りたいんですけど。山本です。",
+        "input_transcript": "あの、明日のお昼の12時に、6名で、席を取りたいんですけど、山本です。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "12:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "12:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.020077000022866,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0035_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.456316833035089,
+          "duration_sec": 5.85175,
+          "speech_sec": 5.84975
+        }
+      },
+      {
+        "id": "syn-0035_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "あの、明日のお昼の12時に6名で席を取りたいんですけど。山本です。",
+        "input_transcript": "あの、足のお昼の12時に、6名で、席を取りたいんですけど、山本です。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "12:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-13",
+          "time": "12:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.069957375060767,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0035_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.06666666666666667,
+          "asr_latency_sec": 2.34857433300931,
+          "duration_sec": 5.85175,
+          "speech_sec": 5.84975
+        }
+      },
+      {
+        "id": "syn-0036_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。3日後の夜8時、6名です。名前は鈴木でお願いします。",
+        "input_transcript": "予約を、お願いしたくて、3日後の夜8時、6名です。名前は、鈴木でお願いします。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "20:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "20:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3661255829501897,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0036_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.526724416995421,
+          "duration_sec": 6.914875,
+          "speech_sec": 6.814875
+        }
+      },
+      {
+        "id": "syn-0036_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。3日後の夜8時、6名です。名前は鈴木でお願いします。",
+        "input_transcript": "予約をお願いしたくて、3日後の夜8時、6名で、名前は鈴木でお願いします。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "20:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "20:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3396705000195652,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0036_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.030303030303030304,
+          "asr_latency_sec": 2.585284291068092,
+          "duration_sec": 6.914875,
+          "speech_sec": 6.782875
+        }
+      },
+      {
+        "id": "syn-0037_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for a party of five today at 1 PM? The name is Wilson.",
+        "input_transcript": "Hello. Can I book a table for a party of five today at 1 p.m.? The name is Wilson.",
+        "gold": {
+          "name": "Wilson",
+          "date": "2026-06-13",
+          "time": "13:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "Wilson",
+          "date": "2026-06-13",
+          "time": "13:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.0418667920166627,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0037_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.3164506250759587,
+          "duration_sec": 5.1975,
+          "speech_sec": 4.8355
+        }
+      },
+      {
+        "id": "syn-0037_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for a party of five today at 1 PM? The name is Wilson.",
+        "input_transcript": "Hello, can I book a table for a party of five today at one p.m.? The name is Wilson.",
+        "gold": {
+          "name": "Wilson",
+          "date": "2026-06-13",
+          "time": "13:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "Wilson",
+          "date": "2026-06-13",
+          "time": "13:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.0514122910099104,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0037_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.05263157894736842,
+          "asr_latency_sec": 2.3295191660290584,
+          "duration_sec": 5.1975,
+          "speech_sec": 4.9635
+        }
+      },
+      {
+        "id": "syn-0038_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table this coming Friday at 7 PM for one person. It's under Young.",
+        "input_transcript": "I'd like to reserve a table this coming Friday at 7 p.m. for one person, it's under Young.",
+        "gold": {
+          "name": "Young",
+          "date": "2026-06-19",
+          "time": "19:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Young",
+          "date": "2026-06-19",
+          "time": "19:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1750560000073165,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0038_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.2198855419410393,
+          "duration_sec": 5.1513125,
+          "speech_sec": 5.0173125
+        }
+      },
+      {
+        "id": "syn-0038_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table this coming Friday at 7 PM for one person. It's under Young.",
+        "input_transcript": "I'd like to reserve a table this coming Friday at 7pm for one person. It's under Young.",
+        "gold": {
+          "name": "Young",
+          "date": "2026-06-19",
+          "time": "19:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Young",
+          "date": "2026-06-19",
+          "time": "19:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1168767089257017,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0038_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.1111111111111111,
+          "asr_latency_sec": 2.2520684999180958,
+          "duration_sec": 5.1513125,
+          "speech_sec": 5.1493125
+        }
+      },
+      {
+        "id": "syn-0039_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今度の金曜日の夜8時、お一人です。名前は渡辺でお願いします。",
+        "input_transcript": "予約を、お願いしたくて、今度の金曜日の夜8時、お一人です。名前は、渡辺でお願いします。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-19",
+          "time": "20:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": false,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3923903750255704,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0039_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.657848707982339,
+          "duration_sec": 7.6695,
+          "speech_sec": 7.4055
+        }
+      },
+      {
+        "id": "syn-0039_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今度の金曜日の夜8時、お一人です。名前は渡辺でお願いします。",
+        "input_transcript": "予約をお願いしたくて、今度の金曜日の夜8時、お一人で、名前は渡辺でお願いします。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-19",
+          "time": "20:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-19",
+          "time": "18:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": false,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.39159966702573,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0039_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.02702702702702703,
+          "asr_latency_sec": 2.574783749994822,
+          "duration_sec": 7.6695,
+          "speech_sec": 7.5375
+        }
+      },
+      {
+        "id": "syn-0040_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table the day after tomorrow at 1 PM for three guests. It's under Lee.",
+        "input_transcript": "I'd like to reserve a table the day after tomorrow at 1 p.m. for three guests. It's under Lee.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-15",
+          "time": "13:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-15",
+          "time": "13:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1150675419485196,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0040_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.3035736659076065,
+          "duration_sec": 5.2674375,
+          "speech_sec": 5.1334375
+        }
+      },
+      {
+        "id": "syn-0040_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "I'd like to reserve a table the day after tomorrow at 1 PM for three guests. It's under Lee.",
+        "input_transcript": "I'd like to reserve a table the day after tomorrow at 1 p.m. for three guests. It's under league.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-15",
+          "time": "13:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "league",
+          "date": "2026-06-15",
+          "time": "13:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.105352458078414,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0040_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.05263157894736842,
+          "asr_latency_sec": 2.1881781249539927,
+          "duration_sec": 5.2674375,
+          "speech_sec": 4.9094375
+        }
+      },
+      {
+        "id": "syn-0041_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "今度の金曜日、5名で予約をお願いします。時間は午後1時でお願いします。高橋と申します。",
+        "input_transcript": "今度の金曜日、5名で予約をお願いします。 時間は、午後1時でお願いします。 高橋と申します。",
+        "gold": {
+          "name": "高橋",
+          "date": "2026-06-19",
+          "time": "13:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "高橋",
+          "date": "2026-06-19",
+          "time": "13:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.341245000017807,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0041_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.4252215420128778,
+          "duration_sec": 8.180375,
+          "speech_sec": 7.754375
+        }
+      },
+      {
+        "id": "syn-0041_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "今度の金曜日、5名で予約をお願いします。時間は午後1時でお願いします。高橋と申します。",
+        "input_transcript": "今度の金曜日、5名で予約をお願いしま、時間が午後1時でお願いしま、高橋と申します。",
+        "gold": {
+          "name": "高橋",
+          "date": "2026-06-19",
+          "time": "13:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "高橋",
+          "date": "2026-06-19",
+          "time": "13:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.249711957992986,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0041_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.07692307692307693,
+          "asr_latency_sec": 2.4612132080364972,
+          "duration_sec": 8.180375,
+          "speech_sec": 7.562375
+        }
+      },
+      {
+        "id": "syn-0042_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for six guests this coming Sunday at 6 in the evening? The name is Lee.",
+        "input_transcript": "Hello. Can I book a table for six guests this coming Sunday at six in the evening? The name is Lee.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1145781250670552,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0042_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.047619047619047616,
+          "asr_latency_sec": 2.3250327080022544,
+          "duration_sec": 5.6386875,
+          "speech_sec": 5.2766875
+        }
+      },
+      {
+        "id": "syn-0042_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hello, can I book a table for six guests this coming Sunday at 6 in the evening? The name is Lee.",
+        "input_transcript": "Hello, can I book a table for six guests this coming Sunday at six in the evening? The name is Lee.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1902375409845263,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0042_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.047619047619047616,
+          "asr_latency_sec": 2.32985204202123,
+          "duration_sec": 5.6386875,
+          "speech_sec": 5.3726875
+        }
+      },
+      {
+        "id": "syn-0043_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "もしもし、今週末の夜6時に予約をお願いしたいのですが。3名でお願いします。名前は田中です。よろしくお願いします。",
+        "input_transcript": "もしもし、今週末の夜6時に、予約をお願いしたいのですが、3名でお願いします。名前は田中です。よろしくお願いします。",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.242894082912244,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0043_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.9098113749641925,
+          "duration_sec": 10.0501875,
+          "speech_sec": 9.5541875
+        }
+      },
+      {
+        "id": "syn-0043_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "もしもし、今週末の夜6時に予約をお願いしたいのですが。3名でお願いします。名前は田中です。よろしくお願いします。",
+        "input_transcript": "もしもし、今週末の夜6時に予約をお願いしたいのですが、3名でお願いします。名前は田中で、よろしくお願いします。",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "18:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "18:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.22987420798745,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0043_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0196078431372549,
+          "asr_latency_sec": 2.812903332989663,
+          "duration_sec": 10.0501875,
+          "speech_sec": 9.5261875
+        }
+      },
+      {
+        "id": "syn-0044_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "今度の日曜日、4名で予約をお願いします。時間は夕方5時でお願いします。渡辺と申します。",
+        "input_transcript": "今度の日曜日、4名で予約をお願いします。 時間は、夕方5時でお願いします。 渡辺と申します。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-14",
+          "time": "17:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-14",
+          "time": "17:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.429935000021942,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0044_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.9696433329954743,
+          "duration_sec": 8.3776875,
+          "speech_sec": 8.0156875
+        }
+      },
+      {
+        "id": "syn-0044_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "今度の日曜日、4名で予約をお願いします。時間は夕方5時でお願いします。渡辺と申します。",
+        "input_transcript": "本土の日曜日、4名で予約をお願いしま、時間は夕方5時でお願いしま、渡辺と申します。",
+        "gold": {
+          "name": "渡辺",
+          "date": "2026-06-14",
+          "time": "17:00",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "渡辺",
+          "date": "2026-06-14",
+          "time": "17:00:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.390093500027433,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0044_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.10256410256410256,
+          "asr_latency_sec": 2.7931859579402953,
+          "duration_sec": 8.3776875,
+          "speech_sec": 7.7916875
+        }
+      },
+      {
+        "id": "syn-0045_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "あの、今度の金曜日の夜7時に3名で席を取りたいんですけど。小林です。",
+        "input_transcript": "あの、今度の金曜日の夜7時に、3名で、席を取りたいんですけど、小林です。",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "19:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "19:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.295330625027418,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0045_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.6582902499940246,
+          "duration_sec": 6.6760625,
+          "speech_sec": 6.5100625
+        }
+      },
+      {
+        "id": "syn-0045_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "あの、今度の金曜日の夜7時に3名で席を取りたいんですけど。小林です。",
+        "input_transcript": "あの、今度の金曜日の夜7時に、3名で席を取りたいんですけど、小林です。",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "19:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-19",
+          "time": "19:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.214457624941133,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0045_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.4241833329433575,
+          "duration_sec": 6.6760625,
+          "speech_sec": 6.5740625
+        }
+      },
+      {
+        "id": "syn-0046_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "明後日、2名で予約をお願いします。時間はお昼の12時でお願いします。佐藤と申します。",
+        "input_transcript": "朝、で、二名で、予約をお願いします。 時間は、お昼の十二時でお願いします。 佐藤と申します。",
+        "gold": {
+          "name": "佐藤",
+          "date": "2026-06-15",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "佐藤",
+          "date": "2026-06-13",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2189258750295267,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0046_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.15789473684210525,
+          "asr_latency_sec": 2.555505833006464,
+          "duration_sec": 7.605625,
+          "speech_sec": 7.243625
+        }
+      },
+      {
+        "id": "syn-0046_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "明後日、2名で予約をお願いします。時間はお昼の12時でお願いします。佐藤と申します。",
+        "input_transcript": "あさって、二名で予約をお願いしま、時間はお昼の十二時でお願いしま、佐藤と申します。",
+        "gold": {
+          "name": "佐藤",
+          "date": "2026-06-15",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "佐藤",
+          "date": null,
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.3006934999721125,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0046_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.23684210526315788,
+          "asr_latency_sec": 2.482213291921653,
+          "duration_sec": 7.605625,
+          "speech_sec": 7.115625
+        }
+      },
+      {
+        "id": "syn-0047_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "高橋と申します。3日後の午後1時に3名で予約できますか?",
+        "input_transcript": "高橋と申します。3日後の午後1時に、3名で予約できますか?",
+        "gold": {
+          "name": "高橋",
+          "date": "2026-06-16",
+          "time": "13:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "高橋",
+          "date": "2026-06-16",
+          "time": "13:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.14410129096359,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0047_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.2589788329787552,
+          "duration_sec": 5.376875,
+          "speech_sec": 5.146875
+        }
+      },
+      {
+        "id": "syn-0047_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "高橋と申します。3日後の午後1時に3名で予約できますか?",
+        "input_transcript": "高橋と申します、3日後の午後1時に3名で予約できますか?",
+        "gold": {
+          "name": "高橋",
+          "date": "2026-06-16",
+          "time": "13:00",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "高橋",
+          "date": "2026-06-16",
+          "time": "13:00:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.141214416944422,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0047_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.1980053749866784,
+          "duration_sec": 5.376875,
+          "speech_sec": 5.114875
+        }
+      },
+      {
+        "id": "syn-0048_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "田中と申します。今週末の夜7時に8名で予約できますか?",
+        "input_transcript": "田中と申します。今週末の夜7時に、8名で予約できますか?",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "19:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "19:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.190904416027479,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0048_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.1982128330273554,
+          "duration_sec": 5.562625,
+          "speech_sec": 5.204625
+        }
+      },
+      {
+        "id": "syn-0048_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "田中と申します。今週末の夜7時に8名で予約できますか?",
+        "input_transcript": "田中と申します。今週末の夜7時に、8名で予約できますか?",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "19:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-20",
+          "time": "19:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.022132208920084,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0048_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.350917417090386,
+          "duration_sec": 5.562625,
+          "speech_sec": 5.140625
+        }
+      },
+      {
+        "id": "syn-0049_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Friday at 5 PM. It's for eight people under the name Smith. Thank you.",
+        "input_transcript": "Hi! I'd like to make a reservation for this coming Friday at 5 p.m. It's for eight people under the name Smith. Thank you!",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-19",
+          "time": "17:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-19",
+          "time": "17:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1907102080294862,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0049_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.4832482089987025,
+          "duration_sec": 6.9485625,
+          "speech_sec": 6.5545625
+        }
+      },
+      {
+        "id": "syn-0049_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this coming Friday at 5 PM. It's for eight people under the name Smith. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this coming Friday at 5pm. It's for eight people under the name Smith. Thank you.",
+        "gold": {
+          "name": "Smith",
+          "date": "2026-06-19",
+          "time": "17:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "Smith",
+          "date": "2026-06-19",
+          "time": "17:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1892114999936894,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0049_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.08333333333333333,
+          "asr_latency_sec": 2.403955958900042,
+          "duration_sec": 6.9485625,
+          "speech_sec": 6.6865625
+        }
+      },
+      {
+        "id": "syn-0050_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for in three days, 8 PM, six guests? Name's Lee.",
+        "input_transcript": "Could I get a reservation for in 3 days? 8 p.m. 6 guests, names Lee.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-16",
+          "time": "20:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "Lee",
+          "date": null,
+          "time": "20:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.400975957978517,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0050_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.13333333333333333,
+          "asr_latency_sec": 2.1708114159991965,
+          "duration_sec": 5.199375,
+          "speech_sec": 4.833375
+        }
+      },
+      {
+        "id": "syn-0050_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for in three days, 8 PM, six guests? Name's Lee.",
+        "input_transcript": "How could I get a reservation for in three days? 8pm, six guests, names leave.",
+        "gold": {
+          "name": "Lee",
+          "date": "2026-06-16",
+          "time": "20:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": null,
+          "date": "2026-06-16",
+          "time": "20:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.018674958962947,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0050_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.26666666666666666,
+          "asr_latency_sec": 2.2234424999915063,
+          "duration_sec": 5.199375,
+          "speech_sec": 4.641375
+        }
+      },
+      {
+        "id": "syn-0051_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "もしもし、明日の夜6時に予約をお願いしたいのですが。8名でお願いします。名前は山本です。よろしくお願いします。",
+        "input_transcript": "もしもし、明日の夜6時に、予約をお願いしたいのですが、8名でお願いします。名前は山本です。よろしくお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1341682079946622,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0051_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.620003208052367,
+          "duration_sec": 9.5741875,
+          "speech_sec": 9.2101875
+        }
+      },
+      {
+        "id": "syn-0051_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "もしもし、明日の夜6時に予約をお願いしたいのですが。8名でお願いします。名前は山本です。よろしくお願いします。",
+        "input_transcript": "もしもし、明日の夜6時に予約をお願いしたいのですが、8名でお願いします。 名前は山本です。よろしくお願いします。",
+        "gold": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "18:00",
+          "party_size": 8
+        },
+        "prediction": {
+          "name": "山本",
+          "date": "2026-06-14",
+          "time": "18:00:00",
+          "party_size": 8
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.132807124988176,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0051_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.4616817079950124,
+          "duration_sec": 9.5741875,
+          "speech_sec": 9.2781875
+        }
+      },
+      {
+        "id": "syn-0052_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "小林と申します。今度の日曜日の夜7時半に4名で予約できますか?",
+        "input_transcript": "小林と申します。今度の日曜日の夜7時半に、4名で予約できますか?",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.31189983303193,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0052_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.3260067909723148,
+          "duration_sec": 6.3111875,
+          "speech_sec": 5.9851875
+        }
+      },
+      {
+        "id": "syn-0052_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "小林と申します。今度の日曜日の夜7時半に4名で予約できますか?",
+        "input_transcript": "小林と申します。今度の日曜日の夜7時半に4名で予約できますか?",
+        "gold": {
+          "name": "小林",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 4
+        },
+        "prediction": {
+          "name": "小林",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 4
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.199657915974967,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0052_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.285140166990459,
+          "duration_sec": 6.3111875,
+          "speech_sec": 5.8891875
+        }
+      },
+      {
+        "id": "syn-0053_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "今度の金曜日、6名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+        "input_transcript": "今度の金曜日、6名で、予約をお願いします。時間は、お昼の12時でお願いします。鈴木と申します。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-19",
+          "time": "12:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-19",
+          "time": "12:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.438361833919771,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0053_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.5893899579532444,
+          "duration_sec": 8.5055,
+          "speech_sec": 8.1435
+        }
+      },
+      {
+        "id": "syn-0053_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "今度の金曜日、6名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+        "input_transcript": "今度の金曜日、6名で予約をお願いします。時間はお昼の12時でお願いします。続きと申します。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-19",
+          "time": "12:00",
+          "party_size": 6
+        },
+        "prediction": {
+          "name": null,
+          "date": "2026-06-19",
+          "time": "12:00:00",
+          "party_size": 6
+        },
+        "correct": {
+          "name": false,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2193644590443,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0053_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.04878048780487805,
+          "asr_latency_sec": 2.4903909999411553,
+          "duration_sec": 8.5055,
+          "speech_sec": 7.9195
+        }
+      },
+      {
+        "id": "syn-0054_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for tomorrow, noon, two people? Name's Walker.",
+        "input_transcript": "Could I get a reservation for tomorrow? Noon Two people? Name's Walker",
+        "gold": {
+          "name": "Walker",
+          "date": "2026-06-14",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "Walker",
+          "date": "2026-06-14",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1105127499904484,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0054_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.3006406660424545,
+          "duration_sec": 4.514375,
+          "speech_sec": 4.084375
+        }
+      },
+      {
+        "id": "syn-0054_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Could I get a reservation for tomorrow, noon, two people? Name's Walker.",
+        "input_transcript": "How could I get a reservation for tomorrow, noon, two people, names Walker?",
+        "gold": {
+          "name": "Walker",
+          "date": "2026-06-14",
+          "time": "12:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "Walker",
+          "date": "2026-06-14",
+          "time": "12:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.0714261250104755,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0054_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.08333333333333333,
+          "asr_latency_sec": 2.0625537500018254,
+          "duration_sec": 4.514375,
+          "speech_sec": 4.316375
+        }
+      },
+      {
+        "id": "syn-0055_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今度の日曜日の夜7時半、2名です。名前は吉田でお願いします。",
+        "input_transcript": "予約を、お願いしたくて、今度の日曜日の夜7時半、2名です。名前は、吉田でお願いします。",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-14",
+          "time": "19:30:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.356700582895428,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0055_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.5168237920152023,
+          "duration_sec": 7.6695,
+          "speech_sec": 7.2735
+        }
+      },
+      {
+        "id": "syn-0055_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。今度の日曜日の夜7時半、2名です。名前は吉田でお願いします。",
+        "input_transcript": "予約をお願いしたくて、今度の日曜日の夜7時半、2年で、名前は吉田でお願いします。",
+        "gold": {
+          "name": "吉田",
+          "date": "2026-06-14",
+          "time": "19:30",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "吉田",
+          "date": "2026-06-20",
+          "time": "19:30:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": false,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.252483500051312,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0055_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.05405405405405406,
+          "asr_latency_sec": 2.347944082925096,
+          "duration_sec": 7.6695,
+          "speech_sec": 7.5375
+        }
+      },
+      {
+        "id": "syn-0056_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。3日後の夜7時半、3名です。名前は鈴木でお願いします。",
+        "input_transcript": "予約をお願いしたくて、3日後の夜7時半3名です。名前は鈴木でお願いします。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "19:30",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "19:30:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.365549707901664,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0056_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.2956032080110162,
+          "duration_sec": 7.1470625,
+          "speech_sec": 6.8510625
+        }
+      },
+      {
+        "id": "syn-0056_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。3日後の夜7時半、3名です。名前は鈴木でお願いします。",
+        "input_transcript": "予約をお願いしたくて、3日後の夜7時半、3名で、名前は鈴木でお願いします。",
+        "gold": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "19:30",
+          "party_size": 3
+        },
+        "prediction": {
+          "name": "鈴木",
+          "date": "2026-06-16",
+          "time": "19:30:00",
+          "party_size": 3
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.228297666995786,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0056_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.029411764705882353,
+          "asr_latency_sec": 2.2616359579842538,
+          "duration_sec": 7.1470625,
+          "speech_sec": 6.9830625
+        }
+      },
+      {
+        "id": "syn-0057_quiet",
+        "condition": "quiet",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this weekend at 1 PM. It's for one person under the name Johnson. Thank you.",
+        "input_transcript": "Hi, I'd like to make a reservation for this weekend at 1 p.m. It's for one person under the name Johnson. Thank you.",
+        "gold": {
+          "name": "Johnson",
+          "date": "2026-06-20",
+          "time": "13:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Johnson",
+          "date": "2026-06-20",
+          "time": "13:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.206074499990791,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0057_quiet.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.240998459048569,
+          "duration_sec": 6.6815,
+          "speech_sec": 6.2875
+        }
+      },
+      {
+        "id": "syn-0057_noisy",
+        "condition": "noisy",
+        "language": "en",
+        "reference_transcript": "Hi, I'd like to make a reservation for this weekend at 1 PM. It's for one person under the name Johnson. Thank you.",
+        "input_transcript": "Hi! I'd like to make a reservation for this weekend at 1pm. It's for one person under the name Johnson. Thank you!",
+        "gold": {
+          "name": "Johnson",
+          "date": "2026-06-20",
+          "time": "13:00",
+          "party_size": 1
+        },
+        "prediction": {
+          "name": "Johnson",
+          "date": "2026-06-20",
+          "time": "13:00:00",
+          "party_size": 1
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.177046791999601,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0057_noisy.wav",
+          "detected_language": "en",
+          "metric": "wer",
+          "error_rate": 0.08695652173913043,
+          "asr_latency_sec": 2.320970040978864,
+          "duration_sec": 6.6815,
+          "speech_sec": 6.5155
+        }
+      },
+      {
+        "id": "syn-0058_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "今週末、2名で予約をお願いします。時間は夜7時半でお願いします。中村と申します。",
+        "input_transcript": "今週末、2名で予約をお願いします。時間は、夜7時半でお願いします。中村と申します。",
+        "gold": {
+          "name": "中村",
+          "date": "2026-06-20",
+          "time": "19:30",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "中村",
+          "date": "2026-06-20",
+          "time": "19:30:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2389434579527006,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0058_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.2599869170226157,
+          "duration_sec": 8.0525625,
+          "speech_sec": 7.7225625
+        }
+      },
+      {
+        "id": "syn-0058_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "今週末、2名で予約をお願いします。時間は夜7時半でお願いします。中村と申します。",
+        "input_transcript": "今週末、2名で予約をお願いしま、時間は夜7時半でお願いしま、中村と申します。",
+        "gold": {
+          "name": "中村",
+          "date": "2026-06-20",
+          "time": "19:30",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "中村",
+          "date": "2026-06-20",
+          "time": "19:30:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1430017079692334,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0058_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.05555555555555555,
+          "asr_latency_sec": 2.3136475830106065,
+          "duration_sec": 8.0525625,
+          "speech_sec": 7.5625625
+        }
+      },
+      {
+        "id": "syn-0059_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "あの、今度の日曜日の夜8時に2名で席を取りたいんですけど。田中です。",
+        "input_transcript": "あの、今度の日曜日の夜8時に、2名で、席を取りたいんですけど、田中です。",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-14",
+          "time": "20:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-14",
+          "time": "20:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2559540000511333,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0059_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.319004249991849,
+          "duration_sec": 6.3741875,
+          "speech_sec": 6.1761875
+        }
+      },
+      {
+        "id": "syn-0059_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "あの、今度の日曜日の夜8時に2名で席を取りたいんですけど。田中です。",
+        "input_transcript": "あの、今度の日曜日の夜8時に、2名で席を取りたいんですけど、田中です。",
+        "gold": {
+          "name": "田中",
+          "date": "2026-06-14",
+          "time": "20:00",
+          "party_size": 2
+        },
+        "prediction": {
+          "name": "田中",
+          "date": "2026-06-14",
+          "time": "20:00:00",
+          "party_size": 2
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.2475617500022054,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0059_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.4451672080904245,
+          "duration_sec": 6.3741875,
+          "speech_sec": 6.3721875
+        }
+      },
+      {
+        "id": "syn-0060_quiet",
+        "condition": "quiet",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夕方5時、5名です。名前は高橋でお願いします。",
+        "input_transcript": "予約を、お願いしたくて、明日の夕方5時、5名です。 名前は、高橋でお願いします。",
+        "gold": {
+          "name": "高橋",
+          "date": "2026-06-14",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "高橋",
+          "date": "2026-06-14",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.230464000022039,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0060_quiet.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.0,
+          "asr_latency_sec": 2.311746250023134,
+          "duration_sec": 6.7755625,
+          "speech_sec": 6.6115625
+        }
+      },
+      {
+        "id": "syn-0060_noisy",
+        "condition": "noisy",
+        "language": "ja",
+        "reference_transcript": "予約をお願いしたくて。明日の夕方5時、5名です。名前は高橋でお願いします。",
+        "input_transcript": "予約をお願いしたくて、明日の夕方5時、5名で、名前は、高橋でお願いします。",
+        "gold": {
+          "name": "高橋",
+          "date": "2026-06-14",
+          "time": "17:00",
+          "party_size": 5
+        },
+        "prediction": {
+          "name": "高橋",
+          "date": "2026-06-14",
+          "time": "17:00:00",
+          "party_size": 5
+        },
+        "correct": {
+          "name": true,
+          "date": true,
+          "time": true,
+          "party_size": true
+        },
+        "extraction_latency_sec": 2.1915208329446614,
+        "error": null,
+        "audio": {
+          "path": "syn/syn-0060_noisy.wav",
+          "detected_language": "ja",
+          "metric": "cer",
+          "error_rate": 0.030303030303030304,
+          "asr_latency_sec": 2.302833624999039,
+          "duration_sec": 6.7755625,
+          "speech_sec": 6.6435625
+        }
+      }
+    ]
+  }
+}

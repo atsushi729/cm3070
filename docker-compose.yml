@@ -1,0 +1,40 @@
+# Infrastructure only. AI inference (Ollama, faster-whisper) runs on the HOST
+# so it can use Apple Metal acceleration — Docker Desktop on macOS has no GPU passthrough.
+#
+# `name` is pinned so `docker compose` resolves to the same project regardless
+# of which git worktree directory it's invoked from (default project naming
+# uses the cwd's basename, which differs per worktree and causes `up`/`down`
+# to target the wrong project).
+name: ai-agent-sme
+
+services:
+  db:
+    image: postgres:16
+    container_name: sme_db
+    environment:
+      POSTGRES_USER: sme
+      POSTGRES_PASSWORD: sme_dev_pw
+      POSTGRES_DB: sme
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sme"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: sme_redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  pgdata:

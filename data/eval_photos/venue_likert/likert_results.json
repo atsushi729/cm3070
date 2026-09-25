@@ -1,0 +1,88 @@
+{
+  "n_raters": 5,
+  "n_ratings": 270,
+  "n_complete_triples": 90,
+  "by_source": {
+    "system": {
+      "n": 90,
+      "mean": 3.6222222222222222
+    },
+    "llm": {
+      "n": 90,
+      "mean": 3.922222222222222
+    },
+    "generic": {
+      "n": 90,
+      "mean": 1.988888888888889
+    }
+  },
+  "analysis_note": "The 90 rater-photo blocks share raters and photos. Block-level tests below are exploratory and their p-values must not support population-level claims. Rater-level paired means are a conservative sensitivity check; an analysis of both clustering factors and more raters are needed for inference.",
+  "rater_level": {
+    "n": 5,
+    "means_by_rater": [
+      {
+        "system": 3.8333333333333335,
+        "llm": 4.055555555555555,
+        "generic": 2.6666666666666665
+      },
+      {
+        "system": 3.2777777777777777,
+        "llm": 3.7222222222222223,
+        "generic": 2.0555555555555554
+      },
+      {
+        "system": 3.5,
+        "llm": 3.8333333333333335,
+        "generic": 1.7222222222222223
+      },
+      {
+        "system": 3.6666666666666665,
+        "llm": 3.9444444444444446,
+        "generic": 1.7222222222222223
+      },
+      {
+        "system": 3.8333333333333335,
+        "llm": 4.055555555555555,
+        "generic": 1.7777777777777777
+      }
+    ],
+    "pairwise_wilcoxon": {
+      "system_vs_llm": {
+        "statistic": 0.0,
+        "pvalue_raw": 0.0625,
+        "pvalue_bonferroni": 0.1875
+      },
+      "system_vs_generic": {
+        "statistic": 0.0,
+        "pvalue_raw": 0.0625,
+        "pvalue_bonferroni": 0.1875
+      },
+      "llm_vs_generic": {
+        "statistic": 0.0,
+        "pvalue_raw": 0.0625,
+        "pvalue_bonferroni": 0.1875
+      }
+    }
+  },
+  "friedman": {
+    "statistic": 137.94000000000005,
+    "pvalue": 1.1135496432816886e-30
+  },
+  "pairwise_wilcoxon": {
+    "system_vs_llm": {
+      "statistic": 303.0,
+      "pvalue_raw": 0.0036809481183121494,
+      "pvalue_bonferroni": 0.011042844354936448
+    },
+    "system_vs_generic": {
+      "statistic": 0.0,
+      "pvalue_raw": 1.7088050209340633e-15,
+      "pvalue_bonferroni": 5.12641506280219e-15
+    },
+    "llm_vs_generic": {
+      "statistic": 0.0,
+      "pvalue_raw": 7.476733074654697e-16,
+      "pvalue_bonferroni": 2.243019922396409e-15
+    }
+  }
+}

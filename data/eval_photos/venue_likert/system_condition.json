@@ -1,0 +1,540 @@
+{
+  "photo_01.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.6283,
+      "contrast": 0.2788,
+      "saturation": 0.7705,
+      "sharpness": 0.1014
+    },
+    "strengths": [
+      "The dish is presented on a clean plate with contrasting colors",
+      "The food has an appealing golden hue"
+    ],
+    "issues": [
+      "The image appears slightly dim and lacks vibrancy",
+      "The sharpness of the photo seems low, making details less distinct"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Brighten the image to enhance color saturation",
+        "reason": "Increasing brightness will make the dish look more inviting"
+      },
+      {
+        "priority": 2,
+        "title": "Use a higher shutter speed or better lighting for sharper details",
+        "reason": "The current sharpness is low; improving this would highlight textures and edges"
+      }
+    ],
+    "latency_sec": 38.69437070799904
+  },
+  "photo_02.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.5635,
+      "contrast": 0.3049,
+      "saturation": 0.0967,
+      "sharpness": 0.4546
+    },
+    "strengths": [
+      "The restaurant's signage is clearly visible",
+      "The building has a clean and simple design"
+    ],
+    "issues": [
+      "The image appears slightly dim, reducing visibility of details",
+      "The sharpness could be improved to make text on signs more legible"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase lighting for better visibility",
+        "reason": "The current brightness is low, making it harder to read the signage and see the building's features"
+      },
+      {
+        "priority": 2,
+        "title": "Enhance image sharpness",
+        "reason": "A sharper image would make text on signs more readable and details clearer"
+      }
+    ],
+    "latency_sec": 43.902245666000454
+  },
+  "photo_03.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.3836,
+      "contrast": 0.2185,
+      "saturation": 0.4085,
+      "sharpness": 0.105
+    },
+    "strengths": [
+      "The dish is presented on a decorative plate that adds visual interest",
+      "The lighting highlights the texture of the food"
+    ],
+    "issues": [
+      "The image appears slightly dim and lacks vibrancy, which could make it less appealing to viewers",
+      "The sharpness seems low, making details harder to discern"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase lighting or use a flash",
+        "reason": "The photo is too dark, reducing the visibility of the dish's details"
+      },
+      {
+        "priority": 2,
+        "title": "Use a higher ISO setting with better focus",
+        "reason": "The image lacks sharpness and detail, which can be improved by focusing more effectively"
+      }
+    ],
+    "latency_sec": 33.853527916999155
+  },
+  "photo_04.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.441,
+      "contrast": 0.1574,
+      "saturation": 0.3176,
+      "sharpness": 0.1244
+    },
+    "strengths": [
+      "The dish is presented on a foil tray which suggests it's ready to serve"
+    ],
+    "issues": [
+      "The image appears dark and lacks vibrancy",
+      "The contrast is low making details hard to distinguish"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Brighten the photo with better lighting",
+        "reason": "The current darkness makes the dish appear less appetizing"
+      },
+      {
+        "priority": 2,
+        "title": "Increase image contrast and saturation",
+        "reason": "Enhancing these attributes would make the colors pop and details clearer"
+      }
+    ],
+    "latency_sec": 33.60874241700003
+  },
+  "photo_05.jpg": {
+    "calibrated_score": 0.0,
+    "attributes": {
+      "brightness": 0.2906,
+      "contrast": 0.1696,
+      "saturation": 0.4071,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The scene is lively with people enjoying outdoor seating",
+      "Natural lighting highlights the autumnal trees"
+    ],
+    "issues": [
+      "Low brightness makes details harder to see",
+      "Contrast is low, leading to a flat appearance"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase brightness and contrast",
+        "reason": "The image appears dim with low contrast; adjusting these settings can make the scene more vibrant"
+      },
+      {
+        "priority": 2,
+        "title": "Use natural light effectively",
+        "reason": "The photo seems to be taken in the evening or under artificial lighting. Using natural light during daytime would enhance visibility and color"
+      }
+    ],
+    "latency_sec": 30.11243720800121
+  },
+  "photo_06.jpg": {
+    "calibrated_score": 4.106004129153396,
+    "attributes": {
+      "brightness": 0.4223,
+      "contrast": 0.194,
+      "saturation": 0.2787,
+      "sharpness": 0.7901
+    },
+    "strengths": [
+      "The sign is clearly visible with bold text",
+      "The outdoor seating area provides a pleasant ambiance"
+    ],
+    "issues": [
+      "The image appears slightly dim and lacks vibrancy",
+      "The sharpness could be improved to make details more distinct"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase lighting for better visibility",
+        "reason": "The current brightness is low, making the sign harder to read"
+      },
+      {
+        "priority": 2,
+        "title": "Enhance image sharpness",
+        "reason": "A sharper image would make the text and details on the sign more legible"
+      }
+    ],
+    "latency_sec": 36.867876958000124
+  },
+  "photo_07.jpg": {
+    "calibrated_score": 10.4819920984282,
+    "attributes": {
+      "brightness": 0.6144,
+      "contrast": 0.232,
+      "saturation": 0.8145,
+      "sharpness": 0.1928
+    },
+    "strengths": [
+      "The dish is well-lit with a warm tone",
+      "Chopsticks add an authentic touch"
+    ],
+    "issues": [
+      "The image appears slightly soft and lacks sharpness",
+      "The contrast level seems low, making details less distinct"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Enhance the sharpness of the photo",
+        "reason": "The current image has a soft focus which makes it harder to appreciate fine details"
+      },
+      {
+        "priority": 2,
+        "title": "Increase contrast for better visibility of textures and colors",
+        "reason": "Low contrast makes the dish appear less vibrant and detailed"
+      }
+    ],
+    "latency_sec": 47.81773037499988
+  },
+  "photo_08.jpg": {
+    "calibrated_score": 13.249491348819923,
+    "attributes": {
+      "brightness": 0.3376,
+      "contrast": 0.2737,
+      "saturation": 0.2909,
+      "sharpness": 0.7554
+    },
+    "strengths": [
+      "The restaurant's signage is clearly visible with bold characters",
+      "The lantern adds a warm, inviting glow"
+    ],
+    "issues": [
+      "The image appears slightly dim and lacks vibrancy",
+      "The sharpness seems moderate but not very high"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase lighting to brighten the scene",
+        "reason": "The current brightness is low, making details harder to see"
+      },
+      {
+        "priority": 2,
+        "title": "Enhance contrast and saturation for a more vibrant look",
+        "reason": "The image appears flat with muted colors"
+      }
+    ],
+    "latency_sec": 35.327807500001654
+  },
+  "photo_09.jpg": {
+    "calibrated_score": 14.307341595728696,
+    "attributes": {
+      "brightness": 0.611,
+      "contrast": 0.2294,
+      "saturation": 0.6013,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The dish is well-lit with a bright appearance",
+      "The wooden spoon adds a rustic touch"
+    ],
+    "issues": [
+      "The image appears slightly overexposed and lacks sharpness",
+      "The contrast is low, making the details less distinct"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Adjust lighting to reduce overexposure",
+        "reason": "The photo looks washed out due to high brightness"
+      },
+      {
+        "priority": 2,
+        "title": "Increase image sharpness and contrast",
+        "reason": "Low sharpness makes the food details less visible; higher contrast would make them stand out more"
+      }
+    ],
+    "latency_sec": 37.18394545800038
+  },
+  "photo_10.jpg": {
+    "calibrated_score": 18.772028065548113,
+    "attributes": {
+      "brightness": 0.459,
+      "contrast": 0.2778,
+      "saturation": 0.3208,
+      "sharpness": 0.1054
+    },
+    "strengths": [
+      "The dish is presented with a variety of textures",
+      "The steam suggests freshness"
+    ],
+    "issues": [
+      "The image appears slightly dim and lacks vibrancy",
+      "The contrast seems low, making details less distinct"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase lighting to enhance brightness",
+        "reason": "The current brightness is low, which makes the dish appear less appetizing"
+      },
+      {
+        "priority": 2,
+        "title": "Boost contrast and saturation for more visual impact",
+        "reason": "The image lacks vibrancy due to its low contrast and saturation"
+      }
+    ],
+    "latency_sec": 32.597918250001385
+  },
+  "photo_11.jpg": {
+    "calibrated_score": 23.10431763019584,
+    "attributes": {
+      "brightness": 0.4585,
+      "contrast": 0.2636,
+      "saturation": 0.278,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The scene is well-lit with natural sunlight",
+      "The outdoor seating area provides a relaxed atmosphere"
+    ],
+    "issues": [
+      "The image appears slightly overexposed due to high brightness",
+      "Some details in the background are washed out by the light"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Adjust exposure settings for better detail",
+        "reason": "The photo is too bright, which obscures finer details and makes it harder to see specific elements"
+      },
+      {
+        "priority": 2,
+        "title": "Use a polarizing filter or adjust contrast",
+        "reason": "Increasing contrast can help bring out more details in the image while reducing glare"
+      }
+    ],
+    "latency_sec": 42.46503187499911
+  },
+  "photo_12.jpg": {
+    "calibrated_score": 29.615951656470873,
+    "attributes": {
+      "brightness": 0.485,
+      "contrast": 0.261,
+      "saturation": 0.3342,
+      "sharpness": 0.125
+    },
+    "strengths": [
+      "The bowls are well-filled with noodles and toppings",
+      "The contrast is low but the food still stands out"
+    ],
+    "issues": [
+      "The image appears slightly dim, reducing its visual appeal",
+      "The sharpness is low, making details less distinct"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase lighting to brighten the photo",
+        "reason": "The current brightness level makes the food appear less vibrant"
+      },
+      {
+        "priority": 2,
+        "title": "Use a higher shutter speed or better focus for sharper details",
+        "reason": "The low sharpness obscures some of the textures and layers in the bowls"
+      }
+    ],
+    "latency_sec": 34.02933145800125
+  },
+  "photo_13.jpg": {
+    "calibrated_score": 32.31711472723451,
+    "attributes": {
+      "brightness": 0.5708,
+      "contrast": 0.2375,
+      "saturation": 0.3571,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The food is presented on a rustic surface with a focus on texture",
+      "Bright colors make the dish visually appealing"
+    ],
+    "issues": [
+      "The image appears slightly overexposed and lacks sharpness, making details less distinct",
+      "A more balanced composition could highlight the dish better"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Adjust exposure to prevent overexposure",
+        "reason": "The photo seems a bit washed out; reducing brightness might bring out finer details"
+      },
+      {
+        "priority": 2,
+        "title": "Recompose for better balance and focus on the dish",
+        "reason": "Currently, the background is too prominent. A tighter frame would make the food stand out more"
+      }
+    ],
+    "latency_sec": 26.368880583000646
+  },
+  "photo_14.jpg": {
+    "calibrated_score": 33.268122969801254,
+    "attributes": {
+      "brightness": 0.5252,
+      "contrast": 0.2601,
+      "saturation": 0.159,
+      "sharpness": 0.302
+    },
+    "strengths": [
+      "The building has a distinct architectural style with arched windows and balconies",
+      "The red awning adds a pop of color to the facade"
+    ],
+    "issues": [
+      "The image appears slightly faded, reducing its vibrancy",
+      "Some details on the building are not very sharp or clear"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Enhance the brightness and contrast levels",
+        "reason": "Increasing these will make the photo more visually appealing"
+      },
+      {
+        "priority": 2,
+        "title": "Improve image clarity to highlight architectural details better",
+        "reason": "A sharper focus would reveal more texture in the stone walls"
+      }
+    ],
+    "latency_sec": 31.577291124998737
+  },
+  "photo_15.jpg": {
+    "calibrated_score": 36.83805213808551,
+    "attributes": {
+      "brightness": 0.4068,
+      "contrast": 0.2279,
+      "saturation": 0.5233,
+      "sharpness": 0.0472
+    },
+    "strengths": [
+      "The variety of sushi items is visually appealing",
+      "The colors are vibrant"
+    ],
+    "issues": [
+      "The image appears slightly dim and lacks sharpness",
+      "Some details might be hard to discern due to low contrast"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase lighting for better visibility",
+        "reason": "The photo is underexposed; brighter lighting would make the colors more vivid"
+      },
+      {
+        "priority": 2,
+        "title": "Use a higher shutter speed or steady hand to improve sharpness",
+        "reason": "The image seems soft and lacks detail due to motion blur"
+      }
+    ],
+    "latency_sec": 36.75090766699941
+  },
+  "photo_16.jpg": {
+    "calibrated_score": 41.65606979496223,
+    "attributes": {
+      "brightness": 0.555,
+      "contrast": 0.2876,
+      "saturation": 0.223,
+      "sharpness": 0.408
+    },
+    "strengths": [
+      "The food is presented neatly on a black plate against a white background",
+      "The dish includes complementary elements like lemon and onions"
+    ],
+    "issues": [
+      "The image appears slightly dim, reducing its visual appeal",
+      "The contrast level seems low, making the food less vibrant"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase lighting to brighten the photo",
+        "reason": "The current brightness is low, which makes the dish appear less appetizing"
+      },
+      {
+        "priority": 2,
+        "title": "Enhance contrast and saturation in post-processing",
+        "reason": "Increasing these attributes would make the food colors pop more vividly"
+      }
+    ],
+    "latency_sec": 39.40169270899969
+  },
+  "photo_17.jpg": {
+    "calibrated_score": 44.99622602329264,
+    "attributes": {
+      "brightness": 0.4896,
+      "contrast": 0.2685,
+      "saturation": 0.2997,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The dish is presented on a clean plate with complementary garnishes",
+      "The lighting highlights the texture and color of the biryani"
+    ],
+    "issues": [
+      "The image appears slightly soft, possibly due to low contrast",
+      "A more vibrant saturation could make the colors pop more"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Increase contrast in post-processing",
+        "reason": "The current contrast is low, which makes details less distinct"
+      },
+      {
+        "priority": 2,
+        "title": "Boost color saturation for a more vivid presentation",
+        "reason": "The image could benefit from higher saturation to enhance the visual appeal"
+      }
+    ],
+    "latency_sec": 30.93966883400026
+  },
+  "photo_18.jpg": {
+    "calibrated_score": 93.42318130315587,
+    "attributes": {
+      "brightness": 0.5324,
+      "contrast": 0.2907,
+      "saturation": 0.2745,
+      "sharpness": 1.0
+    },
+    "strengths": [
+      "The interior design is vibrant with a mix of colors",
+      "Natural light enhances the cozy ambiance"
+    ],
+    "issues": [
+      "The image appears slightly overexposed on one side, affecting contrast"
+    ],
+    "suggestions": [
+      {
+        "priority": 1,
+        "title": "Adjust lighting to balance exposure",
+        "reason": "One side of the photo is too bright while the other is dim. Balancing these will improve overall visibility"
+      },
+      {
+        "priority": 2,
+        "title": "Use a wider aperture for better depth of field",
+        "reason": "The sharpness appears high but using a wider aperture can help focus on specific areas and create a more appealing depth effect"
+      }
+    ],
+    "latency_sec": 35.16991291600061
+  }
+}

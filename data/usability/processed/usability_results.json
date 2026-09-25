@@ -1,0 +1,190 @@
+{
+  "n_participants": 5,
+  "tasks": {
+    "t1": {
+      "completion_counts": {
+        "assist": 3,
+        "unaided": 2
+      },
+      "completion_rate_among_recorded": 1.0,
+      "unaided_rate_among_recorded": 0.4,
+      "time_seconds": {
+        "n": 4,
+        "missing": 1,
+        "mean": 7.5,
+        "median": 7.5,
+        "min": 5.0,
+        "max": 10.0
+      },
+      "assists": {
+        "n": 5,
+        "missing": 0,
+        "mean": 0.4,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "seq_1_to_7": {
+        "n": 5,
+        "missing": 0,
+        "mean": 6.4,
+        "median": 6.0,
+        "min": 6.0,
+        "max": 7.0
+      }
+    },
+    "t2": {
+      "completion_counts": {
+        "assist": 4,
+        "fail": 1
+      },
+      "completion_rate_among_recorded": 0.8,
+      "unaided_rate_among_recorded": 0.0,
+      "time_seconds": {
+        "n": 4,
+        "missing": 1,
+        "mean": 6.25,
+        "median": 5.0,
+        "min": 5.0,
+        "max": 10.0
+      },
+      "assists": {
+        "n": 5,
+        "missing": 0,
+        "mean": 0.2,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "seq_1_to_7": {
+        "n": 5,
+        "missing": 0,
+        "mean": 7.0,
+        "median": 7.0,
+        "min": 7.0,
+        "max": 7.0
+      }
+    },
+    "t3": {
+      "completion_counts": {
+        "assist": 4,
+        "missing": 1
+      },
+      "completion_rate_among_recorded": 1.0,
+      "unaided_rate_among_recorded": 0.0,
+      "time_seconds": {
+        "n": 3,
+        "missing": 2,
+        "mean": 5.0,
+        "median": 5.0,
+        "min": 5.0,
+        "max": 5.0
+      },
+      "assists": {
+        "n": 4,
+        "missing": 1,
+        "mean": 0.75,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "seq_1_to_7": {
+        "n": 4,
+        "missing": 1,
+        "mean": 5.75,
+        "median": 5.5,
+        "min": 5.0,
+        "max": 7.0
+      }
+    }
+  },
+  "trust_without_recheck_1_to_5": {
+    "n": 5,
+    "missing": 0,
+    "mean": 4.0,
+    "median": 4.0,
+    "min": 2.0,
+    "max": 5.0
+  },
+  "task3_error_detection": {
+    "missing": 2,
+    "no": 1,
+    "yes": 2
+  },
+  "sus_0_to_100": {
+    "n": 5,
+    "missing": 0,
+    "mean": 65.5,
+    "median": 72.5,
+    "min": 50.0,
+    "max": 75.0
+  },
+  "data_quality_issues": [
+    {
+      "participant_id": "P01",
+      "field": "t3",
+      "issue": "completion is 'assist' but assist count is 0"
+    },
+    {
+      "participant_id": "P02",
+      "field": "t1",
+      "issue": "completion is 'assist' but assist count is 0"
+    },
+    {
+      "participant_id": "P02",
+      "field": "t2",
+      "issue": "completion is 'assist' but assist count is 0"
+    },
+    {
+      "participant_id": "P03",
+      "field": "t2",
+      "issue": "completion is 'assist' but assist count is 0"
+    },
+    {
+      "participant_id": "P04",
+      "field": "t1",
+      "issue": "completion is 'assist' but assist count is 0"
+    },
+    {
+      "participant_id": "P04",
+      "field": "t1",
+      "issue": "missing time_seconds"
+    },
+    {
+      "participant_id": "P04",
+      "field": "t2",
+      "issue": "completion is 'assist' but assist count is 0"
+    },
+    {
+      "participant_id": "P04",
+      "field": "t2",
+      "issue": "missing time_seconds"
+    },
+    {
+      "participant_id": "P04",
+      "field": "t3",
+      "issue": "missing time_seconds"
+    },
+    {
+      "participant_id": "P04",
+      "field": "t3_noticed_error",
+      "issue": "missing response"
+    },
+    {
+      "participant_id": "P05",
+      "field": "t2",
+      "issue": "completion is 'assist' but assist count is 0"
+    },
+    {
+      "participant_id": "P05",
+      "field": "t3",
+      "issue": "missing completion, time_seconds, assists, seq"
+    },
+    {
+      "participant_id": "P05",
+      "field": "t3_noticed_error",
+      "issue": "missing response"
+    }
+  ],
+  "interpretation_note": "Five participants support formative problem discovery, not population-level statistical generalisation. Missing and internally inconsistent fields are reported rather than imputed."
+}

@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Env / secrets
+.env
+*.local
+# service-account keys etc. — never commit
+backend/secrets/
+*.service-account.json
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+npm-debug.log*
+next-env.d.ts
+*.tsbuildinfo
+
+# Models & data artifacts (large; downloaded/generated locally)
+models/
+*.gguf
+*.bin
+*.aiff
+# keep the bespoke sample test set, ignore uploaded call recordings
+data/audio/*
+!data/audio/.gitkeep
+!data/audio/sample_*.wav
+# Runtime uploads and model weights under backend/data are never committed
+# (PII/APPI and repository-size reasons). Keep only the small publication
+# documents needed to package the sentiment model for Hugging Face.
+backend/data/*
+!backend/data/models/
+backend/data/models/*
+!backend/data/models/sentiment-mbert/
+backend/data/models/sentiment-mbert/*
+!backend/data/models/sentiment-mbert/README.md
+!backend/data/models/sentiment-mbert/LICENSE
+!backend/data/models/sentiment-mbert/NOTICE
+*.sqlite
+
+# Local dev orchestrator runtime (pids + logs from `make up`)
+.dev/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

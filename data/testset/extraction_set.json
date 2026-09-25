@@ -1,0 +1,672 @@
+{
+  "reference_now": "2026-06-13T12:00:00",
+  "generator": "template-based v1 (value -> sentence; labels deterministic by construction)",
+  "note": "Synthetic UC1 extraction set for model comparison (text only, no audio). Gold labels are exact by construction. Relative dates resolved against reference_now. Audio/ASR uses the separate labels.json + TTS pipeline.",
+  "count": 60,
+  "lang_counts": {
+    "ja": 36,
+    "en": 24
+  },
+  "items": [
+    {
+      "id": "syn-0001",
+      "lang": "ja",
+      "transcript_ref": "今週末、3名で予約をお願いします。時間は夜6時でお願いします。渡辺と申します。",
+      "entities": {
+        "name": "渡辺",
+        "date": "2026-06-20",
+        "time": "18:00",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0002",
+      "lang": "en",
+      "transcript_ref": "Hi, I'd like to make a reservation for this coming Sunday at 1 PM. It's for six guests under the name Lee. Thank you.",
+      "entities": {
+        "name": "Lee",
+        "date": "2026-06-14",
+        "time": "13:00",
+        "party_size": 6
+      }
+    },
+    {
+      "id": "syn-0003",
+      "lang": "ja",
+      "transcript_ref": "あの、今週末の夕方5時に5名で席を取りたいんですけど。小林です。",
+      "entities": {
+        "name": "小林",
+        "date": "2026-06-20",
+        "time": "17:00",
+        "party_size": 5
+      }
+    },
+    {
+      "id": "syn-0004",
+      "lang": "en",
+      "transcript_ref": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for three guests under the name Walker. Thank you.",
+      "entities": {
+        "name": "Walker",
+        "date": "2026-06-19",
+        "time": "18:00",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0005",
+      "lang": "en",
+      "transcript_ref": "I'd like to reserve a table today at 7 PM for four people. It's under Brown.",
+      "entities": {
+        "name": "Brown",
+        "date": "2026-06-13",
+        "time": "19:00",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0006",
+      "lang": "en",
+      "transcript_ref": "Hi, I'd like to make a reservation for tomorrow at 6 in the evening. It's for four people under the name Johnson. Thank you.",
+      "entities": {
+        "name": "Johnson",
+        "date": "2026-06-14",
+        "time": "18:00",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0007",
+      "lang": "ja",
+      "transcript_ref": "あの、今度の日曜日の夜7時に5名で席を取りたいんですけど。山本です。",
+      "entities": {
+        "name": "山本",
+        "date": "2026-06-14",
+        "time": "19:00",
+        "party_size": 5
+      }
+    },
+    {
+      "id": "syn-0008",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。今度の金曜日の夕方5時、5名です。名前は小林でお願いします。",
+      "entities": {
+        "name": "小林",
+        "date": "2026-06-19",
+        "time": "17:00",
+        "party_size": 5
+      }
+    },
+    {
+      "id": "syn-0009",
+      "lang": "ja",
+      "transcript_ref": "あの、今度の日曜日の夜6時にお一人で席を取りたいんですけど。佐藤です。",
+      "entities": {
+        "name": "佐藤",
+        "date": "2026-06-14",
+        "time": "18:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0010",
+      "lang": "ja",
+      "transcript_ref": "もしもし、3日後の夜7時半に予約をお願いしたいのですが。6名でお願いします。名前は佐藤です。よろしくお願いします。",
+      "entities": {
+        "name": "佐藤",
+        "date": "2026-06-16",
+        "time": "19:30",
+        "party_size": 6
+      }
+    },
+    {
+      "id": "syn-0011",
+      "lang": "ja",
+      "transcript_ref": "吉田と申します。今度の金曜日の夜7時半に3名で予約できますか?",
+      "entities": {
+        "name": "吉田",
+        "date": "2026-06-19",
+        "time": "19:30",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0012",
+      "lang": "ja",
+      "transcript_ref": "もしもし、明後日の夜7時半に予約をお願いしたいのですが。4名でお願いします。名前は山本です。よろしくお願いします。",
+      "entities": {
+        "name": "山本",
+        "date": "2026-06-15",
+        "time": "19:30",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0013",
+      "lang": "ja",
+      "transcript_ref": "もしもし、3日後の夕方5時に予約をお願いしたいのですが。2名でお願いします。名前は吉田です。よろしくお願いします。",
+      "entities": {
+        "name": "吉田",
+        "date": "2026-06-16",
+        "time": "17:00",
+        "party_size": 2
+      }
+    },
+    {
+      "id": "syn-0014",
+      "lang": "ja",
+      "transcript_ref": "3日後、2名で予約をお願いします。時間はお昼の12時でお願いします。渡辺と申します。",
+      "entities": {
+        "name": "渡辺",
+        "date": "2026-06-16",
+        "time": "12:00",
+        "party_size": 2
+      }
+    },
+    {
+      "id": "syn-0015",
+      "lang": "en",
+      "transcript_ref": "Could I get a reservation for this coming Friday, 1 PM, four people? Name's Martin.",
+      "entities": {
+        "name": "Martin",
+        "date": "2026-06-19",
+        "time": "13:00",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0016",
+      "lang": "en",
+      "transcript_ref": "I'd like to reserve a table today at 1 PM for four people. It's under Martin.",
+      "entities": {
+        "name": "Martin",
+        "date": "2026-06-13",
+        "time": "13:00",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0017",
+      "lang": "ja",
+      "transcript_ref": "あの、明日の夜8時に4名で席を取りたいんですけど。加藤です。",
+      "entities": {
+        "name": "加藤",
+        "date": "2026-06-14",
+        "time": "20:00",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0018",
+      "lang": "en",
+      "transcript_ref": "Hello, can I book a table for three guests this coming Friday at 6 in the evening? The name is Martin.",
+      "entities": {
+        "name": "Martin",
+        "date": "2026-06-19",
+        "time": "18:00",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0019",
+      "lang": "ja",
+      "transcript_ref": "明日、2名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+      "entities": {
+        "name": "鈴木",
+        "date": "2026-06-14",
+        "time": "12:00",
+        "party_size": 2
+      }
+    },
+    {
+      "id": "syn-0020",
+      "lang": "en",
+      "transcript_ref": "Hello, can I book a table for one person this coming Friday at 1 PM? The name is Clark.",
+      "entities": {
+        "name": "Clark",
+        "date": "2026-06-19",
+        "time": "13:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0021",
+      "lang": "ja",
+      "transcript_ref": "鈴木と申します。明後日の夕方5時にお一人で予約できますか?",
+      "entities": {
+        "name": "鈴木",
+        "date": "2026-06-15",
+        "time": "17:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0022",
+      "lang": "ja",
+      "transcript_ref": "あの、今週末の夕方5時に5名で席を取りたいんですけど。吉田です。",
+      "entities": {
+        "name": "吉田",
+        "date": "2026-06-20",
+        "time": "17:00",
+        "party_size": 5
+      }
+    },
+    {
+      "id": "syn-0023",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。明日の夜7時半、8名です。名前は加藤でお願いします。",
+      "entities": {
+        "name": "加藤",
+        "date": "2026-06-14",
+        "time": "19:30",
+        "party_size": 8
+      }
+    },
+    {
+      "id": "syn-0024",
+      "lang": "en",
+      "transcript_ref": "Could I get a reservation for this coming Friday, 7:30 in the evening, six guests? Name's Johnson.",
+      "entities": {
+        "name": "Johnson",
+        "date": "2026-06-19",
+        "time": "19:30",
+        "party_size": 6
+      }
+    },
+    {
+      "id": "syn-0025",
+      "lang": "en",
+      "transcript_ref": "Could I get a reservation for this coming Sunday, 8 PM, eight people? Name's Young.",
+      "entities": {
+        "name": "Young",
+        "date": "2026-06-14",
+        "time": "20:00",
+        "party_size": 8
+      }
+    },
+    {
+      "id": "syn-0026",
+      "lang": "en",
+      "transcript_ref": "Could I get a reservation for in three days, 6 in the evening, four people? Name's Smith.",
+      "entities": {
+        "name": "Smith",
+        "date": "2026-06-16",
+        "time": "18:00",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0027",
+      "lang": "en",
+      "transcript_ref": "Hi, I'd like to make a reservation for this coming Friday at 6 in the evening. It's for one person under the name Lee. Thank you.",
+      "entities": {
+        "name": "Lee",
+        "date": "2026-06-19",
+        "time": "18:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0028",
+      "lang": "en",
+      "transcript_ref": "I'd like to reserve a table tomorrow at 6 in the evening for two people. It's under Smith.",
+      "entities": {
+        "name": "Smith",
+        "date": "2026-06-14",
+        "time": "18:00",
+        "party_size": 2
+      }
+    },
+    {
+      "id": "syn-0029",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。今週末のお昼の12時、お一人です。名前は田中でお願いします。",
+      "entities": {
+        "name": "田中",
+        "date": "2026-06-20",
+        "time": "12:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0030",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。明日の夜7時、お一人です。名前は山本でお願いします。",
+      "entities": {
+        "name": "山本",
+        "date": "2026-06-14",
+        "time": "19:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0031",
+      "lang": "en",
+      "transcript_ref": "Could I get a reservation for today, noon, eight people? Name's Lee.",
+      "entities": {
+        "name": "Lee",
+        "date": "2026-06-13",
+        "time": "12:00",
+        "party_size": 8
+      }
+    },
+    {
+      "id": "syn-0032",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。明日の夜7時半、3名です。名前は山本でお願いします。",
+      "entities": {
+        "name": "山本",
+        "date": "2026-06-14",
+        "time": "19:30",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0033",
+      "lang": "en",
+      "transcript_ref": "Could I get a reservation for the day after tomorrow, 6 in the evening, one person? Name's Smith.",
+      "entities": {
+        "name": "Smith",
+        "date": "2026-06-15",
+        "time": "18:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0034",
+      "lang": "en",
+      "transcript_ref": "Hi, I'd like to make a reservation for in three days at 6 in the evening. It's for four people under the name Garcia. Thank you.",
+      "entities": {
+        "name": "Garcia",
+        "date": "2026-06-16",
+        "time": "18:00",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0035",
+      "lang": "ja",
+      "transcript_ref": "あの、明日のお昼の12時に6名で席を取りたいんですけど。山本です。",
+      "entities": {
+        "name": "山本",
+        "date": "2026-06-14",
+        "time": "12:00",
+        "party_size": 6
+      }
+    },
+    {
+      "id": "syn-0036",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。3日後の夜8時、6名です。名前は鈴木でお願いします。",
+      "entities": {
+        "name": "鈴木",
+        "date": "2026-06-16",
+        "time": "20:00",
+        "party_size": 6
+      }
+    },
+    {
+      "id": "syn-0037",
+      "lang": "en",
+      "transcript_ref": "Hello, can I book a table for a party of five today at 1 PM? The name is Wilson.",
+      "entities": {
+        "name": "Wilson",
+        "date": "2026-06-13",
+        "time": "13:00",
+        "party_size": 5
+      }
+    },
+    {
+      "id": "syn-0038",
+      "lang": "en",
+      "transcript_ref": "I'd like to reserve a table this coming Friday at 7 PM for one person. It's under Young.",
+      "entities": {
+        "name": "Young",
+        "date": "2026-06-19",
+        "time": "19:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0039",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。今度の金曜日の夜8時、お一人です。名前は渡辺でお願いします。",
+      "entities": {
+        "name": "渡辺",
+        "date": "2026-06-19",
+        "time": "20:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0040",
+      "lang": "en",
+      "transcript_ref": "I'd like to reserve a table the day after tomorrow at 1 PM for three guests. It's under Lee.",
+      "entities": {
+        "name": "Lee",
+        "date": "2026-06-15",
+        "time": "13:00",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0041",
+      "lang": "ja",
+      "transcript_ref": "今度の金曜日、5名で予約をお願いします。時間は午後1時でお願いします。高橋と申します。",
+      "entities": {
+        "name": "高橋",
+        "date": "2026-06-19",
+        "time": "13:00",
+        "party_size": 5
+      }
+    },
+    {
+      "id": "syn-0042",
+      "lang": "en",
+      "transcript_ref": "Hello, can I book a table for six guests this coming Sunday at 6 in the evening? The name is Lee.",
+      "entities": {
+        "name": "Lee",
+        "date": "2026-06-14",
+        "time": "18:00",
+        "party_size": 6
+      }
+    },
+    {
+      "id": "syn-0043",
+      "lang": "ja",
+      "transcript_ref": "もしもし、今週末の夜6時に予約をお願いしたいのですが。3名でお願いします。名前は田中です。よろしくお願いします。",
+      "entities": {
+        "name": "田中",
+        "date": "2026-06-20",
+        "time": "18:00",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0044",
+      "lang": "ja",
+      "transcript_ref": "今度の日曜日、4名で予約をお願いします。時間は夕方5時でお願いします。渡辺と申します。",
+      "entities": {
+        "name": "渡辺",
+        "date": "2026-06-14",
+        "time": "17:00",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0045",
+      "lang": "ja",
+      "transcript_ref": "あの、今度の金曜日の夜7時に3名で席を取りたいんですけど。小林です。",
+      "entities": {
+        "name": "小林",
+        "date": "2026-06-19",
+        "time": "19:00",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0046",
+      "lang": "ja",
+      "transcript_ref": "明後日、2名で予約をお願いします。時間はお昼の12時でお願いします。佐藤と申します。",
+      "entities": {
+        "name": "佐藤",
+        "date": "2026-06-15",
+        "time": "12:00",
+        "party_size": 2
+      }
+    },
+    {
+      "id": "syn-0047",
+      "lang": "ja",
+      "transcript_ref": "高橋と申します。3日後の午後1時に3名で予約できますか?",
+      "entities": {
+        "name": "高橋",
+        "date": "2026-06-16",
+        "time": "13:00",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0048",
+      "lang": "ja",
+      "transcript_ref": "田中と申します。今週末の夜7時に8名で予約できますか?",
+      "entities": {
+        "name": "田中",
+        "date": "2026-06-20",
+        "time": "19:00",
+        "party_size": 8
+      }
+    },
+    {
+      "id": "syn-0049",
+      "lang": "en",
+      "transcript_ref": "Hi, I'd like to make a reservation for this coming Friday at 5 PM. It's for eight people under the name Smith. Thank you.",
+      "entities": {
+        "name": "Smith",
+        "date": "2026-06-19",
+        "time": "17:00",
+        "party_size": 8
+      }
+    },
+    {
+      "id": "syn-0050",
+      "lang": "en",
+      "transcript_ref": "Could I get a reservation for in three days, 8 PM, six guests? Name's Lee.",
+      "entities": {
+        "name": "Lee",
+        "date": "2026-06-16",
+        "time": "20:00",
+        "party_size": 6
+      }
+    },
+    {
+      "id": "syn-0051",
+      "lang": "ja",
+      "transcript_ref": "もしもし、明日の夜6時に予約をお願いしたいのですが。8名でお願いします。名前は山本です。よろしくお願いします。",
+      "entities": {
+        "name": "山本",
+        "date": "2026-06-14",
+        "time": "18:00",
+        "party_size": 8
+      }
+    },
+    {
+      "id": "syn-0052",
+      "lang": "ja",
+      "transcript_ref": "小林と申します。今度の日曜日の夜7時半に4名で予約できますか?",
+      "entities": {
+        "name": "小林",
+        "date": "2026-06-14",
+        "time": "19:30",
+        "party_size": 4
+      }
+    },
+    {
+      "id": "syn-0053",
+      "lang": "ja",
+      "transcript_ref": "今度の金曜日、6名で予約をお願いします。時間はお昼の12時でお願いします。鈴木と申します。",
+      "entities": {
+        "name": "鈴木",
+        "date": "2026-06-19",
+        "time": "12:00",
+        "party_size": 6
+      }
+    },
+    {
+      "id": "syn-0054",
+      "lang": "en",
+      "transcript_ref": "Could I get a reservation for tomorrow, noon, two people? Name's Walker.",
+      "entities": {
+        "name": "Walker",
+        "date": "2026-06-14",
+        "time": "12:00",
+        "party_size": 2
+      }
+    },
+    {
+      "id": "syn-0055",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。今度の日曜日の夜7時半、2名です。名前は吉田でお願いします。",
+      "entities": {
+        "name": "吉田",
+        "date": "2026-06-14",
+        "time": "19:30",
+        "party_size": 2
+      }
+    },
+    {
+      "id": "syn-0056",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。3日後の夜7時半、3名です。名前は鈴木でお願いします。",
+      "entities": {
+        "name": "鈴木",
+        "date": "2026-06-16",
+        "time": "19:30",
+        "party_size": 3
+      }
+    },
+    {
+      "id": "syn-0057",
+      "lang": "en",
+      "transcript_ref": "Hi, I'd like to make a reservation for this weekend at 1 PM. It's for one person under the name Johnson. Thank you.",
+      "entities": {
+        "name": "Johnson",
+        "date": "2026-06-20",
+        "time": "13:00",
+        "party_size": 1
+      }
+    },
+    {
+      "id": "syn-0058",
+      "lang": "ja",
+      "transcript_ref": "今週末、2名で予約をお願いします。時間は夜7時半でお願いします。中村と申します。",
+      "entities": {
+        "name": "中村",
+        "date": "2026-06-20",
+        "time": "19:30",
+        "party_size": 2
+      }
+    },
+    {
+      "id": "syn-0059",
+      "lang": "ja",
+      "transcript_ref": "あの、今度の日曜日の夜8時に2名で席を取りたいんですけど。田中です。",
+      "entities": {
+        "name": "田中",
+        "date": "2026-06-14",
+        "time": "20:00",
+        "party_size": 2
+      }
+    },
+    {
+      "id": "syn-0060",
+      "lang": "ja",
+      "transcript_ref": "予約をお願いしたくて。明日の夕方5時、5名です。名前は高橋でお願いします。",
+      "entities": {
+        "name": "高橋",
+        "date": "2026-06-14",
+        "time": "17:00",
+        "party_size": 5
+      }
+    }
+  ]
+}

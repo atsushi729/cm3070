@@ -1,0 +1,2900 @@
+{
+  "meta": {
+    "split": "train",
+    "seed": 7,
+    "count": 480,
+    "lang_counts": {
+      "ja": 240,
+      "en": 240
+    },
+    "label_counts": {
+      "negative": 160,
+      "neutral": 160,
+      "positive": 160
+    },
+    "generator": "template-based v1 (value -> sentence; disjoint train/test skeletons)",
+    "caveat": "Synthetic; fragment vocabulary is shared across splits (only skeletons differ)."
+  },
+  "items": [
+    {
+      "id": "s0001",
+      "lang": "ja",
+      "text": "二度と行きませんし、店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0002",
+      "lang": "ja",
+      "text": "先日行きましたが、料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0003",
+      "lang": "ja",
+      "text": "先日行きましたが、接客がひどかったです。",
+      "label": "negative"
+    },
+    {
+      "id": "s0004",
+      "lang": "ja",
+      "text": "料理が冷めていました。接客がひどかったです。",
+      "label": "negative"
+    },
+    {
+      "id": "s0005",
+      "lang": "ja",
+      "text": "予約したのに席がありませんでしたし、料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0006",
+      "lang": "ja",
+      "text": "接客がひどかったです。待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0007",
+      "lang": "ja",
+      "text": "料理が冷めていましたし、味が濃すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0008",
+      "lang": "ja",
+      "text": "先日行きましたが、予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0009",
+      "lang": "ja",
+      "text": "料理が冷めていました。待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0010",
+      "lang": "ja",
+      "text": "店内が不潔でした。値段の割に量が少なかった。",
+      "label": "negative"
+    },
+    {
+      "id": "s0011",
+      "lang": "ja",
+      "text": "二度と行きませんし、料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0012",
+      "lang": "ja",
+      "text": "先日行きましたが、値段の割に量が少なかった。",
+      "label": "negative"
+    },
+    {
+      "id": "s0013",
+      "lang": "ja",
+      "text": "値段の割に量が少なかった。店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0014",
+      "lang": "ja",
+      "text": "味が濃すぎましたし、店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0015",
+      "lang": "ja",
+      "text": "待ち時間が長すぎましたし、二度と行きません。",
+      "label": "negative"
+    },
+    {
+      "id": "s0016",
+      "lang": "ja",
+      "text": "二度と行きません。予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0017",
+      "lang": "ja",
+      "text": "味が濃すぎましたし、二度と行きません。",
+      "label": "negative"
+    },
+    {
+      "id": "s0018",
+      "lang": "ja",
+      "text": "先日行きましたが、味が濃すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0019",
+      "lang": "ja",
+      "text": "料理が冷めていましたし、予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0020",
+      "lang": "ja",
+      "text": "待ち時間が長すぎました。二度と行きません。",
+      "label": "negative"
+    },
+    {
+      "id": "s0021",
+      "lang": "ja",
+      "text": "先日行きましたが、待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0022",
+      "lang": "ja",
+      "text": "味が濃すぎましたし、料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0023",
+      "lang": "ja",
+      "text": "先日行きましたが、店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0024",
+      "lang": "ja",
+      "text": "料理が冷めていましたし、店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0025",
+      "lang": "ja",
+      "text": "二度と行きませんし、待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0026",
+      "lang": "ja",
+      "text": "味が濃すぎました。料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0027",
+      "lang": "ja",
+      "text": "店内が不潔でした。接客がひどかったです。",
+      "label": "negative"
+    },
+    {
+      "id": "s0028",
+      "lang": "ja",
+      "text": "味が濃すぎました。値段の割に量が少なかった。",
+      "label": "negative"
+    },
+    {
+      "id": "s0029",
+      "lang": "ja",
+      "text": "店内が不潔でしたし、予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0030",
+      "lang": "ja",
+      "text": "待ち時間が長すぎましたし、予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0031",
+      "lang": "ja",
+      "text": "値段の割に量が少なかったし、接客がひどかったです。",
+      "label": "negative"
+    },
+    {
+      "id": "s0032",
+      "lang": "ja",
+      "text": "二度と行きません。接客がひどかったです。",
+      "label": "negative"
+    },
+    {
+      "id": "s0033",
+      "lang": "ja",
+      "text": "値段の割に量が少なかった。料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0034",
+      "lang": "ja",
+      "text": "二度と行きませんし、値段の割に量が少なかった。",
+      "label": "negative"
+    },
+    {
+      "id": "s0035",
+      "lang": "ja",
+      "text": "料理が冷めていましたし、二度と行きません。",
+      "label": "negative"
+    },
+    {
+      "id": "s0036",
+      "lang": "ja",
+      "text": "待ち時間が長すぎましたし、店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0037",
+      "lang": "ja",
+      "text": "接客がひどかったです。二度と行きません。",
+      "label": "negative"
+    },
+    {
+      "id": "s0038",
+      "lang": "ja",
+      "text": "料理が冷めていましたし、接客がひどかったです。",
+      "label": "negative"
+    },
+    {
+      "id": "s0039",
+      "lang": "ja",
+      "text": "二度と行きません。待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0040",
+      "lang": "ja",
+      "text": "待ち時間が長すぎました。店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0041",
+      "lang": "ja",
+      "text": "接客がひどかったです。味が濃すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0042",
+      "lang": "ja",
+      "text": "予約したのに席がありませんでした。接客がひどかったです。",
+      "label": "negative"
+    },
+    {
+      "id": "s0043",
+      "lang": "ja",
+      "text": "味が濃すぎましたし、値段の割に量が少なかった。",
+      "label": "negative"
+    },
+    {
+      "id": "s0044",
+      "lang": "ja",
+      "text": "店内が不潔でしたし、料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0045",
+      "lang": "ja",
+      "text": "接客がひどかったです。予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0046",
+      "lang": "ja",
+      "text": "店内が不潔でしたし、値段の割に量が少なかった。",
+      "label": "negative"
+    },
+    {
+      "id": "s0047",
+      "lang": "ja",
+      "text": "先日行きましたが、二度と行きません。",
+      "label": "negative"
+    },
+    {
+      "id": "s0048",
+      "lang": "ja",
+      "text": "値段の割に量が少なかった。待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0049",
+      "lang": "ja",
+      "text": "二度と行きませんし、予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0050",
+      "lang": "ja",
+      "text": "店内が不潔でした。待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0051",
+      "lang": "ja",
+      "text": "待ち時間が長すぎました。予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0052",
+      "lang": "ja",
+      "text": "値段の割に量が少なかった。味が濃すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0053",
+      "lang": "ja",
+      "text": "予約したのに席がありませんでした。待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0054",
+      "lang": "ja",
+      "text": "料理が冷めていました。味が濃すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0055",
+      "lang": "ja",
+      "text": "待ち時間が長すぎました。値段の割に量が少なかった。",
+      "label": "negative"
+    },
+    {
+      "id": "s0056",
+      "lang": "ja",
+      "text": "味が濃すぎました。接客がひどかったです。",
+      "label": "negative"
+    },
+    {
+      "id": "s0057",
+      "lang": "ja",
+      "text": "値段の割に量が少なかったし、店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0058",
+      "lang": "ja",
+      "text": "予約したのに席がありませんでした。味が濃すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0059",
+      "lang": "ja",
+      "text": "接客がひどかったですし、予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0060",
+      "lang": "ja",
+      "text": "値段の割に量が少なかったし、二度と行きません。",
+      "label": "negative"
+    },
+    {
+      "id": "s0061",
+      "lang": "ja",
+      "text": "料理が冷めていました。予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0062",
+      "lang": "ja",
+      "text": "味が濃すぎましたし、待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0063",
+      "lang": "ja",
+      "text": "味が濃すぎました。店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0064",
+      "lang": "ja",
+      "text": "料理が冷めていました。二度と行きません。",
+      "label": "negative"
+    },
+    {
+      "id": "s0065",
+      "lang": "ja",
+      "text": "店内が不潔でした。料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0066",
+      "lang": "ja",
+      "text": "接客がひどかったです。店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0067",
+      "lang": "ja",
+      "text": "値段の割に量が少なかったし、予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0068",
+      "lang": "ja",
+      "text": "接客がひどかったですし、店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0069",
+      "lang": "ja",
+      "text": "待ち時間が長すぎましたし、料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0070",
+      "lang": "ja",
+      "text": "値段の割に量が少なかった。予約したのに席がありませんでした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0071",
+      "lang": "ja",
+      "text": "接客がひどかったですし、味が濃すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0072",
+      "lang": "ja",
+      "text": "待ち時間が長すぎました。接客がひどかったです。",
+      "label": "negative"
+    },
+    {
+      "id": "s0073",
+      "lang": "ja",
+      "text": "予約したのに席がありませんでしたし、二度と行きません。",
+      "label": "negative"
+    },
+    {
+      "id": "s0074",
+      "lang": "ja",
+      "text": "料理が冷めていましたし、値段の割に量が少なかった。",
+      "label": "negative"
+    },
+    {
+      "id": "s0075",
+      "lang": "ja",
+      "text": "店内が不潔でしたし、待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0076",
+      "lang": "ja",
+      "text": "接客がひどかったです。料理が冷めていました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0077",
+      "lang": "ja",
+      "text": "店内が不潔でした。味が濃すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0078",
+      "lang": "ja",
+      "text": "味が濃すぎました。待ち時間が長すぎました。",
+      "label": "negative"
+    },
+    {
+      "id": "s0079",
+      "lang": "ja",
+      "text": "接客がひどかったですし、値段の割に量が少なかった。",
+      "label": "negative"
+    },
+    {
+      "id": "s0080",
+      "lang": "ja",
+      "text": "二度と行きません。店内が不潔でした。",
+      "label": "negative"
+    },
+    {
+      "id": "s0081",
+      "lang": "ja",
+      "text": "メニューは一般的でした。駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0082",
+      "lang": "ja",
+      "text": "先日行きましたが、可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0083",
+      "lang": "ja",
+      "text": "可もなく不可もなくでしたし、営業時間は夜十時までです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0084",
+      "lang": "ja",
+      "text": "可もなく不可もなくでした。席数はそれほど多くありません。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0085",
+      "lang": "ja",
+      "text": "場所は分かりやすかったです。駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0086",
+      "lang": "ja",
+      "text": "支払いは現金のみでしたし、普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0087",
+      "lang": "ja",
+      "text": "先日行きましたが、普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0088",
+      "lang": "ja",
+      "text": "先日行きましたが、席数はそれほど多くありません。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0089",
+      "lang": "ja",
+      "text": "席数はそれほど多くありません。普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0090",
+      "lang": "ja",
+      "text": "先日行きましたが、メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0091",
+      "lang": "ja",
+      "text": "メニューは一般的でした。席数はそれほど多くありません。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0092",
+      "lang": "ja",
+      "text": "駅から歩いて五分でしたし、席数はそれほど多くありません。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0093",
+      "lang": "ja",
+      "text": "駅から歩いて五分でした。可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0094",
+      "lang": "ja",
+      "text": "席数はそれほど多くありませんし、メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0095",
+      "lang": "ja",
+      "text": "支払いは現金のみでした。営業時間は夜十時までです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0096",
+      "lang": "ja",
+      "text": "支払いは現金のみでしたし、メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0097",
+      "lang": "ja",
+      "text": "席数はそれほど多くありませんし、可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0098",
+      "lang": "ja",
+      "text": "席数はそれほど多くありませんし、場所は分かりやすかったです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0099",
+      "lang": "ja",
+      "text": "駅から歩いて五分でしたし、場所は分かりやすかったです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0100",
+      "lang": "ja",
+      "text": "先日行きましたが、支払いは現金のみでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0101",
+      "lang": "ja",
+      "text": "普通のお店だと思いますし、可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0102",
+      "lang": "ja",
+      "text": "場所は分かりやすかったですし、駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0103",
+      "lang": "ja",
+      "text": "営業時間は夜十時までですし、普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0104",
+      "lang": "ja",
+      "text": "先日行きましたが、営業時間は夜十時までです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0105",
+      "lang": "ja",
+      "text": "メニューは一般的でした。可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0106",
+      "lang": "ja",
+      "text": "普通のお店だと思いますし、駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0107",
+      "lang": "ja",
+      "text": "支払いは現金のみでしたし、駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0108",
+      "lang": "ja",
+      "text": "メニューは一般的でしたし、営業時間は夜十時までです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0109",
+      "lang": "ja",
+      "text": "先日行きましたが、駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0110",
+      "lang": "ja",
+      "text": "可もなく不可もなくでしたし、普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0111",
+      "lang": "ja",
+      "text": "駅から歩いて五分でしたし、メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0112",
+      "lang": "ja",
+      "text": "メニューは一般的でした。普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0113",
+      "lang": "ja",
+      "text": "場所は分かりやすかったですし、可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0114",
+      "lang": "ja",
+      "text": "駅から歩いて五分でした。普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0115",
+      "lang": "ja",
+      "text": "場所は分かりやすかったですし、メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0116",
+      "lang": "ja",
+      "text": "駅から歩いて五分でした。支払いは現金のみでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0117",
+      "lang": "ja",
+      "text": "可もなく不可もなくでした。支払いは現金のみでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0118",
+      "lang": "ja",
+      "text": "先日行きましたが、場所は分かりやすかったです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0119",
+      "lang": "ja",
+      "text": "可もなく不可もなくでしたし、メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0120",
+      "lang": "ja",
+      "text": "席数はそれほど多くありません。駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0121",
+      "lang": "ja",
+      "text": "可もなく不可もなくでしたし、支払いは現金のみでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0122",
+      "lang": "ja",
+      "text": "場所は分かりやすかったです。普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0123",
+      "lang": "ja",
+      "text": "場所は分かりやすかったですし、支払いは現金のみでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0124",
+      "lang": "ja",
+      "text": "可もなく不可もなくでした。普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0125",
+      "lang": "ja",
+      "text": "場所は分かりやすかったですし、席数はそれほど多くありません。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0126",
+      "lang": "ja",
+      "text": "普通のお店だと思います。駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0127",
+      "lang": "ja",
+      "text": "普通のお店だと思いますし、メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0128",
+      "lang": "ja",
+      "text": "営業時間は夜十時までです。駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0129",
+      "lang": "ja",
+      "text": "営業時間は夜十時までですし、場所は分かりやすかったです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0130",
+      "lang": "ja",
+      "text": "メニューは一般的でしたし、普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0131",
+      "lang": "ja",
+      "text": "支払いは現金のみでした。席数はそれほど多くありません。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0132",
+      "lang": "ja",
+      "text": "メニューは一般的でしたし、場所は分かりやすかったです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0133",
+      "lang": "ja",
+      "text": "メニューは一般的でした。支払いは現金のみでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0134",
+      "lang": "ja",
+      "text": "営業時間は夜十時までですし、可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0135",
+      "lang": "ja",
+      "text": "普通のお店だと思います。可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0136",
+      "lang": "ja",
+      "text": "場所は分かりやすかったです。メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0137",
+      "lang": "ja",
+      "text": "支払いは現金のみでしたし、可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0138",
+      "lang": "ja",
+      "text": "普通のお店だと思います。席数はそれほど多くありません。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0139",
+      "lang": "ja",
+      "text": "営業時間は夜十時までです。普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0140",
+      "lang": "ja",
+      "text": "駅から歩いて五分でしたし、普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0141",
+      "lang": "ja",
+      "text": "支払いは現金のみでした。場所は分かりやすかったです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0142",
+      "lang": "ja",
+      "text": "普通のお店だと思います。営業時間は夜十時までです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0143",
+      "lang": "ja",
+      "text": "席数はそれほど多くありません。営業時間は夜十時までです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0144",
+      "lang": "ja",
+      "text": "可もなく不可もなくでした。駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0145",
+      "lang": "ja",
+      "text": "営業時間は夜十時までですし、支払いは現金のみでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0146",
+      "lang": "ja",
+      "text": "メニューは一般的でしたし、駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0147",
+      "lang": "ja",
+      "text": "席数はそれほど多くありません。メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0148",
+      "lang": "ja",
+      "text": "席数はそれほど多くありませんし、支払いは現金のみでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0149",
+      "lang": "ja",
+      "text": "駅から歩いて五分でしたし、支払いは現金のみでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0150",
+      "lang": "ja",
+      "text": "席数はそれほど多くありませんし、普通のお店だと思います。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0151",
+      "lang": "ja",
+      "text": "メニューは一般的でした。場所は分かりやすかったです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0152",
+      "lang": "ja",
+      "text": "支払いは現金のみでしたし、営業時間は夜十時までです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0153",
+      "lang": "ja",
+      "text": "普通のお店だと思います。メニューは一般的でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0154",
+      "lang": "ja",
+      "text": "場所は分かりやすかったですし、営業時間は夜十時までです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0155",
+      "lang": "ja",
+      "text": "可もなく不可もなくでしたし、駅から歩いて五分でした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0156",
+      "lang": "ja",
+      "text": "営業時間は夜十時までです。可もなく不可もなくでした。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0157",
+      "lang": "ja",
+      "text": "支払いは現金のみでしたし、場所は分かりやすかったです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0158",
+      "lang": "ja",
+      "text": "営業時間は夜十時までですし、席数はそれほど多くありません。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0159",
+      "lang": "ja",
+      "text": "駅から歩いて五分でした。席数はそれほど多くありません。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0160",
+      "lang": "ja",
+      "text": "可もなく不可もなくでした。営業時間は夜十時までです。",
+      "label": "neutral"
+    },
+    {
+      "id": "s0161",
+      "lang": "ja",
+      "text": "盛り付けが綺麗でしたし、また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0162",
+      "lang": "ja",
+      "text": "料理がとても美味しかったですし、雰囲気が最高でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0163",
+      "lang": "ja",
+      "text": "先日行きましたが、盛り付けが綺麗でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0164",
+      "lang": "ja",
+      "text": "料理がとても美味しかったですし、店員さんの笑顔が素敵でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0165",
+      "lang": "ja",
+      "text": "先日行きましたが、接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0166",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かった。コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0167",
+      "lang": "ja",
+      "text": "先日行きましたが、また友人を連れて行きたいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0168",
+      "lang": "ja",
+      "text": "コスパがとても良かったし、雰囲気が最高でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0169",
+      "lang": "ja",
+      "text": "また必ず来たいですし、コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0170",
+      "lang": "ja",
+      "text": "料理がとても美味しかったです。また友人を連れて行きたいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0171",
+      "lang": "ja",
+      "text": "先日行きましたが、コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0172",
+      "lang": "ja",
+      "text": "先日行きましたが、また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0173",
+      "lang": "ja",
+      "text": "盛り付けが綺麗でした。また友人を連れて行きたいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0174",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいですし、また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0175",
+      "lang": "ja",
+      "text": "店員さんの笑顔が素敵でした。また友人を連れて行きたいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0176",
+      "lang": "ja",
+      "text": "雰囲気が最高でした。コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0177",
+      "lang": "ja",
+      "text": "料理がとても美味しかったです。コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0178",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かったし、料理がとても美味しかったです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0179",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かったし、また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0180",
+      "lang": "ja",
+      "text": "店員さんの笑顔が素敵でした。雰囲気が最高でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0181",
+      "lang": "ja",
+      "text": "また必ず来たいです。コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0182",
+      "lang": "ja",
+      "text": "雰囲気が最高でしたし、店員さんの笑顔が素敵でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0183",
+      "lang": "ja",
+      "text": "コスパがとても良かったし、また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0184",
+      "lang": "ja",
+      "text": "コスパがとても良かったし、接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0185",
+      "lang": "ja",
+      "text": "雰囲気が最高でしたし、接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0186",
+      "lang": "ja",
+      "text": "雰囲気が最高でした。接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0187",
+      "lang": "ja",
+      "text": "雰囲気が最高でしたし、また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0188",
+      "lang": "ja",
+      "text": "店員さんの笑顔が素敵でした。また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0189",
+      "lang": "ja",
+      "text": "雰囲気が最高でした。店員さんの笑顔が素敵でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0190",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいです。料理がとても美味しかったです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0191",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいです。また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0192",
+      "lang": "ja",
+      "text": "コスパがとても良かった。接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0193",
+      "lang": "ja",
+      "text": "料理がとても美味しかったです。また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0194",
+      "lang": "ja",
+      "text": "先日行きましたが、雰囲気が最高でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0195",
+      "lang": "ja",
+      "text": "先日行きましたが、料理がとても美味しかったです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0196",
+      "lang": "ja",
+      "text": "盛り付けが綺麗でした。また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0197",
+      "lang": "ja",
+      "text": "料理がとても美味しかったですし、盛り付けが綺麗でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0198",
+      "lang": "ja",
+      "text": "盛り付けが綺麗でした。雰囲気が最高でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0199",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいですし、料理がとても美味しかったです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0200",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かったし、また友人を連れて行きたいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0201",
+      "lang": "ja",
+      "text": "また必ず来たいですし、店員さんの笑顔が素敵でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0202",
+      "lang": "ja",
+      "text": "店員さんの笑顔が素敵でした。盛り付けが綺麗でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0203",
+      "lang": "ja",
+      "text": "店員さんの笑顔が素敵でしたし、また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0204",
+      "lang": "ja",
+      "text": "コスパがとても良かった。店員さんの笑顔が素敵でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0205",
+      "lang": "ja",
+      "text": "料理がとても美味しかったですし、また友人を連れて行きたいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0206",
+      "lang": "ja",
+      "text": "雰囲気が最高でしたし、コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0207",
+      "lang": "ja",
+      "text": "先日行きましたが、店員さんの笑顔が素敵でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0208",
+      "lang": "ja",
+      "text": "店員さんの笑顔が素敵でした。接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0209",
+      "lang": "ja",
+      "text": "店員さんの笑顔が素敵でした。コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0210",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいですし、店員さんの笑顔が素敵でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0211",
+      "lang": "ja",
+      "text": "また必ず来たいです。料理がとても美味しかったです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0212",
+      "lang": "ja",
+      "text": "また必ず来たいです。店員さんの笑顔が素敵でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0213",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かったし、盛り付けが綺麗でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0214",
+      "lang": "ja",
+      "text": "店員さんの笑顔が素敵でした。料理がとても美味しかったです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0215",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいです。接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0216",
+      "lang": "ja",
+      "text": "雰囲気が最高でした。料理がとても美味しかったです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0217",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かったし、コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0218",
+      "lang": "ja",
+      "text": "コスパがとても良かったし、盛り付けが綺麗でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0219",
+      "lang": "ja",
+      "text": "料理がとても美味しかったです。盛り付けが綺麗でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0220",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいですし、接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0221",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいです。雰囲気が最高でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0222",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かった。また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0223",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいです。コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0224",
+      "lang": "ja",
+      "text": "コスパがとても良かったし、また友人を連れて行きたいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0225",
+      "lang": "ja",
+      "text": "また必ず来たいですし、雰囲気が最高でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0226",
+      "lang": "ja",
+      "text": "料理がとても美味しかったですし、また必ず来たいです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0227",
+      "lang": "ja",
+      "text": "店員さんの笑顔が素敵でしたし、接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0228",
+      "lang": "ja",
+      "text": "また友人を連れて行きたいですし、コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0229",
+      "lang": "ja",
+      "text": "また必ず来たいです。盛り付けが綺麗でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0230",
+      "lang": "ja",
+      "text": "コスパがとても良かった。盛り付けが綺麗でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0231",
+      "lang": "ja",
+      "text": "コスパがとても良かったし、料理がとても美味しかったです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0232",
+      "lang": "ja",
+      "text": "また必ず来たいですし、接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0233",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かった。店員さんの笑顔が素敵でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0234",
+      "lang": "ja",
+      "text": "コスパがとても良かった。雰囲気が最高でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0235",
+      "lang": "ja",
+      "text": "料理がとても美味しかったですし、接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0236",
+      "lang": "ja",
+      "text": "料理がとても美味しかったです。接客が丁寧で気持ち良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0237",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かった。料理がとても美味しかったです。",
+      "label": "positive"
+    },
+    {
+      "id": "s0238",
+      "lang": "ja",
+      "text": "雰囲気が最高でしたし、盛り付けが綺麗でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0239",
+      "lang": "ja",
+      "text": "接客が丁寧で気持ち良かったし、雰囲気が最高でした。",
+      "label": "positive"
+    },
+    {
+      "id": "s0240",
+      "lang": "ja",
+      "text": "料理がとても美味しかったですし、コスパがとても良かった。",
+      "label": "positive"
+    },
+    {
+      "id": "s0241",
+      "lang": "en",
+      "text": "everything was far too salty, and the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0242",
+      "lang": "en",
+      "text": "We went the other day and everything was far too salty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0243",
+      "lang": "en",
+      "text": "the staff were rude. the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0244",
+      "lang": "en",
+      "text": "the food was cold. the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0245",
+      "lang": "en",
+      "text": "the place was dirty, and our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0246",
+      "lang": "en",
+      "text": "the place was dirty. our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0247",
+      "lang": "en",
+      "text": "We went the other day and our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0248",
+      "lang": "en",
+      "text": "We went the other day and the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0249",
+      "lang": "en",
+      "text": "We went the other day and the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0250",
+      "lang": "en",
+      "text": "We went the other day and the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0251",
+      "lang": "en",
+      "text": "the portions were tiny for the price, and everything was far too salty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0252",
+      "lang": "en",
+      "text": "We went the other day and we waited far too long.",
+      "label": "negative"
+    },
+    {
+      "id": "s0253",
+      "lang": "en",
+      "text": "we waited far too long, and the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0254",
+      "lang": "en",
+      "text": "our booking was lost. everything was far too salty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0255",
+      "lang": "en",
+      "text": "our booking was lost. we waited far too long.",
+      "label": "negative"
+    },
+    {
+      "id": "s0256",
+      "lang": "en",
+      "text": "the place was dirty. everything was far too salty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0257",
+      "lang": "en",
+      "text": "our booking was lost. the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0258",
+      "lang": "en",
+      "text": "We went the other day and the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0259",
+      "lang": "en",
+      "text": "I will never come back. the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0260",
+      "lang": "en",
+      "text": "the staff were rude. the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0261",
+      "lang": "en",
+      "text": "We went the other day and I will never come back.",
+      "label": "negative"
+    },
+    {
+      "id": "s0262",
+      "lang": "en",
+      "text": "I will never come back. our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0263",
+      "lang": "en",
+      "text": "the portions were tiny for the price. the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0264",
+      "lang": "en",
+      "text": "we waited far too long, and the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0265",
+      "lang": "en",
+      "text": "the food was cold, and the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0266",
+      "lang": "en",
+      "text": "the place was dirty, and the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0267",
+      "lang": "en",
+      "text": "the food was cold, and everything was far too salty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0268",
+      "lang": "en",
+      "text": "the food was cold, and the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0269",
+      "lang": "en",
+      "text": "the food was cold, and we waited far too long.",
+      "label": "negative"
+    },
+    {
+      "id": "s0270",
+      "lang": "en",
+      "text": "the place was dirty. the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0271",
+      "lang": "en",
+      "text": "the food was cold. the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0272",
+      "lang": "en",
+      "text": "the staff were rude, and the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0273",
+      "lang": "en",
+      "text": "the portions were tiny for the price. the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0274",
+      "lang": "en",
+      "text": "the staff were rude. our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0275",
+      "lang": "en",
+      "text": "everything was far too salty. our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0276",
+      "lang": "en",
+      "text": "we waited far too long, and the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0277",
+      "lang": "en",
+      "text": "our booking was lost, and we waited far too long.",
+      "label": "negative"
+    },
+    {
+      "id": "s0278",
+      "lang": "en",
+      "text": "we waited far too long. the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0279",
+      "lang": "en",
+      "text": "the place was dirty, and the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0280",
+      "lang": "en",
+      "text": "everything was far too salty. we waited far too long.",
+      "label": "negative"
+    },
+    {
+      "id": "s0281",
+      "lang": "en",
+      "text": "everything was far too salty, and we waited far too long.",
+      "label": "negative"
+    },
+    {
+      "id": "s0282",
+      "lang": "en",
+      "text": "the portions were tiny for the price, and the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0283",
+      "lang": "en",
+      "text": "the place was dirty. I will never come back.",
+      "label": "negative"
+    },
+    {
+      "id": "s0284",
+      "lang": "en",
+      "text": "the portions were tiny for the price. our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0285",
+      "lang": "en",
+      "text": "we waited far too long, and the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0286",
+      "lang": "en",
+      "text": "the staff were rude, and I will never come back.",
+      "label": "negative"
+    },
+    {
+      "id": "s0287",
+      "lang": "en",
+      "text": "I will never come back, and the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0288",
+      "lang": "en",
+      "text": "the portions were tiny for the price, and the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0289",
+      "lang": "en",
+      "text": "our booking was lost. the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0290",
+      "lang": "en",
+      "text": "the food was cold. the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0291",
+      "lang": "en",
+      "text": "the portions were tiny for the price, and we waited far too long.",
+      "label": "negative"
+    },
+    {
+      "id": "s0292",
+      "lang": "en",
+      "text": "I will never come back. the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0293",
+      "lang": "en",
+      "text": "our booking was lost, and everything was far too salty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0294",
+      "lang": "en",
+      "text": "the staff were rude. the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0295",
+      "lang": "en",
+      "text": "we waited far too long, and I will never come back.",
+      "label": "negative"
+    },
+    {
+      "id": "s0296",
+      "lang": "en",
+      "text": "everything was far too salty, and the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0297",
+      "lang": "en",
+      "text": "the staff were rude, and the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0298",
+      "lang": "en",
+      "text": "the staff were rude, and everything was far too salty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0299",
+      "lang": "en",
+      "text": "everything was far too salty. the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0300",
+      "lang": "en",
+      "text": "we waited far too long. the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0301",
+      "lang": "en",
+      "text": "the portions were tiny for the price, and our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0302",
+      "lang": "en",
+      "text": "we waited far too long. our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0303",
+      "lang": "en",
+      "text": "our booking was lost, and the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0304",
+      "lang": "en",
+      "text": "our booking was lost, and the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0305",
+      "lang": "en",
+      "text": "I will never come back. the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0306",
+      "lang": "en",
+      "text": "I will never come back, and everything was far too salty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0307",
+      "lang": "en",
+      "text": "we waited far too long, and everything was far too salty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0308",
+      "lang": "en",
+      "text": "I will never come back, and the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0309",
+      "lang": "en",
+      "text": "the food was cold, and the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0310",
+      "lang": "en",
+      "text": "the portions were tiny for the price. the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0311",
+      "lang": "en",
+      "text": "everything was far too salty. the portions were tiny for the price.",
+      "label": "negative"
+    },
+    {
+      "id": "s0312",
+      "lang": "en",
+      "text": "I will never come back, and our booking was lost.",
+      "label": "negative"
+    },
+    {
+      "id": "s0313",
+      "lang": "en",
+      "text": "the portions were tiny for the price, and the place was dirty.",
+      "label": "negative"
+    },
+    {
+      "id": "s0314",
+      "lang": "en",
+      "text": "the food was cold. I will never come back.",
+      "label": "negative"
+    },
+    {
+      "id": "s0315",
+      "lang": "en",
+      "text": "everything was far too salty, and I will never come back.",
+      "label": "negative"
+    },
+    {
+      "id": "s0316",
+      "lang": "en",
+      "text": "we waited far too long. the food was cold.",
+      "label": "negative"
+    },
+    {
+      "id": "s0317",
+      "lang": "en",
+      "text": "the portions were tiny for the price, and I will never come back.",
+      "label": "negative"
+    },
+    {
+      "id": "s0318",
+      "lang": "en",
+      "text": "the place was dirty, and I will never come back.",
+      "label": "negative"
+    },
+    {
+      "id": "s0319",
+      "lang": "en",
+      "text": "our booking was lost, and I will never come back.",
+      "label": "negative"
+    },
+    {
+      "id": "s0320",
+      "lang": "en",
+      "text": "the place was dirty, and the staff were rude.",
+      "label": "negative"
+    },
+    {
+      "id": "s0321",
+      "lang": "en",
+      "text": "We went the other day and it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0322",
+      "lang": "en",
+      "text": "they only take cash. it is open until ten at night.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0323",
+      "lang": "en",
+      "text": "We went the other day and they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0324",
+      "lang": "en",
+      "text": "We went the other day and it is a five minute walk from the station.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0325",
+      "lang": "en",
+      "text": "it was neither good nor bad, and it is a five minute walk from the station.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0326",
+      "lang": "en",
+      "text": "there are not many seats. the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0327",
+      "lang": "en",
+      "text": "it is a five minute walk from the station, and the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0328",
+      "lang": "en",
+      "text": "it was neither good nor bad. it is an ordinary place.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0329",
+      "lang": "en",
+      "text": "the location is easy to find. it is open until ten at night.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0330",
+      "lang": "en",
+      "text": "it was neither good nor bad. they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0331",
+      "lang": "en",
+      "text": "it is a five minute walk from the station. the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0332",
+      "lang": "en",
+      "text": "it is a five minute walk from the station. there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0333",
+      "lang": "en",
+      "text": "the menu was standard. it is open until ten at night.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0334",
+      "lang": "en",
+      "text": "We went the other day and the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0335",
+      "lang": "en",
+      "text": "it is an ordinary place, and the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0336",
+      "lang": "en",
+      "text": "it is open until ten at night. it is a five minute walk from the station.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0337",
+      "lang": "en",
+      "text": "it is a five minute walk from the station, and the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0338",
+      "lang": "en",
+      "text": "they only take cash. the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0339",
+      "lang": "en",
+      "text": "it is a five minute walk from the station. they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0340",
+      "lang": "en",
+      "text": "We went the other day and the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0341",
+      "lang": "en",
+      "text": "it is an ordinary place. the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0342",
+      "lang": "en",
+      "text": "the menu was standard. they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0343",
+      "lang": "en",
+      "text": "We went the other day and there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0344",
+      "lang": "en",
+      "text": "We went the other day and it is an ordinary place.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0345",
+      "lang": "en",
+      "text": "it is an ordinary place, and they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0346",
+      "lang": "en",
+      "text": "the menu was standard, and they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0347",
+      "lang": "en",
+      "text": "it is a five minute walk from the station, and there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0348",
+      "lang": "en",
+      "text": "the location is easy to find, and there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0349",
+      "lang": "en",
+      "text": "it is open until ten at night. they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0350",
+      "lang": "en",
+      "text": "they only take cash. there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0351",
+      "lang": "en",
+      "text": "the location is easy to find, and it is an ordinary place.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0352",
+      "lang": "en",
+      "text": "We went the other day and it is open until ten at night.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0353",
+      "lang": "en",
+      "text": "it is a five minute walk from the station, and it is open until ten at night.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0354",
+      "lang": "en",
+      "text": "there are not many seats, and the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0355",
+      "lang": "en",
+      "text": "they only take cash, and the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0356",
+      "lang": "en",
+      "text": "the location is easy to find. it is an ordinary place.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0357",
+      "lang": "en",
+      "text": "the menu was standard, and there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0358",
+      "lang": "en",
+      "text": "it is an ordinary place. there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0359",
+      "lang": "en",
+      "text": "there are not many seats, and the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0360",
+      "lang": "en",
+      "text": "the location is easy to find, and it is open until ten at night.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0361",
+      "lang": "en",
+      "text": "it was neither good nor bad, and it is an ordinary place.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0362",
+      "lang": "en",
+      "text": "the menu was standard, and the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0363",
+      "lang": "en",
+      "text": "there are not many seats. it is a five minute walk from the station.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0364",
+      "lang": "en",
+      "text": "the menu was standard. it is an ordinary place.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0365",
+      "lang": "en",
+      "text": "it is a five minute walk from the station, and it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0366",
+      "lang": "en",
+      "text": "they only take cash, and it is a five minute walk from the station.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0367",
+      "lang": "en",
+      "text": "it is an ordinary place, and there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0368",
+      "lang": "en",
+      "text": "it is open until ten at night. it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0369",
+      "lang": "en",
+      "text": "they only take cash. it is a five minute walk from the station.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0370",
+      "lang": "en",
+      "text": "it is a five minute walk from the station. it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0371",
+      "lang": "en",
+      "text": "there are not many seats, and they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0372",
+      "lang": "en",
+      "text": "they only take cash. it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0373",
+      "lang": "en",
+      "text": "there are not many seats. it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0374",
+      "lang": "en",
+      "text": "it is a five minute walk from the station. the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0375",
+      "lang": "en",
+      "text": "the menu was standard. the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0376",
+      "lang": "en",
+      "text": "there are not many seats. they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0377",
+      "lang": "en",
+      "text": "it is open until ten at night, and it is an ordinary place.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0378",
+      "lang": "en",
+      "text": "it was neither good nor bad, and there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0379",
+      "lang": "en",
+      "text": "they only take cash, and it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0380",
+      "lang": "en",
+      "text": "it is an ordinary place. the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0381",
+      "lang": "en",
+      "text": "it was neither good nor bad. it is open until ten at night.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0382",
+      "lang": "en",
+      "text": "it is an ordinary place, and the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0383",
+      "lang": "en",
+      "text": "it was neither good nor bad, and the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0384",
+      "lang": "en",
+      "text": "it was neither good nor bad. the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0385",
+      "lang": "en",
+      "text": "it is open until ten at night, and the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0386",
+      "lang": "en",
+      "text": "the location is easy to find. it is a five minute walk from the station.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0387",
+      "lang": "en",
+      "text": "it is an ordinary place. they only take cash.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0388",
+      "lang": "en",
+      "text": "the menu was standard. there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0389",
+      "lang": "en",
+      "text": "there are not many seats, and it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0390",
+      "lang": "en",
+      "text": "it is open until ten at night. there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0391",
+      "lang": "en",
+      "text": "the menu was standard, and it is a five minute walk from the station.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0392",
+      "lang": "en",
+      "text": "there are not many seats, and it is an ordinary place.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0393",
+      "lang": "en",
+      "text": "the menu was standard, and it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0394",
+      "lang": "en",
+      "text": "the menu was standard. it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0395",
+      "lang": "en",
+      "text": "there are not many seats. it is open until ten at night.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0396",
+      "lang": "en",
+      "text": "it is an ordinary place, and it was neither good nor bad.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0397",
+      "lang": "en",
+      "text": "there are not many seats, and it is a five minute walk from the station.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0398",
+      "lang": "en",
+      "text": "they only take cash. the location is easy to find.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0399",
+      "lang": "en",
+      "text": "it is open until ten at night. the menu was standard.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0400",
+      "lang": "en",
+      "text": "it was neither good nor bad. there are not many seats.",
+      "label": "neutral"
+    },
+    {
+      "id": "s0401",
+      "lang": "en",
+      "text": "We went the other day and the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0402",
+      "lang": "en",
+      "text": "the staff had lovely smiles, and great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0403",
+      "lang": "en",
+      "text": "great value for money. I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0404",
+      "lang": "en",
+      "text": "I want to bring my friends next time. the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0405",
+      "lang": "en",
+      "text": "We went the other day and the food was delicious.",
+      "label": "positive"
+    },
+    {
+      "id": "s0406",
+      "lang": "en",
+      "text": "We went the other day and I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0407",
+      "lang": "en",
+      "text": "the service was warm and attentive. I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0408",
+      "lang": "en",
+      "text": "great value for money. I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0409",
+      "lang": "en",
+      "text": "the atmosphere was wonderful. I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0410",
+      "lang": "en",
+      "text": "I want to bring my friends next time. great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0411",
+      "lang": "en",
+      "text": "I want to bring my friends next time. the food was delicious.",
+      "label": "positive"
+    },
+    {
+      "id": "s0412",
+      "lang": "en",
+      "text": "the service was warm and attentive, and the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0413",
+      "lang": "en",
+      "text": "the food was delicious. the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0414",
+      "lang": "en",
+      "text": "We went the other day and great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0415",
+      "lang": "en",
+      "text": "the service was warm and attentive. great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0416",
+      "lang": "en",
+      "text": "the atmosphere was wonderful. I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0417",
+      "lang": "en",
+      "text": "I will definitely come again. the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0418",
+      "lang": "en",
+      "text": "We went the other day and I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0419",
+      "lang": "en",
+      "text": "I will definitely come again, and I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0420",
+      "lang": "en",
+      "text": "the staff had lovely smiles. the presentation was beautiful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0421",
+      "lang": "en",
+      "text": "the food was delicious, and great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0422",
+      "lang": "en",
+      "text": "the presentation was beautiful. I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0423",
+      "lang": "en",
+      "text": "the atmosphere was wonderful, and I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0424",
+      "lang": "en",
+      "text": "the staff had lovely smiles, and I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0425",
+      "lang": "en",
+      "text": "We went the other day and the presentation was beautiful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0426",
+      "lang": "en",
+      "text": "the food was delicious, and the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0427",
+      "lang": "en",
+      "text": "I will definitely come again. the food was delicious.",
+      "label": "positive"
+    },
+    {
+      "id": "s0428",
+      "lang": "en",
+      "text": "the staff had lovely smiles, and the service was warm and attentive.",
+      "label": "positive"
+    },
+    {
+      "id": "s0429",
+      "lang": "en",
+      "text": "the staff had lovely smiles. the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0430",
+      "lang": "en",
+      "text": "the food was delicious, and I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0431",
+      "lang": "en",
+      "text": "the food was delicious. I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0432",
+      "lang": "en",
+      "text": "great value for money. the food was delicious.",
+      "label": "positive"
+    },
+    {
+      "id": "s0433",
+      "lang": "en",
+      "text": "I will definitely come again, and great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0434",
+      "lang": "en",
+      "text": "I will definitely come again. the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0435",
+      "lang": "en",
+      "text": "great value for money, and I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0436",
+      "lang": "en",
+      "text": "the service was warm and attentive. the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0437",
+      "lang": "en",
+      "text": "the atmosphere was wonderful, and the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0438",
+      "lang": "en",
+      "text": "the atmosphere was wonderful, and the presentation was beautiful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0439",
+      "lang": "en",
+      "text": "I want to bring my friends next time, and the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0440",
+      "lang": "en",
+      "text": "the food was delicious, and I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0441",
+      "lang": "en",
+      "text": "the atmosphere was wonderful, and the service was warm and attentive.",
+      "label": "positive"
+    },
+    {
+      "id": "s0442",
+      "lang": "en",
+      "text": "We went the other day and the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0443",
+      "lang": "en",
+      "text": "great value for money, and the service was warm and attentive.",
+      "label": "positive"
+    },
+    {
+      "id": "s0444",
+      "lang": "en",
+      "text": "I will definitely come again. the presentation was beautiful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0445",
+      "lang": "en",
+      "text": "the presentation was beautiful. the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0446",
+      "lang": "en",
+      "text": "I want to bring my friends next time, and I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0447",
+      "lang": "en",
+      "text": "We went the other day and the service was warm and attentive.",
+      "label": "positive"
+    },
+    {
+      "id": "s0448",
+      "lang": "en",
+      "text": "I will definitely come again. great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0449",
+      "lang": "en",
+      "text": "the presentation was beautiful, and the service was warm and attentive.",
+      "label": "positive"
+    },
+    {
+      "id": "s0450",
+      "lang": "en",
+      "text": "the food was delicious. great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0451",
+      "lang": "en",
+      "text": "the service was warm and attentive, and great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0452",
+      "lang": "en",
+      "text": "the staff had lovely smiles. great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0453",
+      "lang": "en",
+      "text": "the atmosphere was wonderful, and the food was delicious.",
+      "label": "positive"
+    },
+    {
+      "id": "s0454",
+      "lang": "en",
+      "text": "the presentation was beautiful, and I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0455",
+      "lang": "en",
+      "text": "the staff had lovely smiles. the food was delicious.",
+      "label": "positive"
+    },
+    {
+      "id": "s0456",
+      "lang": "en",
+      "text": "the presentation was beautiful, and the food was delicious.",
+      "label": "positive"
+    },
+    {
+      "id": "s0457",
+      "lang": "en",
+      "text": "the service was warm and attentive. the presentation was beautiful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0458",
+      "lang": "en",
+      "text": "the staff had lovely smiles, and the presentation was beautiful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0459",
+      "lang": "en",
+      "text": "I want to bring my friends next time, and the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0460",
+      "lang": "en",
+      "text": "the presentation was beautiful, and the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0461",
+      "lang": "en",
+      "text": "the presentation was beautiful, and I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0462",
+      "lang": "en",
+      "text": "great value for money. the presentation was beautiful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0463",
+      "lang": "en",
+      "text": "the staff had lovely smiles. the service was warm and attentive.",
+      "label": "positive"
+    },
+    {
+      "id": "s0464",
+      "lang": "en",
+      "text": "the service was warm and attentive. the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0465",
+      "lang": "en",
+      "text": "great value for money. the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0466",
+      "lang": "en",
+      "text": "the service was warm and attentive, and the presentation was beautiful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0467",
+      "lang": "en",
+      "text": "the food was delicious. I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0468",
+      "lang": "en",
+      "text": "I want to bring my friends next time. the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0469",
+      "lang": "en",
+      "text": "I will definitely come again. the service was warm and attentive.",
+      "label": "positive"
+    },
+    {
+      "id": "s0470",
+      "lang": "en",
+      "text": "the food was delicious. the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0471",
+      "lang": "en",
+      "text": "I will definitely come again, and the food was delicious.",
+      "label": "positive"
+    },
+    {
+      "id": "s0472",
+      "lang": "en",
+      "text": "the service was warm and attentive, and I want to bring my friends next time.",
+      "label": "positive"
+    },
+    {
+      "id": "s0473",
+      "lang": "en",
+      "text": "the food was delicious, and the service was warm and attentive.",
+      "label": "positive"
+    },
+    {
+      "id": "s0474",
+      "lang": "en",
+      "text": "I want to bring my friends next time. I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0475",
+      "lang": "en",
+      "text": "great value for money, and the atmosphere was wonderful.",
+      "label": "positive"
+    },
+    {
+      "id": "s0476",
+      "lang": "en",
+      "text": "the atmosphere was wonderful. the staff had lovely smiles.",
+      "label": "positive"
+    },
+    {
+      "id": "s0477",
+      "lang": "en",
+      "text": "the atmosphere was wonderful, and great value for money.",
+      "label": "positive"
+    },
+    {
+      "id": "s0478",
+      "lang": "en",
+      "text": "the staff had lovely smiles, and I will definitely come again.",
+      "label": "positive"
+    },
+    {
+      "id": "s0479",
+      "lang": "en",
+      "text": "the service was warm and attentive, and the food was delicious.",
+      "label": "positive"
+    },
+    {
+      "id": "s0480",
+      "lang": "en",
+      "text": "the presentation was beautiful, and great value for money.",
+      "label": "positive"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+== cycle 1 ==
+UC1 start 1790391959
+UC1 pending_review 1790391974 (recording 6)
+SENT start 1790391974
+{"id":6,"label":"positive","confidence":null}
+PHOTO start 1790391978
+PHOTO completed 1790392026 (evaluation 29)
+== cycle 2 ==
+UC1 start 1790392026
+UC1 pending_review 1790392043 (recording 7)
+SENT start 1790392043
+{"id":7,"label":"positive","confidence":null}
+PHOTO start 1790392047
+PHOTO completed 1790392090 (evaluation 30)
+== cycle 3 ==
+UC1 start 1790392090
+UC1 pending_review 1790392105 (recording 8)
+SENT start 1790392105
+{"id":8,"label":"positive","confidence":null}
+PHOTO start 1790392108
+PHOTO completed 1790392151 (evaluation 31)

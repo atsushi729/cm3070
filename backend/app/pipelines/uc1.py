@@ -45,7 +45,6 @@ def process_recording(recording_id: int) -> dict:
             ai_party_size=fields.party_size,
             ai_confidence=fields.confidence,
             ai_raw_json=fields.raw,
-            # human-confirmed fields start as a copy of the AI proposal
             name=fields.name,
             reservation_date=fields.date,
             reservation_time=fields.time,

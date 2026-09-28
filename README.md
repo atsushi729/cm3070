@@ -13,6 +13,11 @@ constraint is useful local inference on an Apple M1 with 16 GB unified memory an
 PostgreSQL and Redis run in Docker; inference runs on the host. Ollama uses Apple Metal,
 while faster-whisper uses CTranslate2 on the CPU.
 
+> **Note on repository history:** This project was originally developed in a separate
+> repository. Because that repository had accumulated many unnecessary data files and scripts,
+> the project was recreated in this new repository, so the commit history here is short. All
+> features work as intended.
+
 ## Product surfaces
 
 | Page            | Purpose                                                                                                                                                         |
